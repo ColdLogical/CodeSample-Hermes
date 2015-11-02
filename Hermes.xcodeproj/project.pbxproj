@@ -7,9 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0121E77C1BE6B7FE00C9BED5 /* AddJogInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7741BE6B7FE00C9BED5 /* AddJogInteractor.swift */; };
+		0121E77D1BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7751BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift */; };
+		0121E77E1BE6B7FE00C9BED5 /* AddJogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7761BE6B7FE00C9BED5 /* AddJogPresenter.swift */; };
+		0121E77F1BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7771BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift */; };
+		0121E7801BE6B7FE00C9BED5 /* AddJogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7781BE6B7FE00C9BED5 /* AddJogView.swift */; };
+		0121E7811BE6B7FE00C9BED5 /* AddJogViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7791BE6B7FE00C9BED5 /* AddJogViewProtocols.swift */; };
+		0121E7821BE6B7FE00C9BED5 /* AddJogWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E77A1BE6B7FE00C9BED5 /* AddJogWireframe.swift */; };
+		0121E7831BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E77B1BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift */; };
+		0121E7881BE6B80A00C9BED5 /* AddJogInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7841BE6B80A00C9BED5 /* AddJogInteractorTests.swift */; };
+		0121E7891BE6B80A00C9BED5 /* AddJogPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */; };
+		0121E78A1BE6B80A00C9BED5 /* AddJogViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */; };
+		0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */; };
+		0121E7901BE6B87E00C9BED5 /* AddJog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */; };
+		0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7931BE6BB2200C9BED5 /* Jog.swift */; };
+		0124D1621BE54DD500E10F48 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1611BE54DD500E10F48 /* Jogs.storyboard */; };
+		0124D1641BE54EE900E10F48 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1631BE54EE900E10F48 /* LaunchScreen.xib */; };
+		0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */; };
+		0124D16E1BE54FD300E10F48 /* RegisterInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */; };
+		0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1671BE54FD300E10F48 /* RegisterPresenter.swift */; };
+		0124D1701BE54FD300E10F48 /* RegisterPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1681BE54FD300E10F48 /* RegisterPresenterProtocols.swift */; };
+		0124D1711BE54FD300E10F48 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1691BE54FD300E10F48 /* RegisterView.swift */; };
+		0124D1721BE54FD300E10F48 /* RegisterViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D16A1BE54FD300E10F48 /* RegisterViewProtocols.swift */; };
+		0124D1731BE54FD300E10F48 /* RegisterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D16B1BE54FD300E10F48 /* RegisterWireframe.swift */; };
+		0124D1741BE54FD300E10F48 /* RegisterWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D16C1BE54FD300E10F48 /* RegisterWireframeProtocols.swift */; };
+		0124D1791BE54FE100E10F48 /* RegisterInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1751BE54FE100E10F48 /* RegisterInteractorTests.swift */; };
+		0124D17A1BE54FE100E10F48 /* RegisterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1761BE54FE100E10F48 /* RegisterPresenterTests.swift */; };
+		0124D17B1BE54FE100E10F48 /* RegisterViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */; };
+		0124D17C1BE54FE100E10F48 /* RegisterWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */; };
+		0124D1821BE5501300E10F48 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1811BE5501300E10F48 /* Register.storyboard */; };
 		012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D77B51BE0728B004F7A2C /* AppDelegate.swift */; };
-		012D77B81BE0728B004F7A2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D77B61BE0728B004F7A2C /* ViewController.swift */; };
-		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
+		0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7C1BE5418D008A322C /* JogsInteractor.swift */; };
+		0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */; };
+		0190DD881BE5419C008A322C /* JogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD821BE5419C008A322C /* JogsPresenter.swift */; };
+		0190DD891BE5419C008A322C /* JogsPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD831BE5419C008A322C /* JogsPresenterProtocols.swift */; };
+		0190DD8B1BE5419C008A322C /* JogsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD851BE5419C008A322C /* JogsWireframe.swift */; };
+		0190DD8C1BE5419C008A322C /* JogsWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD861BE5419C008A322C /* JogsWireframeProtocols.swift */; };
+		0190DD911BE541A5008A322C /* JogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD8E1BE541A5008A322C /* JogsView.swift */; };
+		0190DD921BE541A5008A322C /* JogsViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */; };
+		0190DD971BE541AF008A322C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD941BE541AF008A322C /* LoginInteractor.swift */; };
+		0190DD981BE541AF008A322C /* LoginInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD951BE541AF008A322C /* LoginInteractorProtocols.swift */; };
+		0190DDA01BE541B8008A322C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9A1BE541B8008A322C /* LoginPresenter.swift */; };
+		0190DDA11BE541B8008A322C /* LoginPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9B1BE541B8008A322C /* LoginPresenterProtocols.swift */; };
+		0190DDA31BE541B8008A322C /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9D1BE541B8008A322C /* LoginWireframe.swift */; };
+		0190DDA41BE541B8008A322C /* LoginWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9E1BE541B8008A322C /* LoginWireframeProtocols.swift */; };
+		0190DDA91BE541BF008A322C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DDA61BE541BF008A322C /* LoginView.swift */; };
+		0190DDAA1BE541BF008A322C /* LoginViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DDA71BE541BF008A322C /* LoginViewProtocols.swift */; };
+		0190DDB31BE54217008A322C /* HermesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DDB21BE54217008A322C /* HermesTests.swift */; };
+		0190DDC21BE5421B008A322C /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD961BE541AF008A322C /* LoginInteractorTests.swift */; };
+		0190DDC31BE5421B008A322C /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9C1BE541B8008A322C /* LoginPresenterTests.swift */; };
+		0190DDC41BE5421B008A322C /* LoginWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9F1BE541B8008A322C /* LoginWireframeTests.swift */; };
+		0190DDC51BE5421B008A322C /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DDA81BE541BF008A322C /* LoginViewTests.swift */; };
+		0190DDC61BE5421B008A322C /* JogsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */; };
+		0190DDC71BE5421B008A322C /* JogsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD841BE5419C008A322C /* JogsPresenterTests.swift */; };
+		0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD871BE5419C008A322C /* JogsWireframeTests.swift */; };
+		0190DDC91BE5421B008A322C /* JogsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD901BE541A5008A322C /* JogsViewTests.swift */; };
+		0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0190DDCC1BE543D2008A322C /* Login.storyboard */; };
+		0196F9901BE583A3003A95C3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816B1A49DB6800E65899 /* Bolts.framework */; };
+		0196F9911BE583AA003A95C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816C1A49DB6800E65899 /* Parse.framework */; };
+		0196F9921BE583AD003A95C3 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
+		0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
+		0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
+		0196F9951BE583AD003A95C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816B1A49DB6800E65899 /* Bolts.framework */; };
 		81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816C1A49DB6800E65899 /* Parse.framework */; };
@@ -19,25 +78,101 @@
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0190DDB51BE54217008A322C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81BA813D1A49DA1800E65899 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81BA81441A49DA1800E65899;
+			remoteInfo = Hermes;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0121E7741BE6B7FE00C9BED5 /* AddJogInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogInteractor.swift; path = Hermes/AddJogInteractor.swift; sourceTree = "<group>"; };
+		0121E7751BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogInteractorProtocols.swift; path = Hermes/AddJogInteractorProtocols.swift; sourceTree = "<group>"; };
+		0121E7761BE6B7FE00C9BED5 /* AddJogPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogPresenter.swift; path = Hermes/AddJogPresenter.swift; sourceTree = "<group>"; };
+		0121E7771BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogPresenterProtocols.swift; path = Hermes/AddJogPresenterProtocols.swift; sourceTree = "<group>"; };
+		0121E7781BE6B7FE00C9BED5 /* AddJogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogView.swift; path = Hermes/AddJogView.swift; sourceTree = "<group>"; };
+		0121E7791BE6B7FE00C9BED5 /* AddJogViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogViewProtocols.swift; path = Hermes/AddJogViewProtocols.swift; sourceTree = "<group>"; };
+		0121E77A1BE6B7FE00C9BED5 /* AddJogWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogWireframe.swift; path = Hermes/AddJogWireframe.swift; sourceTree = "<group>"; };
+		0121E77B1BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogWireframeProtocols.swift; path = Hermes/AddJogWireframeProtocols.swift; sourceTree = "<group>"; };
+		0121E7841BE6B80A00C9BED5 /* AddJogInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogInteractorTests.swift; path = Hermes/AddJogInteractorTests.swift; sourceTree = "<group>"; };
+		0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogPresenterTests.swift; path = Hermes/AddJogPresenterTests.swift; sourceTree = "<group>"; };
+		0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogViewTests.swift; path = Hermes/AddJogViewTests.swift; sourceTree = "<group>"; };
+		0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogWireframeTests.swift; path = Hermes/AddJogWireframeTests.swift; sourceTree = "<group>"; };
+		0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddJog.storyboard; sourceTree = "<group>"; };
+		0121E7931BE6BB2200C9BED5 /* Jog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jog.swift; path = Hermes/Jog.swift; sourceTree = "<group>"; };
+		0121E7951BE6BB6400C9BED5 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = ../BridgingHeader.h; sourceTree = "<group>"; };
+		0124D1611BE54DD500E10F48 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jogs.storyboard; sourceTree = "<group>"; };
+		0124D1631BE54EE900E10F48 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractor.swift; path = Hermes/RegisterInteractor.swift; sourceTree = "<group>"; };
+		0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractorProtocols.swift; path = Hermes/RegisterInteractorProtocols.swift; sourceTree = "<group>"; };
+		0124D1671BE54FD300E10F48 /* RegisterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPresenter.swift; path = Hermes/RegisterPresenter.swift; sourceTree = "<group>"; };
+		0124D1681BE54FD300E10F48 /* RegisterPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPresenterProtocols.swift; path = Hermes/RegisterPresenterProtocols.swift; sourceTree = "<group>"; };
+		0124D1691BE54FD300E10F48 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterView.swift; path = Hermes/RegisterView.swift; sourceTree = "<group>"; };
+		0124D16A1BE54FD300E10F48 /* RegisterViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewProtocols.swift; path = Hermes/RegisterViewProtocols.swift; sourceTree = "<group>"; };
+		0124D16B1BE54FD300E10F48 /* RegisterWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterWireframe.swift; path = Hermes/RegisterWireframe.swift; sourceTree = "<group>"; };
+		0124D16C1BE54FD300E10F48 /* RegisterWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterWireframeProtocols.swift; path = Hermes/RegisterWireframeProtocols.swift; sourceTree = "<group>"; };
+		0124D1751BE54FE100E10F48 /* RegisterInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractorTests.swift; path = Hermes/RegisterInteractorTests.swift; sourceTree = "<group>"; };
+		0124D1761BE54FE100E10F48 /* RegisterPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPresenterTests.swift; path = Hermes/RegisterPresenterTests.swift; sourceTree = "<group>"; };
+		0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewTests.swift; path = Hermes/RegisterViewTests.swift; sourceTree = "<group>"; };
+		0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterWireframeTests.swift; path = Hermes/RegisterWireframeTests.swift; sourceTree = "<group>"; };
+		0124D1811BE5501300E10F48 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		012D77B51BE0728B004F7A2C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Hermes/AppDelegate.swift; sourceTree = "<group>"; };
-		012D77B61BE0728B004F7A2C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Hermes/ViewController.swift; sourceTree = "<group>"; };
-		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0190DD7C1BE5418D008A322C /* JogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractor.swift; path = Hermes/JogsInteractor.swift; sourceTree = "<group>"; };
+		0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorProtocols.swift; path = Hermes/JogsInteractorProtocols.swift; sourceTree = "<group>"; };
+		0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorTests.swift; path = Hermes/JogsInteractorTests.swift; sourceTree = "<group>"; };
+		0190DD821BE5419C008A322C /* JogsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenter.swift; path = Hermes/JogsPresenter.swift; sourceTree = "<group>"; };
+		0190DD831BE5419C008A322C /* JogsPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterProtocols.swift; path = Hermes/JogsPresenterProtocols.swift; sourceTree = "<group>"; };
+		0190DD841BE5419C008A322C /* JogsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterTests.swift; path = Hermes/JogsPresenterTests.swift; sourceTree = "<group>"; };
+		0190DD851BE5419C008A322C /* JogsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframe.swift; path = Hermes/JogsWireframe.swift; sourceTree = "<group>"; };
+		0190DD861BE5419C008A322C /* JogsWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeProtocols.swift; path = Hermes/JogsWireframeProtocols.swift; sourceTree = "<group>"; };
+		0190DD871BE5419C008A322C /* JogsWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeTests.swift; path = Hermes/JogsWireframeTests.swift; sourceTree = "<group>"; };
+		0190DD8E1BE541A5008A322C /* JogsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsView.swift; path = Hermes/JogsView.swift; sourceTree = "<group>"; };
+		0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewProtocols.swift; path = Hermes/JogsViewProtocols.swift; sourceTree = "<group>"; };
+		0190DD901BE541A5008A322C /* JogsViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewTests.swift; path = Hermes/JogsViewTests.swift; sourceTree = "<group>"; };
+		0190DD941BE541AF008A322C /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Hermes/LoginInteractor.swift; sourceTree = "<group>"; };
+		0190DD951BE541AF008A322C /* LoginInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractorProtocols.swift; path = Hermes/LoginInteractorProtocols.swift; sourceTree = "<group>"; };
+		0190DD961BE541AF008A322C /* LoginInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractorTests.swift; path = Hermes/LoginInteractorTests.swift; sourceTree = "<group>"; };
+		0190DD9A1BE541B8008A322C /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginPresenter.swift; path = Hermes/LoginPresenter.swift; sourceTree = "<group>"; };
+		0190DD9B1BE541B8008A322C /* LoginPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginPresenterProtocols.swift; path = Hermes/LoginPresenterProtocols.swift; sourceTree = "<group>"; };
+		0190DD9C1BE541B8008A322C /* LoginPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginPresenterTests.swift; path = Hermes/LoginPresenterTests.swift; sourceTree = "<group>"; };
+		0190DD9D1BE541B8008A322C /* LoginWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginWireframe.swift; path = Hermes/LoginWireframe.swift; sourceTree = "<group>"; };
+		0190DD9E1BE541B8008A322C /* LoginWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginWireframeProtocols.swift; path = Hermes/LoginWireframeProtocols.swift; sourceTree = "<group>"; };
+		0190DD9F1BE541B8008A322C /* LoginWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginWireframeTests.swift; path = Hermes/LoginWireframeTests.swift; sourceTree = "<group>"; };
+		0190DDA61BE541BF008A322C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = Hermes/LoginView.swift; sourceTree = "<group>"; };
+		0190DDA71BE541BF008A322C /* LoginViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewProtocols.swift; path = Hermes/LoginViewProtocols.swift; sourceTree = "<group>"; };
+		0190DDA81BE541BF008A322C /* LoginViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewTests.swift; path = Hermes/LoginViewTests.swift; sourceTree = "<group>"; };
+		0190DDB01BE54217008A322C /* HermesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HermesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0190DDB21BE54217008A322C /* HermesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesTests.swift; sourceTree = "<group>"; };
+		0190DDB41BE54217008A322C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0190DDCC1BE543D2008A322C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Hermes/Login.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA816B1A49DB6800E65899 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		81BA816C1A49DB6800E65899 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		81BA816D1A49DB6800E65899 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		81BA816E1A49DB6800E65899 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		81BA81761A49E0D500E65899 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		81BA81781A49E0DB00E65899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
-		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0190DDAD1BE54217008A322C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0196F9901BE583A3003A95C3 /* Bolts.framework in Frameworks */,
+				0196F9911BE583AA003A95C3 /* Parse.framework in Frameworks */,
+				0196F9921BE583AD003A95C3 /* libstdc++.6.dylib in Frameworks */,
+				0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */,
+				0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */,
+				0196F9951BE583AD003A95C3 /* libsqlite3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81BA81421A49DA1800E65899 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,14 +189,204 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0121E78C1BE6B81700C9BED5 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				0121E7761BE6B7FE00C9BED5 /* AddJogPresenter.swift */,
+				0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */,
+				0121E7771BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift */,
+				0121E77A1BE6B7FE00C9BED5 /* AddJogWireframe.swift */,
+				0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */,
+				0121E77B1BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift */,
+			);
+			name = Routing;
+			sourceTree = "<group>";
+		};
+		0121E78D1BE6B82000C9BED5 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0121E7781BE6B7FE00C9BED5 /* AddJogView.swift */,
+				0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */,
+				0121E7791BE6B7FE00C9BED5 /* AddJogViewProtocols.swift */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		0121E78E1BE6B82500C9BED5 /* Data Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0121E7741BE6B7FE00C9BED5 /* AddJogInteractor.swift */,
+				0121E7841BE6B80A00C9BED5 /* AddJogInteractorTests.swift */,
+				0121E7751BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift */,
+			);
+			name = "Data Logic";
+			sourceTree = "<group>";
+		};
+		0124D17D1BE54FF300E10F48 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				0124D1671BE54FD300E10F48 /* RegisterPresenter.swift */,
+				0124D1761BE54FE100E10F48 /* RegisterPresenterTests.swift */,
+				0124D1681BE54FD300E10F48 /* RegisterPresenterProtocols.swift */,
+				0124D16B1BE54FD300E10F48 /* RegisterWireframe.swift */,
+				0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */,
+				0124D16C1BE54FD300E10F48 /* RegisterWireframeProtocols.swift */,
+			);
+			name = Routing;
+			sourceTree = "<group>";
+		};
+		0124D17E1BE54FF900E10F48 /* Data Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */,
+				0124D1751BE54FE100E10F48 /* RegisterInteractorTests.swift */,
+				0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */,
+			);
+			name = "Data Logic";
+			sourceTree = "<group>";
+		};
+		0124D17F1BE54FFF00E10F48 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0124D1691BE54FD300E10F48 /* RegisterView.swift */,
+				0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */,
+				0124D16A1BE54FD300E10F48 /* RegisterViewProtocols.swift */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		0124D1801BE5500500E10F48 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				0124D1811BE5501300E10F48 /* Register.storyboard */,
+				0124D17E1BE54FF900E10F48 /* Data Logic */,
+				0124D17D1BE54FF300E10F48 /* Routing */,
+				0124D17F1BE54FFF00E10F48 /* User Interface */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
 		012D77B41BE0727B004F7A2C /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
 				012D77B51BE0728B004F7A2C /* AppDelegate.swift */,
-				012D77B61BE0728B004F7A2C /* ViewController.swift */,
-				814C3AC61B69877600E307BB /* Main.storyboard */,
+				0124D1631BE54EE900E10F48 /* LaunchScreen.xib */,
+				0190DD6B1BE53C3B008A322C /* Jogs */,
+				0190DD571BE53C0B008A322C /* Login */,
 			);
 			name = Hermes;
+			sourceTree = "<group>";
+		};
+		0190DD541BE53BF8008A322C /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				0190DD9A1BE541B8008A322C /* LoginPresenter.swift */,
+				0190DD9C1BE541B8008A322C /* LoginPresenterTests.swift */,
+				0190DD9B1BE541B8008A322C /* LoginPresenterProtocols.swift */,
+				0190DD9D1BE541B8008A322C /* LoginWireframe.swift */,
+				0190DD9F1BE541B8008A322C /* LoginWireframeTests.swift */,
+				0190DD9E1BE541B8008A322C /* LoginWireframeProtocols.swift */,
+			);
+			name = Routing;
+			sourceTree = "<group>";
+		};
+		0190DD551BE53BFD008A322C /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0190DDA61BE541BF008A322C /* LoginView.swift */,
+				0190DDA81BE541BF008A322C /* LoginViewTests.swift */,
+				0190DDA71BE541BF008A322C /* LoginViewProtocols.swift */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		0190DD561BE53C05008A322C /* Data Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0190DD941BE541AF008A322C /* LoginInteractor.swift */,
+				0190DD961BE541AF008A322C /* LoginInteractorTests.swift */,
+				0190DD951BE541AF008A322C /* LoginInteractorProtocols.swift */,
+			);
+			name = "Data Logic";
+			sourceTree = "<group>";
+		};
+		0190DD571BE53C0B008A322C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0190DDCC1BE543D2008A322C /* Login.storyboard */,
+				0190DD561BE53C05008A322C /* Data Logic */,
+				0190DD541BE53BF8008A322C /* Routing */,
+				0190DD551BE53BFD008A322C /* User Interface */,
+				0124D1801BE5500500E10F48 /* Register */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		0190DD681BE53C20008A322C /* Data Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0190DD7C1BE5418D008A322C /* JogsInteractor.swift */,
+				0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */,
+				0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */,
+				0121E7931BE6BB2200C9BED5 /* Jog.swift */,
+			);
+			name = "Data Logic";
+			sourceTree = "<group>";
+		};
+		0190DD691BE53C2A008A322C /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				0190DD821BE5419C008A322C /* JogsPresenter.swift */,
+				0190DD841BE5419C008A322C /* JogsPresenterTests.swift */,
+				0190DD831BE5419C008A322C /* JogsPresenterProtocols.swift */,
+				0190DD851BE5419C008A322C /* JogsWireframe.swift */,
+				0190DD871BE5419C008A322C /* JogsWireframeTests.swift */,
+				0190DD861BE5419C008A322C /* JogsWireframeProtocols.swift */,
+			);
+			name = Routing;
+			sourceTree = "<group>";
+		};
+		0190DD6A1BE53C2E008A322C /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0190DD8E1BE541A5008A322C /* JogsView.swift */,
+				0190DD901BE541A5008A322C /* JogsViewTests.swift */,
+				0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		0190DD6B1BE53C3B008A322C /* Jogs */ = {
+			isa = PBXGroup;
+			children = (
+				0124D1611BE54DD500E10F48 /* Jogs.storyboard */,
+				0190DD681BE53C20008A322C /* Data Logic */,
+				0190DD691BE53C2A008A322C /* Routing */,
+				0190DD6A1BE53C2E008A322C /* User Interface */,
+				01A799291BE6A05E00C82359 /* Add Jog */,
+			);
+			name = Jogs;
+			sourceTree = "<group>";
+		};
+		0190DDB11BE54217008A322C /* HermesTests */ = {
+			isa = PBXGroup;
+			children = (
+				0121E7951BE6BB6400C9BED5 /* BridgingHeader.h */,
+				0190DDB21BE54217008A322C /* HermesTests.swift */,
+				0190DDB41BE54217008A322C /* Info.plist */,
+			);
+			path = HermesTests;
+			sourceTree = "<group>";
+		};
+		01A799291BE6A05E00C82359 /* Add Jog */ = {
+			isa = PBXGroup;
+			children = (
+				0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */,
+				0121E78E1BE6B82500C9BED5 /* Data Logic */,
+				0121E78C1BE6B81700C9BED5 /* Routing */,
+				0121E78D1BE6B82000C9BED5 /* User Interface */,
+			);
+			name = "Add Jog";
 			sourceTree = "<group>";
 		};
 		814C3AC51B69877600E307BB /* Resources */ = {
@@ -78,6 +403,7 @@
 			children = (
 				012D77B41BE0727B004F7A2C /* Hermes */,
 				814C3AC51B69877600E307BB /* Resources */,
+				0190DDB11BE54217008A322C /* HermesTests */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
 				81BA81461A49DA1800E65899 /* Products */,
 			);
@@ -87,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				81BA81451A49DA1800E65899 /* Hermes.app */,
+				0190DDB01BE54217008A322C /* HermesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,9 +423,6 @@
 			children = (
 				81BA816B1A49DB6800E65899 /* Bolts.framework */,
 				81BA816C1A49DB6800E65899 /* Parse.framework */,
-				81BA816D1A49DB6800E65899 /* ParseCrashReporting.framework */,
-				81BA816E1A49DB6800E65899 /* ParseFacebookUtils.framework */,
-				81BA81801A49E10C00E65899 /* ParseUI.framework */,
 				81BA81751A49E0C500E65899 /* System Frameworks */,
 			);
 			name = Frameworks;
@@ -118,6 +442,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0190DDAF1BE54217008A322C /* HermesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0190DDB71BE54217008A322C /* Build configuration list for PBXNativeTarget "HermesTests" */;
+			buildPhases = (
+				0190DDAC1BE54217008A322C /* Sources */,
+				0190DDAD1BE54217008A322C /* Frameworks */,
+				0190DDAE1BE54217008A322C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0190DDB61BE54217008A322C /* PBXTargetDependency */,
+			);
+			name = HermesTests;
+			productName = HermesTests;
+			productReference = 0190DDB01BE54217008A322C /* HermesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		81BA81441A49DA1800E65899 /* Hermes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81BA81641A49DA1800E65899 /* Build configuration list for PBXNativeTarget "Hermes" */;
@@ -144,8 +486,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = Parse;
+				ORGANIZATIONNAME = "Cold and Logical";
 				TargetAttributes = {
+					0190DDAF1BE54217008A322C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 81BA81441A49DA1800E65899;
+					};
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -165,17 +511,29 @@
 			projectRoot = "";
 			targets = (
 				81BA81441A49DA1800E65899 /* Hermes */,
+				0190DDAF1BE54217008A322C /* HermesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0190DDAE1BE54217008A322C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81BA81431A49DA1800E65899 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
+				0124D1641BE54EE900E10F48 /* LaunchScreen.xib in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
+				0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */,
+				0121E7901BE6B87E00C9BED5 /* AddJog.storyboard in Resources */,
+				0124D1621BE54DD500E10F48 /* Jogs.storyboard in Resources */,
+				0124D1821BE5501300E10F48 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,30 +557,124 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0190DDAC1BE54217008A322C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0124D17C1BE54FE100E10F48 /* RegisterWireframeTests.swift in Sources */,
+				0190DDC21BE5421B008A322C /* LoginInteractorTests.swift in Sources */,
+				0124D17B1BE54FE100E10F48 /* RegisterViewTests.swift in Sources */,
+				0124D1791BE54FE100E10F48 /* RegisterInteractorTests.swift in Sources */,
+				0190DDC61BE5421B008A322C /* JogsInteractorTests.swift in Sources */,
+				0121E7881BE6B80A00C9BED5 /* AddJogInteractorTests.swift in Sources */,
+				0190DDC51BE5421B008A322C /* LoginViewTests.swift in Sources */,
+				0121E78A1BE6B80A00C9BED5 /* AddJogViewTests.swift in Sources */,
+				0121E7891BE6B80A00C9BED5 /* AddJogPresenterTests.swift in Sources */,
+				0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */,
+				0190DDC31BE5421B008A322C /* LoginPresenterTests.swift in Sources */,
+				0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */,
+				0190DDC91BE5421B008A322C /* JogsViewTests.swift in Sources */,
+				0190DDC41BE5421B008A322C /* LoginWireframeTests.swift in Sources */,
+				0190DDB31BE54217008A322C /* HermesTests.swift in Sources */,
+				0124D17A1BE54FE100E10F48 /* RegisterPresenterTests.swift in Sources */,
+				0190DDC71BE5421B008A322C /* JogsPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		81BA81411A49DA1800E65899 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0190DDA01BE541B8008A322C /* LoginPresenter.swift in Sources */,
+				0124D1731BE54FD300E10F48 /* RegisterWireframe.swift in Sources */,
+				0190DD911BE541A5008A322C /* JogsView.swift in Sources */,
+				0190DD8B1BE5419C008A322C /* JogsWireframe.swift in Sources */,
+				0190DD891BE5419C008A322C /* JogsPresenterProtocols.swift in Sources */,
+				0190DDAA1BE541BF008A322C /* LoginViewProtocols.swift in Sources */,
+				0190DD881BE5419C008A322C /* JogsPresenter.swift in Sources */,
+				0190DDA11BE541B8008A322C /* LoginPresenterProtocols.swift in Sources */,
+				0190DDA41BE541B8008A322C /* LoginWireframeProtocols.swift in Sources */,
+				0190DD981BE541AF008A322C /* LoginInteractorProtocols.swift in Sources */,
+				0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */,
+				0124D1741BE54FD300E10F48 /* RegisterWireframeProtocols.swift in Sources */,
+				0190DD921BE541A5008A322C /* JogsViewProtocols.swift in Sources */,
+				0124D1711BE54FD300E10F48 /* RegisterView.swift in Sources */,
+				0121E77F1BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift in Sources */,
+				0121E7811BE6B7FE00C9BED5 /* AddJogViewProtocols.swift in Sources */,
+				0190DDA31BE541B8008A322C /* LoginWireframe.swift in Sources */,
+				0190DD971BE541AF008A322C /* LoginInteractor.swift in Sources */,
+				0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */,
+				0121E77E1BE6B7FE00C9BED5 /* AddJogPresenter.swift in Sources */,
+				0121E7801BE6B7FE00C9BED5 /* AddJogView.swift in Sources */,
+				0190DDA91BE541BF008A322C /* LoginView.swift in Sources */,
+				0124D1701BE54FD300E10F48 /* RegisterPresenterProtocols.swift in Sources */,
+				0124D1721BE54FD300E10F48 /* RegisterViewProtocols.swift in Sources */,
+				0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */,
+				0121E7831BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift in Sources */,
+				0121E77D1BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift in Sources */,
+				0124D16E1BE54FD300E10F48 /* RegisterInteractorProtocols.swift in Sources */,
+				0121E7821BE6B7FE00C9BED5 /* AddJogWireframe.swift in Sources */,
+				0190DD8C1BE5419C008A322C /* JogsWireframeProtocols.swift in Sources */,
+				0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */,
+				0121E77C1BE6B7FE00C9BED5 /* AddJogInteractor.swift in Sources */,
 				012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */,
-				012D77B81BE0728B004F7A2C /* ViewController.swift in Sources */,
+				0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		814C3AC61B69877600E307BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				814C3AC71B69877600E307BB /* Base */,
-			);
-			name = Main.storyboard;
-			path = Resources;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		0190DDB61BE54217008A322C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81BA81441A49DA1800E65899 /* Hermes */;
+			targetProxy = 0190DDB51BE54217008A322C /* PBXContainerItemProxy */;
 		};
-/* End PBXVariantGroup section */
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0190DDB81BE54217008A322C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HermesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ColdAndLogical.HermesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hermes.app/Hermes";
+			};
+			name = Debug;
+		};
+		0190DDB91BE54217008A322C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HermesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ColdAndLogical.HermesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hermes.app/Hermes";
+			};
+			name = Release;
+		};
 		81BA81621A49DA1800E65899 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -306,16 +758,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Hermes;
-				SWIFT_OBJC_BRIDGING_HEADER = "ParseStarterProject/Hermes-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -324,22 +777,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Hermes;
-				SWIFT_OBJC_BRIDGING_HEADER = "ParseStarterProject/Hermes-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0190DDB71BE54217008A322C /* Build configuration list for PBXNativeTarget "HermesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0190DDB81BE54217008A322C /* Debug */,
+				0190DDB91BE54217008A322C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		81BA81401A49DA1800E65899 /* Build configuration list for PBXProject "Hermes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
