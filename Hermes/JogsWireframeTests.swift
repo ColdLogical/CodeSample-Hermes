@@ -11,7 +11,9 @@ import XCTest
 
 @testable import Hermes
 
-class JogsWireframeTests: XCTestCase, JogsDelegate, JogsRouting, JogsWindow, LoginModuleInterface, AddJogModuleInterface {
+class JogsWireframeTests: XCTestCase,
+        JogsDelegate, JogsRouting, JogsWindow,
+        LoginModuleInterface, AddJogModuleInterface {
         var wireframe = JogsWireframe()
         
         // MARK: - Test Objects
@@ -179,13 +181,44 @@ class JogsWireframeTests: XCTestCase, JogsDelegate, JogsRouting, JogsWindow, Log
                 }
         }
         
+        // MARK: - Add Jog Delegate
+        func testAddJogCancelledWithNonNilModuleShouldTellModuleToDismissAndSetWireframeAddJogModuleToNil() {
+                expectation = expectationWithDescription("Dismiss from add jog cancelled")
+                
+                wireframe.addJogCancelled(self)
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Module never told to dismiss")
+                        }
+                }
+        }
+        
+        func testAddJogCompleteWithNonNilModuleShouldTellModuleToDismissAndSetWireframeAddJogModuleToNil() {
+                expectation = expectationWithDescription("Dismiss from add jog cancelled")
+                
+                wireframe.addJogCancelled(self)
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Module never told to dismiss")
+                        }
+                }
+        }
         
         // MARK: - Login Module Interface
         func dismiss() {
                 if let exp = expectation {
                         if exp.description == "Dismiss from login completed" {
                                 exp.fulfill()
-                                
+                        }
+                }
+                
+                if let exp = expectation {
+                        if exp.description == "Dismiss from add jog cancelled" {
+                                exp.fulfill()
                         }
                 }
         }
@@ -199,4 +232,8 @@ class JogsWireframeTests: XCTestCase, JogsDelegate, JogsRouting, JogsWindow, Log
                         }
                 }
         }
+        
+        // MARK: - Add Jog Module Interface
+        //Dismiss is already in Login Module Interface section
+        
 }

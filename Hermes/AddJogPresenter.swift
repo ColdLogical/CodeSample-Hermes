@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterface, AddJogRouting {
         // MARK: - VIPER Stack
@@ -19,8 +20,30 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
         // MARK: - Operational
         
         // MARK: - Interactor Output
+        func saveJogFailed() {
+                
+        }
+        
+        func savedJog() {
+                wireframe.addJogFinished()
+        }
         
         // MARK: - Presenter Interface
+        func userTappedCancel() {
+                wireframe.cancelAddJog()
+        }
+        
+        func userTappedSave(distance: String, date: NSDate, time: NSTimeInterval) {
+                let newJog = Jog(className: Jog.parseClassName());
+                
+                if let d = Double(distance) {
+                        newJog.distance = d
+                }
+                newJog.date = date
+                newJog.time = time
+                
+                interactor.saveJog(newJog)
+        }
         
         // MARK: - Routing
         

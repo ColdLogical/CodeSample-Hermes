@@ -53,7 +53,7 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
         
         // MARK: - Module Interface
         func dismiss() {
-                
+                view.dismissViewControllerAnimated(true, completion: nil)
         }
         
         func presentModallyOnViewController(viewController: AddJogModalViewController) {
@@ -61,5 +61,15 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
         }
         
         // MARK: - Wireframe Interface
+        func addJogFinished() {
+                if let d = delegate {
+                        d.addJogComplete(self)
+                }
+        }
         
+        func cancelAddJog() {
+                if let d = delegate {
+                        d.addJogCancelled(self)
+                }
+        }
 }

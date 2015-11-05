@@ -13,7 +13,7 @@ class Jog : PFObject, PFSubclassing {
         
         @NSManaged var date: NSDate
         @NSManaged var distance: Double
-        @NSManaged var time: NSDate
+        @NSManaged var time: NSTimeInterval
         
         override class func initialize() {
                 struct Static {

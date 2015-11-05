@@ -95,6 +95,17 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
                 loginModule.dismiss()
                 _loginModule = nil
         }
+        
+        // MARK: - Add Jog Delegate
+        func addJogCancelled(addJogModule: AddJogModuleInterface) {
+                addJogModule.dismiss()
+                _addJogModule = nil
+        }
+        
+        func addJogComplete(addJogModule: AddJogModuleInterface) {
+                addJogModule.dismiss()
+                _addJogModule = nil
+        }
 }
 
 extension UINavigationController : LoginModalViewController { }

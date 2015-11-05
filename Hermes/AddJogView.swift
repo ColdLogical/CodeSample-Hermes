@@ -18,12 +18,20 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         @IBOutlet var timePicker: UIDatePicker?
         
         // MARK: - Outlets
-        @IBAction func cancelTapped(sender: AnyObject) {
-        
+        @IBAction func cancelTapped(sender: AnyObject?) {
+                presenter.userTappedCancel()
         }
         
-        @IBAction func saveTapped(sender: AnyObject) {
-        
+        @IBAction func saveTapped(sender: AnyObject?) {
+                var distance = distanceField!.text
+                if distance == nil {
+                        distance = "0.0"
+                }
+                
+                let date = datePicker!.date
+                let time = timePicker!.countDownDuration
+                
+                presenter.userTappedSave(distance!, date: date, time: time)
         }
         
         // MARK: - Operational

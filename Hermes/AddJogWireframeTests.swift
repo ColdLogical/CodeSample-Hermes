@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogModalViewController {
+class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogModalViewController, AddJogNavigation {
         var wireframe = AddJogWireframe()
         
         // MARK: - Test Objects
@@ -75,6 +75,21 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         // MARK: - Operational
         
         // MARK: - Module Interface
+        func testDismissWithAnythingShouldTellViewToDismissViewControllerAnimatedTrueCompletionNil() {
+                expectation = expectationWithDescription("View dismiss view controller from dismiss")
+                
+                wireframe.view = self
+                
+                wireframe.dismiss()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("View never told to dismiss view controller")
+                        }
+                }
+        }
+        
         func testPresentModallyOnViewControllerWithNonNilViewControllerShouldCallPresentViewControllerAnimatedTrueCompletionNil() {
                 expectation = expectationWithDescription("View controller present view controller from present modally on view controller")
                 
@@ -83,14 +98,58 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
                         if error != nil {
-                                XCTFail("<#Message#>")
+                                XCTFail("View Controller never told to present modally")
                         }
                 }
         }
         
         // MARK: - Wireframe Interface
+        func testAddJogFinishedWithNonNilDelegateShouldTellDelegateAddJogCompleted() {
+                expectation = expectationWithDescription("Delegate add jog completed from add jog finished")
+                
+                wireframe.addJogFinished()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Delegate never told that add jog finished")
+                        }
+                }
+        }
+        
+        func testCancelAddJogWithNonNilDelegateShouldTellDelegateAddJogCancelled() {
+                expectation = expectationWithDescription("Delegate add jog cancelled from cancel add jog")
+                
+                wireframe.cancelAddJog()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Delegate never told add jog was cancelled")
+                        }
+                }
+        }
         
         // MARK: - Delegate
+        func addJogComplete(addJogModule: AddJogModuleInterface) {
+                if let exp = expectation {
+                        if exp.description == "Delegate add jog completed from add jog finished" {
+                                exp.fulfill()
+                                
+                                XCTAssert(addJogModule === wireframe ? true : false, "Module should be the wireframe")
+                        }
+                }
+        }
+        
+        func addJogCancelled(addJogModule: AddJogModuleInterface) {
+                if let exp = expectation {
+                        if exp.description == "Delegate add jog cancelled from cancel add jog" {
+                                exp.fulfill()
+                                
+                                XCTAssert(addJogModule === wireframe ? true : false, "Module should be the wireframe")
+                        }
+                }
+        }
         
         // MARK: - Routing
         
@@ -101,6 +160,18 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
                                 exp.fulfill()
                                 
                                 XCTAssert(viewControllerToPresent === wireframe.moduleNavigationController ? true : false, "View controller to present should be the add jog navigation controller")
+                                XCTAssertTrue(flag, "Animated should be true")
+                                XCTAssertNil(completion, "Completion block should be nil")
+                        }
+                }
+        }
+        
+        // MARK: - Add Jog Navigation
+        func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+                if let exp = expectation {
+                        if exp.description == "View dismiss view controller from dismiss" {
+                                exp.fulfill()
+                                
                                 XCTAssertTrue(flag, "Animated should be true")
                                 XCTAssertNil(completion, "Completion block should be nil")
                         }
