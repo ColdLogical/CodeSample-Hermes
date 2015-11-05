@@ -10,7 +10,9 @@ import Parse
 
 // VIPER Interface for communication from Presenter to Interactor
 protocol JogsInteractorInput : class {
+        func deleteJog(jog: Jog)
         func fetchCurrentUser()
+        func fetchJogs(user: PFUser?)
         func logout()
 }
 

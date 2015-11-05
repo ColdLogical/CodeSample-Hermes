@@ -10,13 +10,19 @@ import Parse
 
 // VIPER Interface for communication from Interactor -> Presenter
 protocol JogsInteractorOutput : class {
+        func failedDeletingJog()
         func failedFetchingCurrentUser()
-        func fetchedCurrentUser(currentUser: PFUser)
+        func failedFetchingJogs()
+        func deletedJog()
+        func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool)
+        func fetchedJogs(jogs: [Jog])
 }
 
 // VIPER Interface for communication from View -> Presenter
 protocol JogsPresenterInterface : class {
         func userTappedAdd()
+        func userTappedDelete(jog: Jog)
+        func userTappedJog(jog: Jog)
         func userTappedLogout()
 }
 

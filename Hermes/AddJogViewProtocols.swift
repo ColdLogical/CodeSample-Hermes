@@ -8,5 +8,5 @@
 
 // VIPER Interface for communication from Presenter -> View
 protocol AddJogViewInterface : class {
-        
+        func showJog(jog: Jog)
 }

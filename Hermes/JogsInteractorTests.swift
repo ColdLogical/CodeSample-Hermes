@@ -39,6 +39,22 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
         }
         
         // MARK: - Operational
+        func testSuccessFetchingJogsWith3JogsShouldTellPresenterFetched3Jogs() {
+                expectation = expectationWithDescription("Presenter fetched jogs from success fetching jogs")
+                
+                let j1 = Jog()
+                let j2 = Jog()
+                let j3 = Jog()
+                
+                interactor.successFetchingJogs([j1, j2, j3])
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Presenter never told that jogs were fetched")
+                        }
+                }
+        }
         
         // MARK: - Interactor Input
         func testFetchCurrentUserWithNilCurrentUserShouldCallPresenterFailedFetchingCurrentUser() {
@@ -104,6 +120,16 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
                                 exp.fulfill()
                                 
                                 XCTAssertEqual("Your Mom", currentUser.username, "Current user's username should be Your Mom")
+                        }
+                }
+        }
+        
+        func fetchedJogs(jogs: [Jog]) {
+                if let exp = expectation {
+                        if exp.description == "Presenter fetched jogs from success fetching jogs" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual(3, jogs.count, "Jogs count should be 3")
                         }
                 }
         }

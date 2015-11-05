@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 import XCTest
 
 @testable import Hermes
@@ -55,6 +56,39 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present login")
+                        }
+                }
+        }
+        
+        func testFetchedCurrentUserWithUsernameSarahKerriganShouldTellInteractorToFetchJogsForSarahKerrigan() {
+                expectation = expectationWithDescription("Fetch jogs for user from fetched current user")
+                
+                let user = PFUser()
+                user.username = "Sarah Kerrigan"
+                
+                presenter.fetchedCurrentUser(user)
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Interactor never told to fetch jogs for user")
+                        }
+                }
+        }
+        
+        func testFetchedJogsWith3JogsShouldTellViewToShow3Jogs() {
+                expectation = expectationWithDescription("View show jogs from fetched jogs")
+                
+                let j1 = Jog()
+                let j2 = Jog()
+                let j3 = Jog()
+                
+                presenter.fetchedJogs([j1, j2, j3])
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("View never told to show jogs")
                         }
                 }
         }
@@ -110,6 +144,16 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 }
         }
         
+        func fetchJogs(user: PFUser?) {
+                if let exp = expectation {
+                        if exp.description == "Fetch jogs for user from fetched current user" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual("Sarah Kerrigan", user!.username, "Username should be Sarah Kerrigan")
+                        }
+                }
+        }
+        
         func logout() {
                 if let exp = expectation {
                         if exp.description == "Interactor logout from user tapped logout" {
@@ -119,6 +163,15 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         // MARK: - View Interface
+        func showJogs(jogs: [Jog]) {
+                if let exp = expectation {
+                        if exp.description == "View show jogs from fetched jogs" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual(3, jogs.count, "Jogs count should be 3")
+                        }
+                }
+        }
         
         // MARK: - Wireframe Interface
         func presentAddJog() {

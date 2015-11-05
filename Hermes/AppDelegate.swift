@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // If you would like all objects to be private by default, remove this line.
                 defaultACL.setPublicReadAccess(true)
+                defaultACL.setWriteAccess(true, forRoleWithName:"Admin")
                 
                 PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser:true)
                 
@@ -93,7 +94,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //            application.registerForRemoteNotificationTypes(types)
                 //        }
                 
+                
                 jogsModule.presentInWindow(window!)
+                
+//                PFUser.logInWithUsernameInBackground("admin", password: "admin") { (adminUser, error) -> Void in
+//                        if let au = adminUser {
+//                                let roleACL = PFACL()
+//                                roleACL.setPublicWriteAccess(true)
+//                                roleACL.setPublicReadAccess(true)
+//                                let role = PFRole(name: "Admin", acl:roleACL)
+//                                
+//                                role.users.addObject(au)
+//                        
+//                                role.saveInBackground()
+//                        }
+//                }
                 
                 return true
         }

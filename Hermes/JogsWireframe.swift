@@ -82,8 +82,8 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         }
         
         // MARK: - Wireframe Interface
-        func presentAddJog() {
-                addJogModule.presentModallyOnViewController(moduleNavigationController)
+        func presentAddJog(jog: Jog?) {
+                addJogModule.presentModallyOnViewController(moduleNavigationController, jog: jog)
         }
         
         func presentLogin() {
@@ -94,6 +94,7 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         func loginCompleted(loginModule: LoginModuleInterface) {
                 loginModule.dismiss()
                 _loginModule = nil
+                presenter.presentingJogs()
         }
         
         // MARK: - Add Jog Delegate
@@ -105,6 +106,7 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         func addJogComplete(addJogModule: AddJogModuleInterface) {
                 addJogModule.dismiss()
                 _addJogModule = nil
+                presenter.presentingJogs()
         }
 }
 

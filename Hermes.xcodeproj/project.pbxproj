@@ -21,6 +21,7 @@
 		0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */; };
 		0121E7901BE6B87E00C9BED5 /* AddJog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */; };
 		0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7931BE6BB2200C9BED5 /* Jog.swift */; };
+		0121E7971BEAE78000C9BED5 /* JogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7961BEAE78000C9BED5 /* JogCell.swift */; };
 		0124D1621BE54DD500E10F48 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1611BE54DD500E10F48 /* Jogs.storyboard */; };
 		0124D1641BE54EE900E10F48 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1631BE54EE900E10F48 /* LaunchScreen.xib */; };
 		0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */; };
@@ -104,6 +105,7 @@
 		0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddJog.storyboard; sourceTree = "<group>"; };
 		0121E7931BE6BB2200C9BED5 /* Jog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jog.swift; path = Hermes/Jog.swift; sourceTree = "<group>"; };
 		0121E7951BE6BB6400C9BED5 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = ../BridgingHeader.h; sourceTree = "<group>"; };
+		0121E7961BEAE78000C9BED5 /* JogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JogCell.swift; sourceTree = "<group>"; };
 		0124D1611BE54DD500E10F48 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jogs.storyboard; sourceTree = "<group>"; };
 		0124D1631BE54EE900E10F48 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractor.swift; path = Hermes/RegisterInteractor.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				0190DD8E1BE541A5008A322C /* JogsView.swift */,
 				0190DD901BE541A5008A322C /* JogsViewTests.swift */,
 				0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */,
+				0121E7961BEAE78000C9BED5 /* JogCell.swift */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				0190DDA91BE541BF008A322C /* LoginView.swift in Sources */,
 				0124D1701BE54FD300E10F48 /* RegisterPresenterProtocols.swift in Sources */,
 				0124D1721BE54FD300E10F48 /* RegisterViewProtocols.swift in Sources */,
+				0121E7971BEAE78000C9BED5 /* JogCell.swift in Sources */,
 				0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */,
 				0121E7831BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift in Sources */,
 				0121E77D1BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift in Sources */,

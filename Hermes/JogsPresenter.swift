@@ -16,21 +16,58 @@ class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, Jo
         lazy var wireframe : JogsWireframeInterface = JogsWireframe()
         
         // MARK: - Instance Variables
+        var currentUser: PFUser?
+        var currentUserIsAdmin: Bool = false
         
         // MARK: - Operational
+        func fetchJogsBasedOnAdminStatus() {
+                if currentUser != nil {
+                        if currentUserIsAdmin {
+                                self.interactor.fetchJogs(nil)
+                        } else {
+                                self.interactor.fetchJogs(currentUser)
+                        }
+                }
+        }
         
         // MARK: - Interactor Output
+        func failedDeletingJog() {
+                
+        }
+        
         func failedFetchingCurrentUser() {
                 wireframe.presentLogin()
         }
         
-        func fetchedCurrentUser(currentUser: PFUser) {
+        func failedFetchingJogs() {
                 
+        }
+        
+        func deletedJog() {
+                fetchJogsBasedOnAdminStatus()
+        }
+        
+        func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool) {
+                self.currentUser = currentUser
+                currentUserIsAdmin = isAdmin
+                fetchJogsBasedOnAdminStatus()
+        }
+        
+        func fetchedJogs(jogs: [Jog]) {
+                view.showJogs(jogs)
         }
         
         // MARK: - Presenter Interface
         func userTappedAdd() {
-                wireframe.presentAddJog()
+                wireframe.presentAddJog(nil)
+        }
+        
+        func userTappedDelete(jog: Jog) {
+                interactor.deleteJog(jog)
+        }
+        
+        func userTappedJog(jog: Jog) {
+                wireframe.presentAddJog(jog)
         }
         
         func userTappedLogout() {

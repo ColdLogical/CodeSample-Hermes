@@ -22,7 +22,7 @@ protocol AddJogDelegate : class {
 // Interface Abstraction for working with the VIPER Module
 protocol AddJogModuleInterface : class {
         func dismiss()
-        func presentModallyOnViewController(viewController: AddJogModalViewController)
+        func presentModallyOnViewController(viewController: AddJogModalViewController, jog: Jog?)
 }
 
 // VIPER Interface for manipulating the navigation

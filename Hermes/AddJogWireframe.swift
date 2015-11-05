@@ -56,8 +56,12 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
                 view.dismissViewControllerAnimated(true, completion: nil)
         }
         
-        func presentModallyOnViewController(viewController: AddJogModalViewController) {
+        func presentModallyOnViewController(viewController: AddJogModalViewController, jog: Jog?) {
                 viewController.presentViewController(moduleNavigationController, animated: true, completion: nil);
+                
+                if let j = jog {
+                        presenter.presentingJog(j)
+                }
         }
         
         // MARK: - Wireframe Interface

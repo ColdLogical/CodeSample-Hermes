@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -26,21 +28,68 @@
         <scene sceneID="tfP-mA-mvl">
             <objects>
                 <tableViewController storyboardIdentifier="JogsView" title="Jogs" id="vjN-bE-LrN" customClass="JogsView" customModule="Hermes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="76E-Qz-gj2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="76E-Qz-gj2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JogsCell" id="iHC-4s-mhe">
-                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JogCell" rowHeight="77" id="iHC-4s-mhe" customClass="JogCell" customModule="Hermes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iHC-4s-mhe" id="aH6-CI-GSX">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="76.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHS-dh-6EH">
+                                            <rect key="frame" x="8" y="8" width="42" height="24"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg0-Ee-EfU">
+                                            <rect key="frame" x="476" y="43" width="116" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyq-gt-ttZ">
+                                            <rect key="frame" x="253" y="39" width="94" height="29"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrL-eB-0Rm">
+                                            <rect key="frame" x="8" y="43" width="38" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nyq-gt-ttZ" secondAttribute="bottom" id="2oe-DK-Itu"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="LrL-eB-0Rm" secondAttribute="leading" id="7ZB-7U-HrG"/>
+                                        <constraint firstItem="nyq-gt-ttZ" firstAttribute="top" secondItem="iHS-dh-6EH" secondAttribute="bottom" constant="7.5" id="HtV-6t-g9x"/>
+                                        <constraint firstItem="Fg0-Ee-EfU" firstAttribute="centerY" secondItem="LrL-eB-0Rm" secondAttribute="centerY" id="MCG-SY-7Ao"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="iHS-dh-6EH" secondAttribute="leading" id="P32-Nt-Uid"/>
+                                        <constraint firstItem="nyq-gt-ttZ" firstAttribute="centerY" secondItem="LrL-eB-0Rm" secondAttribute="centerY" id="VqU-v3-hGZ"/>
+                                        <constraint firstAttribute="topMargin" secondItem="iHS-dh-6EH" secondAttribute="top" id="cP8-Rj-g3q"/>
+                                        <constraint firstItem="nyq-gt-ttZ" firstAttribute="centerX" secondItem="aH6-CI-GSX" secondAttribute="centerX" id="doM-3n-hyj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Fg0-Ee-EfU" secondAttribute="trailing" id="gP9-23-YnA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="averageSpeedLabel" destination="Fg0-Ee-EfU" id="C5o-7M-2m1"/>
+                                    <outlet property="dateLabel" destination="iHS-dh-6EH" id="EKD-YN-f6X"/>
+                                    <outlet property="distanceLabel" destination="nyq-gt-ttZ" id="keY-ex-z3o"/>
+                                    <outlet property="timeLabel" destination="LrL-eB-0Rm" id="b4E-B6-TOt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,16 +98,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Jogs" id="yqF-Ss-BnY">
-                        <barButtonItem key="leftBarButtonItem" image="Logout" id="Tmz-av-1q9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="Tmz-av-1q9" userLabel="Logout">
                             <connections>
                                 <action selector="logoutTapped:" destination="vjN-bE-LrN" id="k7K-DA-qWl"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4yI-eX-0Pa">
-                            <connections>
-                                <action selector="addJogTapped:" destination="vjN-bE-LrN" id="Il9-W1-0AX"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="4yI-eX-0Pa">
+                                <connections>
+                                    <action selector="addJogTapped:" destination="vjN-bE-LrN" id="Il9-W1-0AX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title=" Sort" id="x1P-n4-7QB" userLabel="Sort">
+                                <color key="tintColor" red="0.047058823529411764" green="0.50196078431372548" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sortByDate:" destination="vjN-bE-LrN" id="a6g-zu-MSW"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WO2-36-Qrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -66,7 +123,4 @@
             <point key="canvasLocation" x="1290" y="564"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Logout" width="32" height="32"/>
-    </resources>
 </document>

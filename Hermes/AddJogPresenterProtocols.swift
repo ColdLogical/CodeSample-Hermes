@@ -17,10 +17,10 @@ protocol AddJogInteractorOutput : class {
 // VIPER Interface for communication from View -> Presenter
 protocol AddJogPresenterInterface : class {
         func userTappedCancel()
-        func userTappedSave(distance: String, date: NSDate, time: NSTimeInterval)
+        func userTappedSave(jog: Jog?, distance: String, date: NSDate, time: NSTimeInterval)
 }
 
 // VIPER Interface for communication from Wireframe -> Presenter
 protocol AddJogRouting : class {
-        
+        func presentingJog(jog: Jog)
 }

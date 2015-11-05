@@ -13,6 +13,7 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         lazy var presenter : AddJogPresenterInterface = AddJogPresenter()
         
         // MARK: - Instance Variables
+        var currentJog: Jog?
         @IBOutlet var datePicker: UIDatePicker?
         @IBOutlet var distanceField: UITextField?
         @IBOutlet var timePicker: UIDatePicker?
@@ -31,11 +32,28 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
                 let date = datePicker!.date
                 let time = timePicker!.countDownDuration
                 
-                presenter.userTappedSave(distance!, date: date, time: time)
+                
+                presenter.userTappedSave(currentJog, distance: distance!, date: date, time: time)
         }
         
         // MARK: - Operational
+        func updateFromJog(jog: Jog) {
+                distanceField?.text = String(format: "%.1f", jog.distance)
+                datePicker?.date = jog.date
+                timePicker?.countDownDuration = jog.time
+        }
+        
+        override func viewWillAppear(animated: Bool) {
+                super.viewWillAppear(animated)
+                
+                if let cj = currentJog {
+                        updateFromJog(cj)
+                }
+        }
         
         // MARK: - View Interface
-        
+        func showJog(jog: Jog) {
+                currentJog = jog
+                updateFromJog(jog)
+        }
 }
