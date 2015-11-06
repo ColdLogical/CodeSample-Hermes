@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Hermes
 
-class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
+class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQuery {
         var interactor = JogsInteractor()
         
         // MARK: - Test Objects
@@ -26,7 +26,6 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
         
         override func tearDown() {
                 super.tearDown()
-		interactor = JogsInteractor()
                 expectation = nil;
         }
         
@@ -71,18 +70,52 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
                         }
                 }
         }
-
-        func testFetchCurrentUserWithNonNilCurrentUserShouldCallPresenterFetchedCurrentUser() {
-                expectation = expectationWithDescription("Presenter fetched current user from fetch current user")
+       
+        func testFetchCurrentUserWithNonNilCurrentUserShouldCallRoleQueryGetObjectsInBackground() {
+                expectation = expectationWithDescription("Role query get objects in background from fetch current user")
                 
                 interactor.userService = JogsInteractorUserServiceCurrentUserReturnsUser.self
+                interactor.roleQuery = self
                 
                 interactor.fetchCurrentUser()
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
                         if error != nil {
-                                XCTFail("User Service current user never called")
+                                XCTFail("Role query never told to get objects in background")
+                        }
+                }
+        }
+        
+        func testFetchCurrentUserWithNonNilCurrentUserShouldCallRoleQueryWhereKeyNameEqualToAdmin() {
+                expectation = expectationWithDescription("Role query where key name equal to admin from fetch current user")
+                
+                interactor.userService = JogsInteractorUserServiceCurrentUserReturnsUser.self
+                interactor.roleQuery = self
+                
+                interactor.fetchCurrentUser()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Role query never told to set name to admin")
+                        }
+                }
+        }
+        
+        
+        func testFetchCurrentUserWithNonNilCurrentUserShouldCallRoleQueryWhereKeyUsersEqualToCurrentUser() {
+                expectation = expectationWithDescription("Role query where key user equal to current user from fetch current user")
+                
+                interactor.userService = JogsInteractorUserServiceCurrentUserReturnsUser.self
+                interactor.roleQuery = self
+                
+                interactor.fetchCurrentUser()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Role query never told to set user to current user")
                         }
                 }
         }
@@ -144,6 +177,39 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
                         }
                 }
         }
+        
+        // MARK: - Role Query Mocking
+        func getFirstObjectInBackgroundWithBlock(block: ((PFObject?, NSError?) -> Void)?) {
+                if let exp = expectation {
+                        if exp.description == "Role query get objects in background from fetch current user" {
+                                exp.fulfill()
+                        }
+                }
+        }
+        
+        func whereKey(key: String, equalTo: AnyObject) -> Self {
+                if let exp = expectation {
+                        if exp.description == "Role query where key name equal to admin from fetch current user" &&
+                                key == "name" {
+                                exp.fulfill()
+                                
+                                let string = equalTo as! String
+                                XCTAssertEqual("Admin", string, "equalTo should be Admin")
+                        }
+                }
+                
+                if let exp = expectation {
+                        if exp.description == "Role query where key user equal to current user from fetch current user" &&
+                                key == "users" {
+                                exp.fulfill()
+                                
+                                let user = equalTo as! PFUser
+                                XCTAssertEqual("Awesome", user.username, "Username should be Awesome")
+                        }
+                }
+                
+                return self
+        }
 }
 
 class JogsInteractorUserServiceCurrentUserReturnsNil : JogsInteractorUserService {
@@ -162,7 +228,7 @@ class JogsInteractorUserServiceCurrentUserReturnsUser : JogsInteractorUserServic
         
         class func currentUser() -> PFUser? {
                 let user = PFUser()
-                user.username = "Your Mom"
+                user.username = "Awesome"
                 return user
         }
         

@@ -21,7 +21,7 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
         
         // MARK: - Interactor Output
         func saveJogFailed() {
-                
+                view.showSaveJogFailed()
         }
         
         func savedJog() {

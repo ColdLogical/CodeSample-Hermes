@@ -33,6 +33,32 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         // MARK: - Operational
+        func testFailedDeletingJogWithAnythingShouldTellViewToShowDeleteJogFailed() {
+                expectation = expectationWithDescription("View show delete jog failed from failed deleting jog")
+                
+                presenter.failedDeletingJog()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("View never told to show delete jog failed message")
+                        }
+                }
+        }
+        
+        func testFailedFetchingJogsWithAnythingShouldTellViewToShowFetchingJogsFailed() {
+                expectation = expectationWithDescription("View show fetching jog failed from failed fetching jogs")
+                
+                presenter.failedFetchingJogs()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("View never told to show fetching jogs failed message")
+                        }
+                }
+        }
+        
         func testPresentingJogsWithAnythinyShouldTellInteractorToFetchCurrentUser() {
                 expectation = expectationWithDescription("Interactor fetch current user from presenter presenting jogs")
                 
@@ -47,6 +73,23 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
 
         // MARK: - Interactor Output
+        func testDeletedJogWithCurrentUserShouldTellInteractorToFetchJogs() {
+                expectation = expectationWithDescription("Interactor fetch jogs from deleted jog")
+                
+                let user = PFUser()
+                user.username = "Sarah Kerrigan"
+                presenter.currentUser = user
+                
+                presenter.deletedJog()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Interactor never told to fetch jogs")
+                        }
+                }
+        }
+        
         func testFailedFetchingCurrentUserWithAnythingShouldTellWireframeToPresentLogin() {
                 expectation = expectationWithDescription("Wireframe presenter login from failed fetching current user")
                 
@@ -64,7 +107,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 expectation = expectationWithDescription("Fetch jogs for user from fetched current user")
                 
                 let user = PFUser()
-                user.username = "Sarah Kerrigan"
+                user.username = "Queen of Blades"
                 
                 presenter.fetchedCurrentUser(user, isAdmin: false)
                 
@@ -94,10 +137,42 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
 
         // MARK: - Presenter Interface
-        func testUserTappedAddWithAnythingShouldTellWireframetPresentAddJog() {
+        func testUserTappedAddWithAnythingShouldTellWireframeToPresentAddJog() {
                 expectation = expectationWithDescription("Wireframe present add jog from user tapped add")
                 
                 presenter.userTappedAdd()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Wireframe never told to present add jog")
+                        }
+                }
+        }
+        
+        func testUserTappedDeleteWithNonNilJogShouldTellInteractorToDeleteJog() {
+                expectation = expectationWithDescription("Interactor delete jog from user tapped delete")
+                
+                let jog = Jog()
+                jog.distance = 314159
+                
+                presenter.userTappedDelete(jog)
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Interactor never told to delete the jog")
+                        }
+                }
+        }
+        
+        func testUserTappedJogWithNonNilJogShouldTellWireframeToPresentAddJogWithTheJogTapped() {
+                expectation = expectationWithDescription("Wireframe present add jog with jog from user tapped jog")
+                
+                let jog = Jog()
+                jog.distance = 314159
+                
+                presenter.userTappedJog(jog)
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
@@ -137,6 +212,13 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
 
         // MARK: - Interactor Input
         func deleteJog(jog: Jog) {
+                if let exp = expectation {
+                        if exp.description == "Interactor delete jog from user tapped delete" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual(314159, jog.distance, "Jog distance should be 314159")
+                        }
+                }
         }
         
         func fetchCurrentUser() {
@@ -150,6 +232,14 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         func fetchJogs(user: PFUser?) {
                 if let exp = expectation {
                         if exp.description == "Fetch jogs for user from fetched current user" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual("Queen of Blades", user!.username, "Username should be Sarah Kerrigan")
+                        }
+                }
+                
+                if let exp = expectation {
+                        if exp.description == "Interactor fetch jogs from deleted jog" {
                                 exp.fulfill()
                                 
                                 XCTAssertEqual("Sarah Kerrigan", user!.username, "Username should be Sarah Kerrigan")
@@ -166,6 +256,22 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         // MARK: - View Interface
+        func showDeleteJogFailed() {
+                if let exp = expectation {
+                        if exp.description == "View show delete jog failed from failed deleting jog" {
+                                exp.fulfill()
+                        }
+                }
+        }
+        
+        func showFetchingJogsFailed() {
+                if let exp = expectation {
+                        if exp.description == "View show fetching jog failed from failed fetching jogs" {
+                                exp.fulfill()
+                        }
+                }
+        }
+        
         func showJogs(jogs: [Jog]) {
                 if let exp = expectation {
                         if exp.description == "View show jogs from fetched jogs" {
@@ -181,6 +287,16 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 if let exp = expectation {
                         if exp.description == "Wireframe present add jog from user tapped add" {
                                 exp.fulfill()
+                                
+                                XCTAssertNil(jog, "Jog should be nil")
+                        }
+                }
+                
+                if let exp = expectation {
+                        if exp.description == "Wireframe present add jog with jog from user tapped jog" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual(314159, jog!.distance, "Jog Distance should be 314159")
                         }
                 }
         }

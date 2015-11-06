@@ -10,6 +10,8 @@
 import UIKit
 import Parse
 
+extension UIWindow : JogsWindow {}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
         
@@ -146,5 +148,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
         }
 }
-
-extension UIWindow : JogsWindow {}

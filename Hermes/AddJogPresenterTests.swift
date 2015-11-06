@@ -35,6 +35,18 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         // MARK: - Operational
 
         // MARK: - Interactor Output
+        func testSaveJogFailureWithAnythingShouldTellViewToShowSaveJogFailed() {
+                expectation = expectationWithDescription("View show save jog failed from save jog failed")
+                
+                presenter.saveJogFailed()
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("View never told to show save jog failed")
+                        }
+                }
+        }
         func testSavedJogWithAnythingShouldTellWireframeAddJogFinished() {
                 expectation = expectationWithDescription("Wireframe add jog finished from saved jog")
                 
@@ -62,7 +74,7 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
                 }
         }
         
-        func testUserTappedSaveWithDistance4DateApril231986Time60ShouldTellInteractorToSaveAJogWithDistance4DateApril231986Time60() {
+        func testUserTappedSaveWithNilJogDistance4DateApril231986Time60ShouldTellInteractorToSaveANewJogWithDistance4DateApril231986Time60() {
                 expectation = expectationWithDescription("Interactor save jog from user tapped save")
                 
                 presenter.userTappedSave(nil, distance: "4", date: NSDate(timeIntervalSince1970: 514623600), time: 60)
@@ -76,6 +88,21 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         }
 
         // MARK: - Routing
+        func testPresentingJogWithNonNilJogShouldTellViewToShowJog() {
+                expectation = expectationWithDescription("View show jog from presenting jog")
+                
+                let j1 = Jog()
+                j1.distance = 314159
+                
+                presenter.presentingJog(j1)
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("View never told to show jog")
+                        }
+                }
+        }
 
         // MARK: - Interactor Input
         func saveJog(jog: Jog) {
@@ -92,6 +119,21 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         
         // MARK: - View Interface
         func showJog(jog: Jog) {
+                if let exp = expectation {
+                        if exp.description == "View show jog from presenting jog" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual(314159, jog.distance, "Jog distance should be 314159")
+                        }
+                }
+        }
+        
+        func showSaveJogFailed() {
+                if let exp = expectation {
+                        if exp.description == "View show save jog failed from save jog failed" {
+                                exp.fulfill()
+                        }
+                }
         }
         
         // MARK: - Wireframe Interface

@@ -67,8 +67,29 @@ class AddJogViewTests: XCTestCase, AddJogPresenterInterface {
                         }
                 }
         }
+        
+        func testUpdateFromJogWithNonNilJogShouldUpdateTheViewCorrectly() {
+                let jog = Jog()
+                jog.distance = 3.14
+                jog.time = 60*60 // 1 hour
+                jog.date = NSDate(timeIntervalSince1970: 514598400) // April 23, 1986 GMT
+                
+                view.updateFromJog(jog)
+                
+                XCTAssertEqual("3.14", view.distanceField!.text, "Distance text should be 3.14")
+                XCTAssertEqual(NSDate(timeIntervalSince1970: 514598400), view.datePicker!.date, "Distance text should be April 23, 1986 GMT")
+                XCTAssertEqual(60*60, view.timePicker!.countDownDuration, "Time count down duration should be 3600")
+        }
 
         // MARK: - View Interface
+        func testShowJogWithNonNilJogShouldSetCurrentJogToJog() {
+                let jog = Jog()
+                jog.date = NSDate()
+                
+                view.showJog(jog)
+                
+                XCTAssertEqual(jog, view.currentJog!, "Current jog should be the jog passed in")
+        }
 
         // MARK: - Presenter Interface
         func userTappedCancel() {

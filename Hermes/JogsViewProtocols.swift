@@ -8,5 +8,7 @@
 
 // VIPER Interface for communication from Presenter -> View
 protocol JogsViewInterface : class {
+        func showDeleteJogFailed()
+        func showFetchingJogsFailed()
         func showJogs(jogs: [Jog])
 }

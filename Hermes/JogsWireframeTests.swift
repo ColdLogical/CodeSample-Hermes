@@ -173,6 +173,8 @@ class JogsWireframeTests: XCTestCase,
                 
                 wireframe.loginCompleted(self)
                 
+                XCTAssertNil(wireframe._loginModule, "Login module should be nil")
+                
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
                         if error != nil {
@@ -198,7 +200,7 @@ class JogsWireframeTests: XCTestCase,
         func testAddJogCompleteWithNonNilModuleShouldTellModuleToDismissAndSetWireframeAddJogModuleToNil() {
                 expectation = expectationWithDescription("Dismiss from add jog cancelled")
                 
-                wireframe.addJogCancelled(self)
+                wireframe.addJogComplete(self)
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in

@@ -8,6 +8,9 @@
 
 import UIKit
 
+extension UINavigationController : LoginModalViewController { }
+extension UINavigationController : AddJogModalViewController { }
+
 class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDelegate {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = JogsInteractor()
@@ -109,6 +112,3 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
                 presenter.presentingJogs()
         }
 }
-
-extension UINavigationController : LoginModalViewController { }
-extension UINavigationController : AddJogModalViewController { }

@@ -9,6 +9,8 @@
 import Foundation
 import Parse
 
+extension PFUser : LoginInteractorUser { }
+
 class LoginInteractor: NSObject, LoginInteractorInput {
         // MARK: - VIPER Stack
         lazy var presenter : LoginInteractorOutput = LoginPresenter()
@@ -36,5 +38,3 @@ class LoginInteractor: NSObject, LoginInteractorInput {
                 }
         }
 }
-
-extension PFUser : LoginInteractorUser { }

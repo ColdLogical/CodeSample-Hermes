@@ -90,6 +90,22 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
                 }
         }
         
+        func testPresentModallyOnViewControllerWithNonNilJogShouldCallPresenterPresentingJog() {
+                expectation = expectationWithDescription("Presenter presenting jog from present modally on view controller")
+                
+                let jog = Jog()
+                jog.distance = 314159
+                
+                wireframe.presentModallyOnViewController(self, jog: jog)
+                
+                waitForExpectationsWithTimeout(5) {
+                        (error: NSError?) -> Void in
+                        if error != nil {
+                                XCTFail("Presenter never told presenting jog")
+                        }
+                }
+        }
+        
         func testPresentModallyOnViewControllerWithNonNilViewControllerShouldCallPresentViewControllerAnimatedTrueCompletionNil() {
                 expectation = expectationWithDescription("View controller present view controller from present modally on view controller")
                 
@@ -153,7 +169,13 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         
         // MARK: - Routing
         func presentingJog(jog: Jog) {
-                
+                if let exp = expectation {
+                        if exp.description == "Presenter presenting jog from present modally on view controller" {
+                                exp.fulfill()
+                                
+                                XCTAssertEqual(314159, jog.distance, "Jog distance should be 314159")
+                        }
+                }
         }
         
         // MARK: - Add Jog Modal View Controller

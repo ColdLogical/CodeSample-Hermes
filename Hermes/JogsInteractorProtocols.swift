@@ -16,6 +16,11 @@ protocol JogsInteractorInput : class {
         func logout()
 }
 
+protocol JogsInteractorRoleQuery {
+        func getFirstObjectInBackgroundWithBlock(block: ((PFObject?, NSError?) -> Void)?)
+        func whereKey(key: String, equalTo: AnyObject) -> Self
+}
+
 protocol JogsInteractorUserService {
         static func currentUser() -> PFUser?
         static func logOut()

@@ -9,11 +9,13 @@
 import Foundation
 import Parse
 
+extension PFQuery : JogsInteractorRoleQuery { }
 extension PFUser : JogsInteractorUserService { }
 
 class JogsInteractor: NSObject, JogsInteractorInput {
         // MARK: - VIPER Stack
         lazy var presenter : JogsInteractorOutput = JogsPresenter()
+        lazy var roleQuery : JogsInteractorRoleQuery? = PFRole.query()
         lazy var userService : JogsInteractorUserService.Type = PFUser.self
         
         // MARK: - Instance Variables
@@ -48,16 +50,18 @@ class JogsInteractor: NSObject, JogsInteractorInput {
         
         func fetchCurrentUser() {
                 if let currentUser = userService.currentUser() {
-                        if let roleQuery = PFRole.query() {
-                                roleQuery.whereKey("name", equalTo:"Admin")
-                                roleQuery.whereKey("users", equalTo:currentUser)
-                                roleQuery.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
+                        if let rq = roleQuery {
+                                rq.whereKey("name", equalTo:"Admin")
+                                rq.whereKey("users", equalTo:currentUser)
+                                rq.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
                                         if object != nil {
                                                 self.presenter.fetchedCurrentUser(currentUser, isAdmin: true)
                                         } else {
                                                 self.presenter.fetchedCurrentUser(currentUser, isAdmin: false)
                                         }
                                 })
+                        } else {
+                                presenter.failedFetchingCurrentUser()
                         }
                 } else {
                         presenter.failedFetchingCurrentUser()

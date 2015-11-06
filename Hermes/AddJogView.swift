@@ -38,7 +38,7 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         
         // MARK: - Operational
         func updateFromJog(jog: Jog) {
-                distanceField?.text = String(format: "%.1f", jog.distance)
+                distanceField?.text = String(format: "%.2f", jog.distance)
                 datePicker?.date = jog.date
                 timePicker?.countDownDuration = jog.time
         }
@@ -55,5 +55,11 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         func showJog(jog: Jog) {
                 currentJog = jog
                 updateFromJog(jog)
+        }
+        
+        func showSaveJogFailed() {
+                let alert = UIAlertController.init(title: "Error", message: "Saving the jog failed, please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
         }
 }

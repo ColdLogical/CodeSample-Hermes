@@ -31,8 +31,12 @@ class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, Jo
         }
         
         // MARK: - Interactor Output
+        func deletedJog() {
+                fetchJogsBasedOnAdminStatus()
+        }
+        
         func failedDeletingJog() {
-                
+                view.showDeleteJogFailed()
         }
         
         func failedFetchingCurrentUser() {
@@ -40,11 +44,7 @@ class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, Jo
         }
         
         func failedFetchingJogs() {
-                
-        }
-        
-        func deletedJog() {
-                fetchJogsBasedOnAdminStatus()
+                view.showFetchingJogsFailed()
         }
         
         func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool) {

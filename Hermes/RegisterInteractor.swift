@@ -9,6 +9,8 @@
 import Foundation
 import Parse
 
+extension PFUser : RegisterInteractorUser { }
+
 class RegisterInteractor: NSObject, RegisterInteractorInput {
         // MARK: - VIPER Stack
         lazy var presenter : RegisterInteractorOutput = RegisterPresenter()
@@ -39,5 +41,3 @@ class RegisterInteractor: NSObject, RegisterInteractorInput {
                 }
         }
 }
-
-extension PFUser : RegisterInteractorUser { }

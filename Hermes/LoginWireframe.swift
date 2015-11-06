@@ -8,6 +8,8 @@
 
 import UIKit
 
+extension UINavigationController : RegisterNavigationController { }
+
 class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, RegisterDelegate {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = LoginInteractor()
@@ -83,5 +85,3 @@ class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, R
                 }
         }
 }
-
-extension UINavigationController : RegisterNavigationController { }

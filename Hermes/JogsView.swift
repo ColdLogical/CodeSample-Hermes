@@ -31,7 +31,7 @@ class JogsView : UITableViewController, JogsViewInterface {
                 presenter.userTappedLogout()
         }
         
-        @IBAction func sortByDate(sender: AnyObject) {
+        @IBAction func sortByDate(sender: AnyObject?) {
                 ascending = !ascending
                 sortJogs(ascending)
                 tableView.reloadData()
@@ -82,7 +82,7 @@ class JogsView : UITableViewController, JogsViewInterface {
                 jogs.sortInPlace { (j1, j2) -> Bool in
                         var result: Bool
                         
-                        if j1.date.compare(j2.date) == NSComparisonResult.OrderedAscending {
+                        if j2.date.compare(j1.date) == NSComparisonResult.OrderedAscending {
                                 result = true
                         } else {
                                 result = false
@@ -97,6 +97,18 @@ class JogsView : UITableViewController, JogsViewInterface {
         }
         
         // MARK: - View Interface
+        func showDeleteJogFailed() {
+                let alert = UIAlertController.init(title: "Error", message: "Deleting the jog failed, please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+        func showFetchingJogsFailed() {
+                let alert = UIAlertController.init(title: "Error", message: "We were unable to fetch jogs for this user, please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
         func showJogs(jogs: [Jog]) {
                 self.jogs = jogs
                 sortJogs(ascending)
@@ -134,6 +146,14 @@ class JogsView : UITableViewController, JogsViewInterface {
         
         override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 return jogs.count
+        }
+        
+        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+                if jogs.count == 0 {
+                        return "Add a Jog using the + in the top right!"
+                }
+                
+                return nil
         }
         
         override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
