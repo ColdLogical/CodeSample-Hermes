@@ -60,13 +60,13 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 }
         }
         
-        func testFetchedCurrentUserWithUsernameSarahKerriganShouldTellInteractorToFetchJogsForSarahKerrigan() {
+        func testFetchedCurrentUserWithUsernameSarahKerriganIsAdminFalseShouldTellInteractorToFetchJogsForSarahKerrigan() {
                 expectation = expectationWithDescription("Fetch jogs for user from fetched current user")
                 
                 let user = PFUser()
                 user.username = "Sarah Kerrigan"
                 
-                presenter.fetchedCurrentUser(user)
+                presenter.fetchedCurrentUser(user, isAdmin: false)
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
@@ -136,6 +136,9 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         // MARK: - Routing
 
         // MARK: - Interactor Input
+        func deleteJog(jog: Jog) {
+        }
+        
         func fetchCurrentUser() {
                 if let exp = expectation {
                         if exp.description == "Interactor fetch current user from presenter presenting jogs" {
@@ -174,7 +177,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         // MARK: - Wireframe Interface
-        func presentAddJog() {
+        func presentAddJog(jog: Jog?) {
                 if let exp = expectation {
                         if exp.description == "Wireframe present add jog from user tapped add" {
                                 exp.fulfill()

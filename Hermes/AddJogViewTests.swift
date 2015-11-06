@@ -79,7 +79,7 @@ class AddJogViewTests: XCTestCase, AddJogPresenterInterface {
                 }
         }
         
-        func userTappedSave(distance: String, date: NSDate, time: NSTimeInterval) {
+        func userTappedSave(jog: Jog?, distance: String, date: NSDate, time: NSTimeInterval) {
                 if let exp = expectation {
                         if exp.description == "Presener user tapped save from save tapped" {
                                 exp.fulfill()

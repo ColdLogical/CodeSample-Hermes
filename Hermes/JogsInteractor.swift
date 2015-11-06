@@ -48,16 +48,17 @@ class JogsInteractor: NSObject, JogsInteractorInput {
         
         func fetchCurrentUser() {
                 if let currentUser = userService.currentUser() {
-                        let roleQuery = PFRole.query()
-                        roleQuery?.whereKey("name", equalTo:"Admin")
-                        roleQuery?.whereKey("users", equalTo:currentUser)
-                        roleQuery?.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
-                                if object != nil {
-                                        self.presenter.fetchedCurrentUser(currentUser, isAdmin: true)
-                                } else {
-                                        self.presenter.fetchedCurrentUser(currentUser, isAdmin: false)
-                                }
-                        })
+                        if let roleQuery = PFRole.query() {
+                                roleQuery.whereKey("name", equalTo:"Admin")
+                                roleQuery.whereKey("users", equalTo:currentUser)
+                                roleQuery.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
+                                        if object != nil {
+                                                self.presenter.fetchedCurrentUser(currentUser, isAdmin: true)
+                                        } else {
+                                                self.presenter.fetchedCurrentUser(currentUser, isAdmin: false)
+                                        }
+                                })
+                        }
                 } else {
                         presenter.failedFetchingCurrentUser()
                 }

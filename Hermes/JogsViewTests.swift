@@ -75,6 +75,14 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
                 }
         }
         
+        func userTappedDelete(jog: Jog) {
+                
+        }
+        
+        func userTappedJog(jog: Jog) {
+                
+        }
+        
         func userTappedLogout() {
                 if let exp = expectation {
                         if exp.description == "Presenter user tapped logout from logout tapped" {

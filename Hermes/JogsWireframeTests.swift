@@ -107,7 +107,7 @@ class JogsWireframeTests: XCTestCase,
                 
                 wireframe._addJogModule = self
                 
-                wireframe.presentAddJog()
+                wireframe.presentAddJog(nil)
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
@@ -157,7 +157,7 @@ class JogsWireframeTests: XCTestCase,
         }
         
         // MARK: - Add Jog Module Interface
-        func presentModallyOnViewController(viewController: AddJogModalViewController) {
+        func presentModallyOnViewController(viewController: AddJogModalViewController, jog: Jog?) {
                 if let exp = expectation {
                         if exp.description == "Add jog module present modally on view controller from present add jog" {
                                 exp.fulfill()

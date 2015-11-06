@@ -93,7 +93,7 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         func testPresentModallyOnViewControllerWithNonNilViewControllerShouldCallPresentViewControllerAnimatedTrueCompletionNil() {
                 expectation = expectationWithDescription("View controller present view controller from present modally on view controller")
                 
-                wireframe.presentModallyOnViewController(self)
+                wireframe.presentModallyOnViewController(self, jog: nil)
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
@@ -152,6 +152,9 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         }
         
         // MARK: - Routing
+        func presentingJog(jog: Jog) {
+                
+        }
         
         // MARK: - Add Jog Modal View Controller
         func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {

@@ -65,7 +65,7 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         func testUserTappedSaveWithDistance4DateApril231986Time60ShouldTellInteractorToSaveAJogWithDistance4DateApril231986Time60() {
                 expectation = expectationWithDescription("Interactor save jog from user tapped save")
                 
-                presenter.userTappedSave("4", date: NSDate(timeIntervalSince1970: 514623600), time: 60)
+                presenter.userTappedSave(nil, distance: "4", date: NSDate(timeIntervalSince1970: 514623600), time: 60)
                 
                 waitForExpectationsWithTimeout(5) {
                         (error: NSError?) -> Void in
@@ -91,6 +91,8 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         }
         
         // MARK: - View Interface
+        func showJog(jog: Jog) {
+        }
         
         // MARK: - Wireframe Interface
         func addJogFinished() {

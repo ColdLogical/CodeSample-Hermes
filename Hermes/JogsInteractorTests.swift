@@ -106,6 +106,14 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
         }
 
         // MARK: - Interactor Output
+        func deletedJog() {
+                
+        }
+        
+        func failedDeletingJog() {
+                
+        }
+        
         func failedFetchingCurrentUser() {
                 if let exp = expectation {
                         if exp.description == "Presenter failed fetching current user from fetch current user" {
@@ -114,7 +122,10 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput {
                 }
         }
         
-        func fetchedCurrentUser(currentUser: PFUser) {
+        func failedFetchingJogs() {
+        }
+        
+        func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool) {
                 if let exp = expectation {
                         if exp.description == "Presenter fetched current user from fetch current user" {
                                 exp.fulfill()
