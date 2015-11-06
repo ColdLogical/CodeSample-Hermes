@@ -14,7 +14,7 @@ class JogsView : UITableViewController, JogsViewInterface {
         lazy var presenter : JogsPresenterInterface = JogsPresenter()
         
         // MARK: - Instance Variables
-        var ascending: Bool = true
+        var ascending: Bool = false
         lazy var jogs = [Jog]()
         lazy var dateFormatter: NSDateFormatter = {
                 let f = NSDateFormatter()
