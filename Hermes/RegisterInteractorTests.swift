@@ -10,7 +10,7 @@ import Foundation
 import Parse
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInteractorUser {
         var interactor = RegisterInteractor()

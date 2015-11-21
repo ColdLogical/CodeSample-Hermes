@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class LoginViewTests: XCTestCase, LoginPresenterInterface {
         var view = LoginView()

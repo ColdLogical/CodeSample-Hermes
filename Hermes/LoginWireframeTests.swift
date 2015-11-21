@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRouting, LoginModalViewController, RegisterModuleInterface {
         var wireframe = LoginWireframe()

@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewInterface, RegisterWireframeInterface {
         var presenter = RegisterPresenter()

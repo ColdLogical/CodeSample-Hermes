@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         var view = RegisterView()

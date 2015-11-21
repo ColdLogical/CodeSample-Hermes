@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface, LoginWireframeInterface {
         var presenter = LoginPresenter()

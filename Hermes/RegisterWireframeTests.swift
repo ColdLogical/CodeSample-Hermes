@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Hermes
+@testable import Supremacy
 
 class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, RegisterNavigationController {
         var wireframe = RegisterWireframe()
