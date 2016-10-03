@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
+  - EVReflection (3.0.3)
+  - SwiftyJSON (3.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - AlamofireImage (~> 3.0)
+  - EVReflection (from `https://github.com/evermeer/EVReflection`, branch `Swift3`)
+  - SwiftyJSON (= 3.0.0)
+
+EXTERNAL SOURCES:
+  EVReflection:
+    :branch: Swift3
+    :git: https://github.com/evermeer/EVReflection
+
+CHECKOUT OPTIONS:
+  EVReflection:
+    :commit: ad676ba078b4d41742d0f1678127e4d564bb30ac
+    :git: https://github.com/evermeer/EVReflection
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
+  EVReflection: affca845a5584b102b84a9568f7a4cb65ad4b8e1
+  SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
+
+PODFILE CHECKSUM: 4a1023c30e01ec7bd9a35738857e0e70c18d5cad
+
+COCOAPODS: 1.1.0.rc.2
