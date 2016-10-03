@@ -16,7 +16,7 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         lazy var moduleInteractor = JogsInteractor()
         lazy var moduleNavigationController: UINavigationController = {
                 let sb = JogsWireframe.storyboard()
-                let v = sb.instantiateViewControllerWithIdentifier(kJogsNavigationControllerIdentifier) as! UINavigationController
+                let v = sb.instantiateViewController(withIdentifier: kJogsNavigationControllerIdentifier) as! UINavigationController
                 return v
         }()
         lazy var modulePresenter = JogsPresenter()
@@ -75,17 +75,17 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         }
 
 	class func storyboard() -> UIStoryboard {
-                return UIStoryboard(name: kJogsStoryboardIdentifier, bundle: NSBundle(forClass: JogsWireframe.self))
+                return UIStoryboard(name: kJogsStoryboardIdentifier, bundle: Bundle(for: JogsWireframe.self))
 	}
         
         // MARK: - Operational
-        func presentInWindow(window: JogsWindow) {
+        func presentInWindow(_ window: JogsWindow) {
                 window.rootViewController = moduleNavigationController
                 presenter.presentingJogs()
         }
         
         // MARK: - Wireframe Interface
-        func presentAddJog(jog: Jog?) {
+        func presentAddJog(_ jog: Jog?) {
                 addJogModule.presentModallyOnViewController(moduleNavigationController, jog: jog)
         }
         
@@ -94,19 +94,19 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         }
         
         // MARK: - Login Delegate
-        func loginCompleted(loginModule: LoginModuleInterface) {
+        func loginCompleted(_ loginModule: LoginModuleInterface) {
                 loginModule.dismiss()
                 _loginModule = nil
                 presenter.presentingJogs()
         }
         
         // MARK: - Add Jog Delegate
-        func addJogCancelled(addJogModule: AddJogModuleInterface) {
+        func addJogCancelled(_ addJogModule: AddJogModuleInterface) {
                 addJogModule.dismiss()
                 _addJogModule = nil
         }
         
-        func addJogComplete(addJogModule: AddJogModuleInterface) {
+        func addJogComplete(_ addJogModule: AddJogModuleInterface) {
                 addJogModule.dismiss()
                 _addJogModule = nil
                 presenter.presentingJogs()

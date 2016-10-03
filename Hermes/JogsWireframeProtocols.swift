@@ -20,12 +20,12 @@ protocol JogsDelegate : class {
 
 // Interface Abstraction for working with the VIPER Module
 protocol JogsModuleInterface : class {
-        func presentInWindow(window: JogsWindow)
+        func presentInWindow(_ window: JogsWindow)
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
 protocol JogsWireframeInterface : class {
-        func presentAddJog(jog: Jog?)
+        func presentAddJog(_ jog: Jog?)
         func presentLogin()
 }
 

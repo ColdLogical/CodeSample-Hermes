@@ -14,15 +14,15 @@ protocol JogsInteractorOutput : class {
         func failedFetchingCurrentUser()
         func failedFetchingJogs()
         func deletedJog()
-        func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool)
-        func fetchedJogs(jogs: [Jog])
+        func fetchedCurrentUser(_ currentUser: PFUser, isAdmin: Bool)
+        func fetchedJogs(_ jogs: [Jog])
 }
 
 // VIPER Interface for communication from View -> Presenter
 protocol JogsPresenterInterface : class {
         func userTappedAdd()
-        func userTappedDelete(jog: Jog)
-        func userTappedJog(jog: Jog)
+        func userTappedDelete(_ jog: Jog)
+        func userTappedJog(_ jog: Jog)
         func userTappedLogout()
 }
 

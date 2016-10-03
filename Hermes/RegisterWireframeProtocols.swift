@@ -14,13 +14,13 @@ let kRegisterViewIdentifier = "RegisterView"
 
 // VIPER Interface to the Module
 protocol RegisterDelegate : class {
-        func registrationCompleted(registrationModule: RegisterModuleInterface)
+        func registrationCompleted(_ registrationModule: RegisterModuleInterface)
 }
 
 // Interface Abstraction for working with the VIPER Module
 protocol RegisterModuleInterface : class {
-        func popViewFromNavigationController(navigationController: RegisterNavigationController)
-        func pushOnNavigationController(viewControllor: RegisterNavigationController)
+        func popViewFromNavigationController(_ navigationController: RegisterNavigationController)
+        func pushOnNavigationController(_ viewControllor: RegisterNavigationController)
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
@@ -29,6 +29,6 @@ protocol RegisterWireframeInterface : class {
 }
 
 protocol RegisterNavigationController : class {
-        func popViewControllerAnimated(animated: Bool) -> UIViewController?
-        func pushViewController(viewController: UIViewController, animated: Bool)
+        func popViewControllerAnimated(_ animated: Bool) -> UIViewController?
+        func pushViewController(_ viewController: UIViewController, animated: Bool)
 }

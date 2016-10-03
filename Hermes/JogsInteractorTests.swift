@@ -29,7 +29,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
                 expectation = nil;
         }
         
-        @objc func receivedNotification(notification: NSNotification) {
+        @objc func receivedNotification(_ notification: Notification) {
                 if let exp = expectation {
                         if exp.description == "User service log out from logout" {
                                 exp.fulfill()
@@ -39,7 +39,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         
         // MARK: - Operational
         func testSuccessFetchingJogsWith3JogsShouldTellPresenterFetched3Jogs() {
-                expectation = expectationWithDescription("Presenter fetched jogs from success fetching jogs")
+                expectation = self.expectation(withDescription: "Presenter fetched jogs from success fetching jogs")
                 
                 let j1 = Jog()
                 let j2 = Jog()
@@ -47,7 +47,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
                 
                 interactor.successFetchingJogs([j1, j2, j3])
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that jogs were fetched")
@@ -57,13 +57,13 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         
         // MARK: - Interactor Input
         func testFetchCurrentUserWithNilCurrentUserShouldCallPresenterFailedFetchingCurrentUser() {
-                expectation = expectationWithDescription("Presenter failed fetching current user from fetch current user")
+                expectation = self.expectation(withDescription: "Presenter failed fetching current user from fetch current user")
                 
                 interactor.userService = JogsInteractorUserServiceCurrentUserReturnsNil.self
                 
                 interactor.fetchCurrentUser()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("User Service current user never called")
@@ -72,14 +72,14 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         }
        
         func testFetchCurrentUserWithNonNilCurrentUserShouldCallRoleQueryGetObjectsInBackground() {
-                expectation = expectationWithDescription("Role query get objects in background from fetch current user")
+                expectation = self.expectation(withDescription: "Role query get objects in background from fetch current user")
                 
                 interactor.userService = JogsInteractorUserServiceCurrentUserReturnsUser.self
                 interactor.roleQuery = self
                 
                 interactor.fetchCurrentUser()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Role query never told to get objects in background")
@@ -88,14 +88,14 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         }
         
         func testFetchCurrentUserWithNonNilCurrentUserShouldCallRoleQueryWhereKeyNameEqualToAdmin() {
-                expectation = expectationWithDescription("Role query where key name equal to admin from fetch current user")
+                expectation = self.expectation(withDescription: "Role query where key name equal to admin from fetch current user")
                 
                 interactor.userService = JogsInteractorUserServiceCurrentUserReturnsUser.self
                 interactor.roleQuery = self
                 
                 interactor.fetchCurrentUser()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Role query never told to set name to admin")
@@ -105,14 +105,14 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         
         
         func testFetchCurrentUserWithNonNilCurrentUserShouldCallRoleQueryWhereKeyUsersEqualToCurrentUser() {
-                expectation = expectationWithDescription("Role query where key user equal to current user from fetch current user")
+                expectation = self.expectation(withDescription: "Role query where key user equal to current user from fetch current user")
                 
                 interactor.userService = JogsInteractorUserServiceCurrentUserReturnsUser.self
                 interactor.roleQuery = self
                 
                 interactor.fetchCurrentUser()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Role query never told to set user to current user")
@@ -121,16 +121,16 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         }
         
         func testLogoutWithAnythingShouldTellUserServiceToLogOut() {
-                expectation = expectationWithDescription("User service log out from logout")
+                expectation = self.expectation(withDescription: "User service log out from logout")
                 
                 interactor.userService = JogsInteractorUserServiceCurrentUserReturnsNil.self
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedNotification:", name: "User service log out from logout", object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(JogsInteractorTests.receivedNotification(_:)), name: NSNotification.Name(rawValue: "User service log out from logout"), object: nil)
                 
                 interactor.logout()
                 
-                NSNotificationCenter.defaultCenter().removeObserver(self)
+                NotificationCenter.default.removeObserver(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("User service never told to log out")
@@ -158,7 +158,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         func failedFetchingJogs() {
         }
         
-        func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool) {
+        func fetchedCurrentUser(_ currentUser: PFUser, isAdmin: Bool) {
                 if let exp = expectation {
                         if exp.description == "Presenter fetched current user from fetch current user" {
                                 exp.fulfill()
@@ -168,7 +168,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
                 }
         }
         
-        func fetchedJogs(jogs: [Jog]) {
+        func fetchedJogs(_ jogs: [Jog]) {
                 if let exp = expectation {
                         if exp.description == "Presenter fetched jogs from success fetching jogs" {
                                 exp.fulfill()
@@ -179,7 +179,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
         }
         
         // MARK: - Role Query Mocking
-        func getFirstObjectInBackgroundWithBlock(block: ((PFObject?, NSError?) -> Void)?) {
+        func getFirstObjectInBackgroundWithBlock(_ block: ((PFObject?, NSError?) -> Void)?) {
                 if let exp = expectation {
                         if exp.description == "Role query get objects in background from fetch current user" {
                                 exp.fulfill()
@@ -187,7 +187,7 @@ class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQ
                 }
         }
         
-        func whereKey(key: String, equalTo: AnyObject) -> Self {
+        func whereKey(_ key: String, equalTo: AnyObject) -> Self {
                 if let exp = expectation {
                         if exp.description == "Role query where key name equal to admin from fetch current user" &&
                                 key == "name" {
@@ -218,7 +218,7 @@ class JogsInteractorUserServiceCurrentUserReturnsNil : JogsInteractorUserService
         }
         
         class func logOut() {
-                NSNotificationCenter.defaultCenter().postNotificationName("User service log out from logout", object: nil)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "User service log out from logout"), object: nil)
         }
 }
 

@@ -21,8 +21,8 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         override func setUp() {
                 super.setUp()
 
-                let sb = UIStoryboard(name: kJogsStoryboardIdentifier, bundle: NSBundle(forClass: JogsView.self))
-                view = sb.instantiateViewControllerWithIdentifier(kJogsViewIdentifier) as! JogsView
+                let sb = UIStoryboard(name: kJogsStoryboardIdentifier, bundle: Bundle(for: JogsView.self))
+                view = sb.instantiateViewController(withIdentifier: kJogsViewIdentifier) as! JogsView
 		view.loadView()
                 view.presenter = self
 
@@ -39,11 +39,11 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         // MARK: - Operational
         func testAddJogsTappedWithAnythingShouldTellPresenterUserTappedAdd() {
-                expectation = expectationWithDescription("Presenter user tapped add from add jogs tapped")
+                expectation = self.expectation(withDescription: "Presenter user tapped add from add jogs tapped")
                 
                 view.addJogTapped(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that user tapped add")
@@ -65,13 +65,13 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         func testSortJogsWithAscendingFalseShouldSortJogsByDescendingDate() {
                 let j1 = Jog()
-                j1.date = NSDate(timeIntervalSince1970: 514598400)
+                j1.date = Date(timeIntervalSince1970: 514598400)
                 let j2 = Jog()
-                j2.date = NSDate(timeIntervalSince1970: 514623600)
+                j2.date = Date(timeIntervalSince1970: 514623600)
                 let j3 = Jog()
-                j3.date = NSDate(timeIntervalSince1970: 1000166400)
+                j3.date = Date(timeIntervalSince1970: 1000166400)
                 let j4 = Jog()
-                j4.date = NSDate(timeIntervalSince1970: 1000188000)
+                j4.date = Date(timeIntervalSince1970: 1000188000)
                 
                 view.jogs = [ j2, j4, j1, j3 ]
                 
@@ -82,13 +82,13 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         func testSortJogsWithAscendingTrueShouldSortJogsByAscendingDate() {
                 let j1 = Jog()
-                j1.date = NSDate(timeIntervalSince1970: 514598400)
+                j1.date = Date(timeIntervalSince1970: 514598400)
                 let j2 = Jog()
-                j2.date = NSDate(timeIntervalSince1970: 514623600)
+                j2.date = Date(timeIntervalSince1970: 514623600)
                 let j3 = Jog()
-                j3.date = NSDate(timeIntervalSince1970: 1000166400)
+                j3.date = Date(timeIntervalSince1970: 1000166400)
                 let j4 = Jog()
-                j4.date = NSDate(timeIntervalSince1970: 1000188000)
+                j4.date = Date(timeIntervalSince1970: 1000188000)
                 
                 view.jogs = [ j2, j4, j1, j3 ]
                 
@@ -98,11 +98,11 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         }
         
         func testLogoutTappedWithAnythingShouldTellPresenterUserTappedLogout() {
-                expectation = expectationWithDescription("Presenter user tapped logout from logout tapped")
+                expectation = self.expectation(withDescription: "Presenter user tapped logout from logout tapped")
                 
                 view.logoutTapped(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that user tapped logout")
@@ -112,7 +112,7 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         // MARK: - Table View Data Source
         func testTableViewCanEditRowAtIndexPathWithAnythingShouldReturnTrue() {
-                let result = view.tableView(view.tableView, canEditRowAtIndexPath: NSIndexPath.init(forRow: 0, inSection: 0))
+                let result = view.tableView(view.tableView, canEditRowAt: IndexPath.init(row: 0, section: 0))
                 
                 XCTAssertTrue(result, "Result should be true")
         }
@@ -121,10 +121,10 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
                 let jog = Jog()
                 jog.distance = 3.14
                 jog.time = 60*60 // 1 hour
-                jog.date = NSDate(timeIntervalSince1970: 514623600) //April 23, 1986 MST
+                jog.date = Date(timeIntervalSince1970: 514623600) //April 23, 1986 MST
                 view.jogs = [jog]
                 
-                let jogCell: JogCell = (view.tableView(view.tableView, cellForRowAtIndexPath: NSIndexPath.init(forRow: 0, inSection: 0)) as? JogCell)!
+                let jogCell: JogCell = (view.tableView(view.tableView, cellForRowAt: IndexPath.init(row: 0, section: 0)) as? JogCell)!
                 
                 XCTAssertEqual("April 23, 1986", jogCell.dateLabel!.text, "Date text should be April 22, 1986")
                 XCTAssertEqual("60 min", jogCell.timeLabel!.text, "Time text should be 60 min")
@@ -158,7 +158,7 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
                 let j1 = Jog()
                 j1.distance = 314
                 j1.time = 60*60*100
-                j1.date = NSDate()
+                j1.date = Date()
                 
                 view.jogs = [j1]
                 
@@ -169,16 +169,16 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         // MARK: - Table View Delegate
         func testTableViewDidSelectRowAtIndexPathWithJogAtIndexPathShouldTellPresenterJogWasTapped() {
-                expectation = expectationWithDescription("Presenter user tapped jog from did select row")
+                expectation = self.expectation(withDescription: "Presenter user tapped jog from did select row")
                 
                 let j1 = Jog()
                 j1.distance = 314159
                 
                 view.jogs = [ j1 ]
                 
-                view.tableView(view.tableView, didSelectRowAtIndexPath: NSIndexPath.init(forRow: 0, inSection: 0))
+                view.tableView(view.tableView, didSelectRowAt: IndexPath.init(row: 0, section: 0))
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told jog was tapped")
@@ -210,11 +210,11 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
                 }
         }
         
-        func userTappedDelete(jog: Jog) {
+        func userTappedDelete(_ jog: Jog) {
                 
         }
         
-        func userTappedJog(jog: Jog) {
+        func userTappedJog(_ jog: Jog) {
                 if let exp = expectation {
                         if exp.description == "Presenter user tapped jog from did select row" {
                                 exp.fulfill()

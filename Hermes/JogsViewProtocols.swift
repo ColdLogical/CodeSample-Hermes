@@ -10,5 +10,5 @@
 protocol JogsViewInterface : class {
         func showDeleteJogFailed()
         func showFetchingJogsFailed()
-        func showJogs(jogs: [Jog])
+        func showJogs(_ jogs: [Jog])
 }

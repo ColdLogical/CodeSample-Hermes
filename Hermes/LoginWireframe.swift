@@ -15,7 +15,7 @@ class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, R
         lazy var moduleInteractor = LoginInteractor()
         lazy var moduleNavigationController: UINavigationController = {
                 let sb = LoginWireframe.storyboard()
-                let v = sb.instantiateViewControllerWithIdentifier(kLoginNavigationControllerIdentifier) as! UINavigationController
+                let v = sb.instantiateViewController(withIdentifier: kLoginNavigationControllerIdentifier) as! UINavigationController
                 return v
         }()
         lazy var modulePresenter = LoginPresenter()
@@ -54,7 +54,7 @@ class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, R
         }
 
 	class func storyboard() -> UIStoryboard {
-                return UIStoryboard(name: kLoginStoryboardIdentifier, bundle: NSBundle(forClass: LoginWireframe.self))
+                return UIStoryboard(name: kLoginStoryboardIdentifier, bundle: Bundle(for: LoginWireframe.self))
 	}
         
         // MARK: - Module Interface
@@ -62,7 +62,7 @@ class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, R
                 view.dismissViewControllerAnimated(true, completion: nil)
         }
         
-        func presentModallyOnViewController(viewController: LoginModalViewController) {
+        func presentModallyOnViewController(_ viewController: LoginModalViewController) {
                 viewController.presentViewController(moduleNavigationController, animated: true, completion: nil);
         }
         
@@ -78,7 +78,7 @@ class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, R
         }
         
         // MARK: - Register Delegate
-        func registrationCompleted(registrationModule: RegisterModuleInterface) {
+        func registrationCompleted(_ registrationModule: RegisterModuleInterface) {
                 registrationModule.popViewFromNavigationController(moduleNavigationController)
                 if let d = delegate {
                         d.loginCompleted(self)

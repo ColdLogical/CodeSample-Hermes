@@ -47,13 +47,13 @@ class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, Jo
                 view.showFetchingJogsFailed()
         }
         
-        func fetchedCurrentUser(currentUser: PFUser, isAdmin: Bool) {
+        func fetchedCurrentUser(_ currentUser: PFUser, isAdmin: Bool) {
                 self.currentUser = currentUser
                 currentUserIsAdmin = isAdmin
                 fetchJogsBasedOnAdminStatus()
         }
         
-        func fetchedJogs(jogs: [Jog]) {
+        func fetchedJogs(_ jogs: [Jog]) {
                 view.showJogs(jogs)
         }
         
@@ -62,11 +62,11 @@ class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, Jo
                 wireframe.presentAddJog(nil)
         }
         
-        func userTappedDelete(jog: Jog) {
+        func userTappedDelete(_ jog: Jog) {
                 interactor.deleteJog(jog)
         }
         
-        func userTappedJog(jog: Jog) {
+        func userTappedJog(_ jog: Jog) {
                 wireframe.presentAddJog(jog)
         }
         

@@ -55,32 +55,32 @@ class JogsWireframeTests: XCTestCase,
         // MARK: - Lazy Loaders
         func testJogsInteractorLazyLoaderWithNilValueShouldInstantiateInteractor() {
                 XCTAssertNotNil (wireframe.moduleInteractor, "Lazy loader should create a new interactor if it doesnt exist")
-                XCTAssertTrue (wireframe.moduleInteractor.isKindOfClass(JogsInteractor), "Lazily loader should create an instance of JogsInteractor")
+                XCTAssertTrue (wireframe.moduleInteractor.isKind(of: JogsInteractor.self), "Lazily loader should create an instance of JogsInteractor")
         }
 
         func testJogsPresenterLazyLoaderWithNilValueShouldInstantiatePresenter() {
                 XCTAssertNotNil (wireframe.modulePresenter, "Lazy loader should create a new presenter if it doesnt exist")
-                XCTAssertTrue (wireframe.modulePresenter.isKindOfClass(JogsPresenter), "Lazily loader should create an instance of JogsPresenter")
+                XCTAssertTrue (wireframe.modulePresenter.isKind(of: JogsPresenter.self), "Lazily loader should create an instance of JogsPresenter")
         }
 
         func testJogsViewLazyLoaderWithNilValueShouldInstantiateView() {
                 XCTAssertNotNil (wireframe.moduleView, "Lazy loader should create a new view if it doesnt exist")
-                XCTAssertTrue (wireframe.moduleView.isKindOfClass(JogsView), "Lazily loader should create an instance of JogsView")
+                XCTAssertTrue (wireframe.moduleView.isKind(of: JogsView.self), "Lazily loader should create an instance of JogsView")
         }
 
         func testStoryboardWithNothingShouldReturnStoryboardWithkJogsStoryboardIdentifier() {
                 let storyboard = JogsWireframe.storyboard()
                 
-                XCTAssertEqual (kJogsStoryboardIdentifier, storyboard.valueForKey("name") as? String, "Storyboard identifier should be the constant identifier defined in the JogsWireframeProtocols file")
+                XCTAssertEqual (kJogsStoryboardIdentifier, storyboard.value(forKey: "name") as? String, "Storyboard identifier should be the constant identifier defined in the JogsWireframeProtocols file")
         }
 
         // MARK: - Operational
         func testPresentInWindowWithNonNilWindowShouldSetRootViewControllerToModuleNavigationController() {
-                expectation = expectationWithDescription("Window set root view controller to module navigation controller")
+                expectation = self.expectation(withDescription: "Window set root view controller to module navigation controller")
                 
                 wireframe.presentInWindow(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Window's root view controller was not set to the module navigation controller")
@@ -89,11 +89,11 @@ class JogsWireframeTests: XCTestCase,
         }
         
         func testPresentInWindowWithAnythingShouldTellPresenterPresentingJogs() {
-                expectation = expectationWithDescription("Presenter told presenting jogs from wireframe present in window")
+                expectation = self.expectation(withDescription: "Presenter told presenting jogs from wireframe present in window")
                 
                 wireframe.presentInWindow(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told the module is presenting jogs")
@@ -103,13 +103,13 @@ class JogsWireframeTests: XCTestCase,
         
         // MARK: - Wireframe Interface
         func testPresentAddJogWithAnythingShouldCallAddJogModulePresentModallyOnViewController() {
-                expectation = expectationWithDescription("Add jog module present modally on view controller from present add jog")
+                expectation = self.expectation(withDescription: "Add jog module present modally on view controller from present add jog")
                 
                 wireframe._addJogModule = self
                 
                 wireframe.presentAddJog(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Add jog module never told to present modally on view controller")
@@ -118,13 +118,13 @@ class JogsWireframeTests: XCTestCase,
         }
         
         func testPresentLoginWithAnythingShouldTellLoginModuleToPresentModallyOnJogsModuleNavigationController() {
-                expectation = expectationWithDescription("Login module present modally on view controller from present login")
+                expectation = self.expectation(withDescription: "Login module present modally on view controller from present login")
                 
                 wireframe._loginModule = self
                 
                 wireframe.presentLogin()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Login Module never told to present modally")
@@ -157,7 +157,7 @@ class JogsWireframeTests: XCTestCase,
         }
         
         // MARK: - Add Jog Module Interface
-        func presentModallyOnViewController(viewController: AddJogModalViewController, jog: Jog?) {
+        func presentModallyOnViewController(_ viewController: AddJogModalViewController, jog: Jog?) {
                 if let exp = expectation {
                         if exp.description == "Add jog module present modally on view controller from present add jog" {
                                 exp.fulfill()
@@ -169,13 +169,13 @@ class JogsWireframeTests: XCTestCase,
         
         // MARK: - Login Delegate
         func testLoginCompletedWithAnythingShouldTellThatLoginModuleToDismiss() {
-                expectation = expectationWithDescription("Dismiss from login completed")
+                expectation = self.expectation(withDescription: "Dismiss from login completed")
                 
                 wireframe.loginCompleted(self)
                 
                 XCTAssertNil(wireframe._loginModule, "Login module should be nil")
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Login module never told to dismiss")
@@ -185,11 +185,11 @@ class JogsWireframeTests: XCTestCase,
         
         // MARK: - Add Jog Delegate
         func testAddJogCancelledWithNonNilModuleShouldTellModuleToDismissAndSetWireframeAddJogModuleToNil() {
-                expectation = expectationWithDescription("Dismiss from add jog cancelled")
+                expectation = self.expectation(withDescription: "Dismiss from add jog cancelled")
                 
                 wireframe.addJogCancelled(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Module never told to dismiss")
@@ -198,11 +198,11 @@ class JogsWireframeTests: XCTestCase,
         }
         
         func testAddJogCompleteWithNonNilModuleShouldTellModuleToDismissAndSetWireframeAddJogModuleToNil() {
-                expectation = expectationWithDescription("Dismiss from add jog cancelled")
+                expectation = self.expectation(withDescription: "Dismiss from add jog cancelled")
                 
                 wireframe.addJogComplete(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Module never told to dismiss")
@@ -225,7 +225,7 @@ class JogsWireframeTests: XCTestCase,
                 }
         }
         
-        func presentModallyOnViewController(viewController: LoginModalViewController) {
+        func presentModallyOnViewController(_ viewController: LoginModalViewController) {
                 if let exp = expectation {
                         if exp.description == "Login module present modally on view controller from present login" {
                                 exp.fulfill()

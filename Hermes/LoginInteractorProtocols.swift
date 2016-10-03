@@ -10,9 +10,9 @@ import Parse
 
 // VIPER Interface for communication from Presenter to Interactor
 protocol LoginInteractorInput : class {
-        func login(username: String, password: String)
+        func login(_ username: String, password: String)
 }
 
 protocol LoginInteractorUser {
-        static func logInWithUsernameInBackground(username: String, password: String, block: PFUserResultBlock?)
+        static func logInWithUsernameInBackground(_ username: String, password: String, block: PFUserResultBlock?)
 }

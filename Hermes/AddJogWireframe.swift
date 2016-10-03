@@ -13,7 +13,7 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
         lazy var moduleInteractor = AddJogInteractor()
         lazy var moduleNavigationController: UINavigationController = {
                 let sb = AddJogWireframe.storyboard()
-                let v = sb.instantiateViewControllerWithIdentifier(kAddJogNavigationControllerIdentifier) as! UINavigationController
+                let v = sb.instantiateViewController(withIdentifier: kAddJogNavigationControllerIdentifier) as! UINavigationController
                 return v
         }()
         lazy var modulePresenter = AddJogPresenter()
@@ -46,7 +46,7 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
         }
 
 	class func storyboard() -> UIStoryboard {
-                return UIStoryboard(name: kAddJogStoryboardIdentifier, bundle: NSBundle(forClass: AddJogWireframe.self))
+                return UIStoryboard(name: kAddJogStoryboardIdentifier, bundle: Bundle(for: AddJogWireframe.self))
 	}
         
         // MARK: - Operational
@@ -56,7 +56,7 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
                 view.dismissViewControllerAnimated(true, completion: nil)
         }
         
-        func presentModallyOnViewController(viewController: AddJogModalViewController, jog: Jog?) {
+        func presentModallyOnViewController(_ viewController: AddJogModalViewController, jog: Jog?) {
                 viewController.presentViewController(moduleNavigationController, animated: true, completion: nil);
                 
                 if let j = jog {

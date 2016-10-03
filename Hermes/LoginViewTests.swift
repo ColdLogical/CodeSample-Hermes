@@ -21,7 +21,7 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         override func setUp() {
                 super.setUp()
 
-                let sb = UIStoryboard(name: kLoginStoryboardIdentifier, bundle: NSBundle(forClass: LoginView.self))
+                let sb = UIStoryboard(name: kLoginStoryboardIdentifier, bundle: Bundle(forClass: LoginView.self))
                 view = sb.instantiateViewControllerWithIdentifier(kLoginViewIdentifier) as! LoginView
 		view.loadView()
                 view.presenter = self
@@ -39,14 +39,14 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         
         // MARK: - Operational
         func testLoginTappedWithUsernameIAmPasswordAwesomeShouldTellPresenterUserTappedRegisterWithUsernameIAmPasswordAwesome() {
-                expectation = expectationWithDescription("Presenter user tapped login from login tapped")
+                expectation = self.expectation(withDescription: "Presenter user tapped login from login tapped")
                 
                 view.usernameField!.text = "I Am"
                 view.passwordField!.text = "Awesome"
                 
                 view.loginTapped(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that login was tapped")
@@ -72,11 +72,11 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         }
         
         func testRegisterTappedWithAnythingShouldTellPresenterUserTappedRegister() {
-                expectation = expectationWithDescription("Presenter user tapped register from register tapped")
+                expectation = self.expectation(withDescription: "Presenter user tapped register from register tapped")
                 
                 view.registerTapped(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that register was tapped")
@@ -93,7 +93,7 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         }
 
         // MARK: - Presenter Interface
-        func userTappedLogin(username: String, password: String) {
+        func userTappedLogin(_ username: String, password: String) {
                 if let exp = expectation {
                         if exp.description == "Presenter user tapped login from login tapped" {
                                 exp.fulfill()

@@ -10,11 +10,11 @@ import Parse
 
 // VIPER Interface for communication from Presenter to Interactor
 protocol RegisterInteractorInput : class {
-        func registerUser(username: String, password: String)
+        func registerUser(_ username: String, password: String)
 }
 
 protocol RegisterInteractorUser : class {
-        func signUpInBackgroundWithBlock(block: PFBooleanResultBlock?)
+        func signUpInBackgroundWithBlock(_ block: PFBooleanResultBlock?)
         
         var password : String? { get set }
         var username : String? { get set }

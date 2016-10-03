@@ -20,7 +20,7 @@ class RegisterView : UIViewController, RegisterViewInterface {
         @IBOutlet var usernameField: UITextField?
         
         // MARK: - Operational
-        @IBAction func registerTapped(sender: AnyObject?) {
+        @IBAction func registerTapped(_ sender: AnyObject?) {
                 let username = usernameField!.text
                 let password = passwordField!.text
                 
@@ -38,9 +38,9 @@ class RegisterView : UIViewController, RegisterViewInterface {
         }
         
         // MARK: - View Interface
-        func showMessage(message: String) {
+        func showMessage(_ message: String) {
                 if let ml = self.messageLabel {
-                        ml.hidden = false
+                        ml.isHidden = false
                         ml.text = message
                 }
         }

@@ -19,11 +19,7 @@
 		0121E7891BE6B80A00C9BED5 /* AddJogPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */; };
 		0121E78A1BE6B80A00C9BED5 /* AddJogViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */; };
 		0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */; };
-		0121E7901BE6B87E00C9BED5 /* AddJog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */; };
 		0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7931BE6BB2200C9BED5 /* Jog.swift */; };
-		0121E7971BEAE78000C9BED5 /* JogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7961BEAE78000C9BED5 /* JogCell.swift */; };
-		0124D1621BE54DD500E10F48 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1611BE54DD500E10F48 /* Jogs.storyboard */; };
-		0124D1641BE54EE900E10F48 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1631BE54EE900E10F48 /* LaunchScreen.xib */; };
 		0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */; };
 		0124D16E1BE54FD300E10F48 /* RegisterInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */; };
 		0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1671BE54FD300E10F48 /* RegisterPresenter.swift */; };
@@ -36,7 +32,6 @@
 		0124D17A1BE54FE100E10F48 /* RegisterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1761BE54FE100E10F48 /* RegisterPresenterTests.swift */; };
 		0124D17B1BE54FE100E10F48 /* RegisterViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */; };
 		0124D17C1BE54FE100E10F48 /* RegisterWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */; };
-		0124D1821BE5501300E10F48 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0124D1811BE5501300E10F48 /* Register.storyboard */; };
 		012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D77B51BE0728B004F7A2C /* AppDelegate.swift */; };
 		0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7C1BE5418D008A322C /* JogsInteractor.swift */; };
 		0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */; };
@@ -70,6 +65,11 @@
 		0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		0196F9951BE583AD003A95C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
+		01C6391F1DA2E81500137219 /* AddJog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C6391E1DA2E81500137219 /* AddJog.storyboard */; };
+		01C639241DA2E82900137219 /* JogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C639201DA2E82900137219 /* JogCell.swift */; };
+		01C639251DA2E82900137219 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639211DA2E82900137219 /* Jogs.storyboard */; };
+		01C639261DA2E82900137219 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C639221DA2E82900137219 /* LaunchScreen.xib */; };
+		01C639271DA2E82900137219 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639231DA2E82900137219 /* Register.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816B1A49DB6800E65899 /* Bolts.framework */; };
 		81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816C1A49DB6800E65899 /* Parse.framework */; };
@@ -102,12 +102,8 @@
 		0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogPresenterTests.swift; path = Hermes/AddJogPresenterTests.swift; sourceTree = "<group>"; };
 		0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogViewTests.swift; path = Hermes/AddJogViewTests.swift; sourceTree = "<group>"; };
 		0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogWireframeTests.swift; path = Hermes/AddJogWireframeTests.swift; sourceTree = "<group>"; };
-		0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddJog.storyboard; sourceTree = "<group>"; };
 		0121E7931BE6BB2200C9BED5 /* Jog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jog.swift; path = Hermes/Jog.swift; sourceTree = "<group>"; };
 		0121E7951BE6BB6400C9BED5 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = ../BridgingHeader.h; sourceTree = "<group>"; };
-		0121E7961BEAE78000C9BED5 /* JogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JogCell.swift; sourceTree = "<group>"; };
-		0124D1611BE54DD500E10F48 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Jogs.storyboard; sourceTree = "<group>"; };
-		0124D1631BE54EE900E10F48 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractor.swift; path = Hermes/RegisterInteractor.swift; sourceTree = "<group>"; };
 		0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractorProtocols.swift; path = Hermes/RegisterInteractorProtocols.swift; sourceTree = "<group>"; };
 		0124D1671BE54FD300E10F48 /* RegisterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPresenter.swift; path = Hermes/RegisterPresenter.swift; sourceTree = "<group>"; };
@@ -120,7 +116,6 @@
 		0124D1761BE54FE100E10F48 /* RegisterPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterPresenterTests.swift; path = Hermes/RegisterPresenterTests.swift; sourceTree = "<group>"; };
 		0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewTests.swift; path = Hermes/RegisterViewTests.swift; sourceTree = "<group>"; };
 		0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterWireframeTests.swift; path = Hermes/RegisterWireframeTests.swift; sourceTree = "<group>"; };
-		0124D1811BE5501300E10F48 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		012D77B51BE0728B004F7A2C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Hermes/AppDelegate.swift; sourceTree = "<group>"; };
 		0190DD7C1BE5418D008A322C /* JogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractor.swift; path = Hermes/JogsInteractor.swift; sourceTree = "<group>"; };
 		0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorProtocols.swift; path = Hermes/JogsInteractorProtocols.swift; sourceTree = "<group>"; };
@@ -150,6 +145,11 @@
 		0190DDB21BE54217008A322C /* HermesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesTests.swift; sourceTree = "<group>"; };
 		0190DDB41BE54217008A322C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0190DDCC1BE543D2008A322C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Hermes/Login.storyboard; sourceTree = "<group>"; };
+		01C6391E1DA2E81500137219 /* AddJog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AddJog.storyboard; path = Hermes/AddJog.storyboard; sourceTree = "<group>"; };
+		01C639201DA2E82900137219 /* JogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogCell.swift; path = Hermes/JogCell.swift; sourceTree = "<group>"; };
+		01C639211DA2E82900137219 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Jogs.storyboard; path = Hermes/Jogs.storyboard; sourceTree = "<group>"; };
+		01C639221DA2E82900137219 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Hermes/LaunchScreen.xib; sourceTree = "<group>"; };
+		01C639231DA2E82900137219 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = Hermes/Register.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +260,7 @@
 		0124D1801BE5500500E10F48 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				0124D1811BE5501300E10F48 /* Register.storyboard */,
+				01C639231DA2E82900137219 /* Register.storyboard */,
 				0124D17E1BE54FF900E10F48 /* Data Logic */,
 				0124D17D1BE54FF300E10F48 /* Routing */,
 				0124D17F1BE54FFF00E10F48 /* User Interface */,
@@ -272,7 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				012D77B51BE0728B004F7A2C /* AppDelegate.swift */,
-				0124D1631BE54EE900E10F48 /* LaunchScreen.xib */,
+				01C639221DA2E82900137219 /* LaunchScreen.xib */,
 				0190DD6B1BE53C3B008A322C /* Jogs */,
 				0190DD571BE53C0B008A322C /* Login */,
 			);
@@ -354,7 +354,7 @@
 				0190DD8E1BE541A5008A322C /* JogsView.swift */,
 				0190DD901BE541A5008A322C /* JogsViewTests.swift */,
 				0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */,
-				0121E7961BEAE78000C9BED5 /* JogCell.swift */,
+				01C639201DA2E82900137219 /* JogCell.swift */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -362,7 +362,7 @@
 		0190DD6B1BE53C3B008A322C /* Jogs */ = {
 			isa = PBXGroup;
 			children = (
-				0124D1611BE54DD500E10F48 /* Jogs.storyboard */,
+				01C639211DA2E82900137219 /* Jogs.storyboard */,
 				0190DD681BE53C20008A322C /* Data Logic */,
 				0190DD691BE53C2A008A322C /* Routing */,
 				0190DD6A1BE53C2E008A322C /* User Interface */,
@@ -384,7 +384,7 @@
 		01A799291BE6A05E00C82359 /* Add Jog */ = {
 			isa = PBXGroup;
 			children = (
-				0121E78F1BE6B87E00C9BED5 /* AddJog.storyboard */,
+				01C6391E1DA2E81500137219 /* AddJog.storyboard */,
 				0121E78E1BE6B82500C9BED5 /* Data Logic */,
 				0121E78C1BE6B81700C9BED5 /* Routing */,
 				0121E78D1BE6B82000C9BED5 /* User Interface */,
@@ -488,15 +488,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Cold and Logical";
 				TargetAttributes = {
 					0190DDAF1BE54217008A322C = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 81BA81441A49DA1800E65899;
 					};
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -531,12 +533,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0124D1641BE54EE900E10F48 /* LaunchScreen.xib in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */,
-				0121E7901BE6B87E00C9BED5 /* AddJog.storyboard in Resources */,
-				0124D1621BE54DD500E10F48 /* Jogs.storyboard in Resources */,
-				0124D1821BE5501300E10F48 /* Register.storyboard in Resources */,
+				01C639261DA2E82900137219 /* LaunchScreen.xib in Resources */,
+				01C639251DA2E82900137219 /* Jogs.storyboard in Resources */,
+				01C6391F1DA2E81500137219 /* AddJog.storyboard in Resources */,
+				01C639271DA2E82900137219 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,11 +610,11 @@
 				0190DD971BE541AF008A322C /* LoginInteractor.swift in Sources */,
 				0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */,
 				0121E77E1BE6B7FE00C9BED5 /* AddJogPresenter.swift in Sources */,
+				01C639241DA2E82900137219 /* JogCell.swift in Sources */,
 				0121E7801BE6B7FE00C9BED5 /* AddJogView.swift in Sources */,
 				0190DDA91BE541BF008A322C /* LoginView.swift in Sources */,
 				0124D1701BE54FD300E10F48 /* RegisterPresenterProtocols.swift in Sources */,
 				0124D1721BE54FD300E10F48 /* RegisterViewProtocols.swift in Sources */,
-				0121E7971BEAE78000C9BED5 /* JogCell.swift in Sources */,
 				0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */,
 				0121E7831BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift in Sources */,
 				0121E77D1BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift in Sources */,
@@ -654,6 +656,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ColdAndLogical.HermesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hermes.app/Hermes";
 			};
 			name = Debug;
@@ -675,6 +678,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ColdAndLogical.HermesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hermes.app/Hermes";
 			};
 			name = Release;
@@ -692,15 +696,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -713,7 +721,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -735,8 +743,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -744,15 +754,17 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -771,9 +783,11 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Hermes;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -790,8 +804,10 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Hermes;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -8,5 +8,5 @@
 
 // VIPER Interface for communication from Presenter to Interactor
 protocol AddJogInteractorInput : class {
-        func saveJog(jog: Jog)
+        func saveJog(_ jog: Jog)
 }

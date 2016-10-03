@@ -54,13 +54,13 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
         
         // MARK: - Operational
         func testSignUpFailedWithAnythingShouldTellPresenterSignUpFailed() {
-                expectation = expectationWithDescription("Presenter sign up failure from interactor sign up failed")
+                expectation = self.expectation(withDescription: "Presenter sign up failure from interactor sign up failed")
                 
                 let error = NSError(domain: "Muldor", code: 666, userInfo: nil)
                 
                 interactor.signUpFailed(error)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that sign up failed")
@@ -68,11 +68,11 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
                 }
         }
         func testSignUpSucceededWithAnythingShouldTellPresenterSignUpSuccess() {
-                expectation = expectationWithDescription("Presenter sign up success from interactor sign up succeeded")
+                expectation = self.expectation(withDescription: "Presenter sign up success from interactor sign up succeeded")
                 
                 interactor.signUpSucceeded()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that sign up success")
@@ -82,13 +82,13 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
 
         // MARK: - Interactor Input
         func testRegisterUserWithPasswordAwesomeShouldSetNewUserPasswordToAwesome() {
-                expectation = expectationWithDescription("New user set password from register user")
+                expectation = self.expectation(withDescription: "New user set password from register user")
                 
                 interactor.newUser = self
                 
                 interactor.registerUser("Anything", password: "Awesome")
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("New user never told to set password")
@@ -97,13 +97,13 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
         }
         
         func testRegisterUserWithUsernameIAmShouldSetNewUsersUsernameToIAm() {
-                expectation = expectationWithDescription("New user set username from register user")
+                expectation = self.expectation(withDescription: "New user set username from register user")
                 
                 interactor.newUser = self
                 
                 interactor.registerUser("I Am", password: "Anything")
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("New user never told to set username")
@@ -112,13 +112,13 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
         }
         
         func testRegisterUserWithAnythingShouldTellNewUserToSignUpInBackground() {
-                expectation = expectationWithDescription("New user sign up in background from register user")
+                expectation = self.expectation(withDescription: "New user sign up in background from register user")
                 
                 interactor.newUser = self
                 
                 interactor.registerUser("Anything", password: "Anything")
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("New user never told to set username")
@@ -127,7 +127,7 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
         }
 
         // MARK: - Interactor Output
-        func signUpFailure(error: NSError?) {
+        func signUpFailure(_ error: NSError?) {
                 if let exp = expectation {
                         if exp.description == "Presenter sign up failure from interactor sign up failed" {
                                 exp.fulfill()
@@ -146,7 +146,7 @@ class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInt
         }
         
         // MARK: - RegisterInteractorUser
-        func signUpInBackgroundWithBlock(block: PFBooleanResultBlock?) {
+        func signUpInBackgroundWithBlock(_ block: PFBooleanResultBlock?) {
                 if let exp = expectation {
                         if exp.description == "New user sign up in background from register user" {
                                 exp.fulfill()

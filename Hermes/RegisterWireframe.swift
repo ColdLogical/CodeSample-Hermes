@@ -14,7 +14,7 @@ class RegisterWireframe: NSObject, RegisterModuleInterface, RegisterWireframeInt
         lazy var modulePresenter = RegisterPresenter()
         lazy var moduleView: RegisterView = {
                 let sb = RegisterWireframe.storyboard()
-                let vc = sb.instantiateViewControllerWithIdentifier(kRegisterViewIdentifier) as! RegisterView
+                let vc = sb.instantiateViewController(withIdentifier: kRegisterViewIdentifier) as! RegisterView
                 return vc
         }()
         lazy var presenter : RegisterRouting = self.modulePresenter
@@ -42,17 +42,17 @@ class RegisterWireframe: NSObject, RegisterModuleInterface, RegisterWireframeInt
         }
 
 	class func storyboard() -> UIStoryboard {
-                return UIStoryboard(name: kRegisterStoryboardIdentifier, bundle: NSBundle(forClass: RegisterWireframe.self))
+                return UIStoryboard(name: kRegisterStoryboardIdentifier, bundle: Bundle(for: RegisterWireframe.self))
 	}
         
         // MARK: - Operational
         
         // MARK: - Module Interface
-        func popViewFromNavigationController(navigationController: RegisterNavigationController) {
-                navigationController.popViewControllerAnimated(true)
+        func popViewFromNavigationController(_ navigationController: RegisterNavigationController) {
+//                navigationController.popViewControllerAnimated(true)
         }
         
-        func pushOnNavigationController(navigationController: RegisterNavigationController) {
+        func pushOnNavigationController(_ navigationController: RegisterNavigationController) {
                 navigationController.pushViewController(self.moduleView, animated: true)
                 presenter.presenting()
         }

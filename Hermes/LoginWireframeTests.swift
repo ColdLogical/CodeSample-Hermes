@@ -74,13 +74,13 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
 
         // MARK: - Module Interface
         func testDismissWithAnythingShouldTellViewToDismissViewControllerAnimatedTrueAndNilCompletion() {
-                expectation = expectationWithDescription("Dismiss view controller animated from dismiss ")
+                expectation = self.expectation(withDescription: "Dismiss view controller animated from dismiss ")
                 
                 wireframe.view = self;
                 
                 wireframe.dismiss()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to dismiss view controller")
@@ -89,11 +89,11 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         func testPresentModallyOnViewControllerWithNonNilViewControllerShouldCallPresentViewControllerOnTheViewControllerPassedIn() {
-                expectation = expectationWithDescription("View controller present view controller from present modally on view controller")
+                expectation = self.expectation(withDescription: "View controller present view controller from present modally on view controller")
                 
                 wireframe.presentModallyOnViewController(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("View controller never told to present view controller")
@@ -103,11 +103,11 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         
         // MARK: - Wireframe Interface
         func testLoginFinishedWithNonNilDelegateShouldTellDelegateLoginCompleted() {
-                expectation = expectationWithDescription("Delegate login completed from login finished")
+                expectation = self.expectation(withDescription: "Delegate login completed from login finished")
                 
                 wireframe.loginFinished()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that login completed")
@@ -116,13 +116,13 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         func testPresentRegisterWithAnythingShouldTellRegisterModuleToPushOntoModulesNavigationController() {
-                expectation = expectationWithDescription("Register module push on navigation controller from present register")
+                expectation = self.expectation(withDescription: "Register module push on navigation controller from present register")
                 
                 wireframe.registerModule = self
                 
                 wireframe.presentRegister()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Register module never told to push onto login's navigation controller")
@@ -132,11 +132,11 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         
         // MARK: - Register Delegate
         func testRegistrationCompletedWithAnythingShouldTellThatRegisterModuleToPopView() {
-                expectation = expectationWithDescription("Register module pop view from registration completed")
+                expectation = self.expectation(withDescription: "Register module pop view from registration completed")
                 
                 wireframe.registrationCompleted(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Register module never told to pop view")
@@ -145,11 +145,11 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         func testRegistrationCompletedWithNonNilDelegateShouldTellDelegateLoginCompleted() {
-                expectation = expectationWithDescription("Delegate login completed from registration completed")
+                expectation = self.expectation(withDescription: "Delegate login completed from registration completed")
                 
                 wireframe.registrationCompleted(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that login was completed")
@@ -158,7 +158,7 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         // MARK: - Delegate
-        func loginCompleted(loginModule: LoginModuleInterface) {
+        func loginCompleted(_ loginModule: LoginModuleInterface) {
                 if let exp = expectation {
                         if exp.description == "Delegate login completed from registration completed" ||
                                 exp.description == "Delegate login completed from login finished" {
@@ -172,7 +172,7 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         // MARK: - Login Navigation
-        func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+        func dismissViewControllerAnimated(_ flag: Bool, completion: (() -> Void)?) {
                 if let exp = expectation {
                         if exp.description == "Dismiss view controller animated from dismiss " {
                                 exp.fulfill()
@@ -186,7 +186,7 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         // MARK: - Routing
         
         // MARK: - LoginModalViewController
-        func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+        func presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
                 if let exp = expectation {
                         if exp.description == "View controller present view controller from present modally on view controller" {
                                 exp.fulfill()
@@ -199,7 +199,7 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         // MARK: - Register Module Interface
-        func popViewFromNavigationController(navigationController: RegisterNavigationController) {
+        func popViewFromNavigationController(_ navigationController: RegisterNavigationController) {
                 if let exp = expectation {
                         if exp.description == "Register module pop view from registration completed" {
                                 exp.fulfill()
@@ -209,7 +209,7 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
                 }
         }
         
-        func pushOnNavigationController(viewController: RegisterNavigationController) {
+        func pushOnNavigationController(_ viewController: RegisterNavigationController) {
                 if let exp = expectation {
                         if exp.description == "Register module push on navigation controller from present register" {
                                 exp.fulfill()

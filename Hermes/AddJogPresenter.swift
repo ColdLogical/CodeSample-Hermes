@@ -33,7 +33,7 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
                 wireframe.cancelAddJog()
         }
         
-        func userTappedSave(jog: Jog?, distance: String, date: NSDate, time: NSTimeInterval) {
+        func userTappedSave(_ jog: Jog?, distance: String, date: Date, time: TimeInterval) {
                 var currentJog: Jog
                 if let j = jog {
                         currentJog = j
@@ -48,7 +48,7 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
                         currentJog.distance = d
                 }
                 
-                if let u = PFUser.currentUser() {
+                if let u = PFUser.current() {
                         currentJog.user = u
                 }
                 
@@ -56,7 +56,7 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
         }
         
         // MARK: - Routing
-        func presentingJog(jog: Jog) {
+        func presentingJog(_ jog: Jog) {
                 view.showJog(jog)
         }
 }

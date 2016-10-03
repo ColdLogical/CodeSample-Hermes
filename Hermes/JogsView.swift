@@ -16,22 +16,22 @@ class JogsView : UITableViewController, JogsViewInterface {
         // MARK: - Instance Variables
         var ascending: Bool = false
         lazy var jogs = [Jog]()
-        lazy var dateFormatter: NSDateFormatter = {
-                let f = NSDateFormatter()
-                f.dateStyle = NSDateFormatterStyle.LongStyle
+        lazy var dateFormatter: DateFormatter = {
+                let f = DateFormatter()
+                f.dateStyle = DateFormatter.Style.long
                 return f
         }()
         
         // MARK: - Outlets
-        @IBAction func addJogTapped(sender: AnyObject?) {
+        @IBAction func addJogTapped(_ sender: AnyObject?) {
                 presenter.userTappedAdd()
         }
         
-        @IBAction func logoutTapped(sender: AnyObject?) {
+        @IBAction func logoutTapped(_ sender: AnyObject?) {
                 presenter.userTappedLogout()
         }
         
-        @IBAction func sortByDate(sender: AnyObject?) {
+        @IBAction func sortByDate(_ sender: AnyObject?) {
                 ascending = !ascending
                 sortJogs(ascending)
                 tableView.reloadData()
@@ -42,9 +42,9 @@ class JogsView : UITableViewController, JogsViewInterface {
                 let pastWeekJogs = jogsForPastSevenDays(jogs)
                 
                 let distance = distanceForPastWeek()
-                var time: NSTimeInterval = 0
+                var time: TimeInterval = 0
                 
-                for (_, jog) in pastWeekJogs.enumerate() {
+                for (_, jog) in pastWeekJogs.enumerated() {
                         time += jog.time
                 }
                 
@@ -63,26 +63,26 @@ class JogsView : UITableViewController, JogsViewInterface {
                 
                 var distance: Double = 0
                 
-                for (_, jog) in pastWeekJogs.enumerate() {
+                for (_, jog) in pastWeekJogs.enumerated() {
                         distance += jog.distance
                 }
                 
                 return distance
         }
         
-        func jogsForPastSevenDays(jogs: [Jog]) -> [Jog] {
-                let aWeekAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -7, toDate: NSDate(), options: NSCalendarOptions(rawValue: 0))!
+        func jogsForPastSevenDays(_ jogs: [Jog]) -> [Jog] {
+                let aWeekAgo = (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: -7, to: Date(), options: NSCalendar.Options(rawValue: 0))!
                 
                 return jogs.filter({ (jog) -> Bool in
-                        return jog.date.compare(aWeekAgo) == NSComparisonResult.OrderedDescending
+                        return jog.date.compare(aWeekAgo) == ComparisonResult.orderedDescending
                 })
         }
         
-        func sortJogs(ascending: Bool) {
-                jogs.sortInPlace { (j1, j2) -> Bool in
+        func sortJogs(_ ascending: Bool) {
+                jogs.sort { (j1, j2) -> Bool in
                         var result: Bool
                         
-                        if j2.date.compare(j1.date) == NSComparisonResult.OrderedAscending {
+                        if j2.date.compare(j1.date as Date) == ComparisonResult.orderedAscending {
                                 result = true
                         } else {
                                 result = false
@@ -98,37 +98,37 @@ class JogsView : UITableViewController, JogsViewInterface {
         
         // MARK: - View Interface
         func showDeleteJogFailed() {
-                let alert = UIAlertController.init(title: "Error", message: "Deleting the jog failed, please try again", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = UIAlertController.init(title: "Error", message: "Deleting the jog failed, please try again", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
         }
         
         func showFetchingJogsFailed() {
-                let alert = UIAlertController.init(title: "Error", message: "We were unable to fetch jogs for this user, please try again", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = UIAlertController.init(title: "Error", message: "We were unable to fetch jogs for this user, please try again", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
         }
         
-        func showJogs(jogs: [Jog]) {
+        func showJogs(_ jogs: [Jog]) {
                 self.jogs = jogs
                 sortJogs(ascending)
                 tableView.reloadData()
         }
         
         // MARK: UITableViewDatasource
-        override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
                 return true
         }
         
-        override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell: UITableViewCell?
                 
-                let jog = jogs[indexPath.row]
+                let jog = jogs[(indexPath as NSIndexPath).row]
                 
-                if let c = tableView.dequeueReusableCellWithIdentifier("JogCell") as? JogCell {
+                if let c = tableView.dequeueReusableCell(withIdentifier: "JogCell") as? JogCell {
                         c.distanceLabel?.text = String(jog.distance)
                         c.timeLabel?.text = String(format: "%.0f min", jog.time/60)
-                        c.dateLabel?.text = dateFormatter.stringFromDate(jog.date)
+                        c.dateLabel?.text = dateFormatter.string(from: jog.date as Date)
                         
                         if jog.time > 0 {
                                 c.averageSpeedLabel?.text = String(format: "%.1f / hr", jog.distance/(jog.time/60/60))
@@ -138,17 +138,17 @@ class JogsView : UITableViewController, JogsViewInterface {
                         
                         cell = c
                 } else {
-                        cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+                        cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
                 }
                 
                 return cell!
         }
         
-        override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 return jogs.count
         }
         
-        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
                 if jogs.count == 0 {
                         return "Add a Jog using the + in the top right!"
                 }
@@ -156,7 +156,7 @@ class JogsView : UITableViewController, JogsViewInterface {
                 return nil
         }
         
-        override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
                 let distance = distanceForPastWeek()
                 let avgSpeed = averageSpeedForPastWeek()
                 
@@ -164,16 +164,16 @@ class JogsView : UITableViewController, JogsViewInterface {
         }
         
         // MARK: UITableViewDelegate
-        override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-                let deleteAction = UITableViewRowAction.init(style: UITableViewRowActionStyle.Destructive, title: "Delete") { (action, indexPath) -> Void in
-                        let jog = self.jogs[indexPath.row]
-                        self.presenter.userTappedDelete(jog)
-                }
-                return [deleteAction]
+        override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//                let deleteAction = UITableViewRowAction.init(style: UITableViewRowActionStyle(), title: "Delete") { (action, indexPath) -> Void in
+//                        let jog = self.jogs[(indexPath as NSIndexPath).row]
+//                        self.presenter.userTappedDelete(jog)
+//                }
+                return []//[deleteAction]
         }
         
-        override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-                let jog = jogs[indexPath.row]
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                let jog = jogs[(indexPath as NSIndexPath).row]
                 presenter.userTappedJog(jog)
         }
 }

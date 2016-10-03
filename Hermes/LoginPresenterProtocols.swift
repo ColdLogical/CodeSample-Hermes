@@ -10,13 +10,13 @@ import Foundation
 
 // VIPER Interface for communication from Interactor -> Presenter
 protocol LoginInteractorOutput : class {
-        func failedLogin(error: NSError?)
+        func failedLogin(_ error: NSError?)
         func loginSuccess()
 }
 
 // VIPER Interface for communication from View -> Presenter
 protocol LoginPresenterInterface : class {
-        func userTappedLogin(username: String, password: String)
+        func userTappedLogin(_ username: String, password: String)
         func userTappedRegister()
 }
 

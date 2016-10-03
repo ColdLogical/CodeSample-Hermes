@@ -19,7 +19,7 @@ class LoginInteractor: NSObject, LoginInteractorInput {
         lazy var loginService : LoginInteractorUser.Type = PFUser.self
         
         // MARK: - Operational
-        func loginFailed(error: NSError?) {
+        func loginFailed(_ error: NSError?) {
                 presenter.failedLogin(error)
         }
         
@@ -28,12 +28,12 @@ class LoginInteractor: NSObject, LoginInteractorInput {
         }
         
         // MARK: - Interactor Input
-        func login(username: String, password: String) {
+        func login(_ username: String, password: String) {
                 loginService.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
                         if user != nil {
                                 self.loginSucceeded()
                         } else {
-                                self.loginFailed(error)
+                                self.loginFailed(error as NSError?)
                         }
                 }
         }

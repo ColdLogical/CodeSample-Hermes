@@ -35,11 +35,11 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
 
         // MARK: - Interactor Output
         func testFailedLoginWithAnythingShouldTellViewShowMessageLoginFailedTryAgain() {
-                expectation = expectationWithDescription("View show message login failed from failed login")
+                expectation = self.expectation(withDescription: "View show message login failed from failed login")
                 
                 presenter.failedLogin(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show login failed message")
@@ -48,11 +48,11 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         func testLoginSuccessWithAnythingShouldTellWireframeLoginFinished() {
-                expectation = expectationWithDescription("Wireframe login finished from login Success")
+                expectation = self.expectation(withDescription: "Wireframe login finished from login Success")
                 
                 presenter.loginSuccess()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told login finished")
@@ -62,11 +62,11 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
 
         // MARK: - Presenter Interface
         func testUserTappedLoginWithUsernameIAmAndPasswordAwesomeShouldTellInteractorToLoginWithUsernameIAmAndPasswordAwesome() {
-                expectation = expectationWithDescription("Interactor login from user tapped login")
+                expectation = self.expectation(withDescription: "Interactor login from user tapped login")
                 
                 presenter.userTappedLogin("I Am", password: "Awesome")
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to login")
@@ -75,11 +75,11 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         func testUserTappedLoginWithAnythingShouldTellViewToShowLoggingIn() {
-                expectation = expectationWithDescription("View show logging in message from user tapped login")
+                expectation = self.expectation(withDescription: "View show logging in message from user tapped login")
                 
                 presenter.userTappedLogin("Anything", password: "Anything")
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show logging in message")
@@ -88,11 +88,11 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         func testUserTappedRegisterWithAnythingShouldTellWireframeToPresentRegisterModule() {
-                expectation = expectationWithDescription("Wireframe present register from user tapped register")
+                expectation = self.expectation(withDescription: "Wireframe present register from user tapped register")
                 
                 presenter.userTappedRegister()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present register module")
@@ -103,7 +103,7 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         // MARK: - Routing
 
         // MARK: - Interactor Input
-        func login(username: String, password: String) {
+        func login(_ username: String, password: String) {
                 if let exp = expectation {
                         if exp.description == "Interactor login from user tapped login" {
                                 exp.fulfill()
@@ -115,7 +115,7 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         // MARK: - View Interface
-        func showMessage(message: String) {
+        func showMessage(_ message: String) {
                 if let exp = expectation {
                         if exp.description == "View show logging in message from user tapped login" {
                                 exp.fulfill()

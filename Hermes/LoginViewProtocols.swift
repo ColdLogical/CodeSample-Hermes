@@ -8,5 +8,5 @@
 
 // VIPER Interface for communication from Presenter -> View
 protocol LoginViewInterface : class {
-        func showMessage(message: String)
+        func showMessage(_ message: String)
 }

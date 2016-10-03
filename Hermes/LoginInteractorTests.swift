@@ -30,7 +30,7 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
                 expectation = nil;
         }
         
-        @objc func receivedNotification(notification: NSNotification) {
+        @objc func receivedNotification(_ notification: Notification) {
                 if let exp = expectation {
                         if exp.description == "Log in with username in background from login" {
                                 exp.fulfill()
@@ -43,13 +43,13 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
         
         // MARK: - Operational
         func testLoginFailedWithAnythingShouldTellPresenterLoginFailure() {
-                expectation = expectationWithDescription("Presenter failed login from login failed")
+                expectation = self.expectation(withDescription: "Presenter failed login from login failed")
                 
                 let error = NSError(domain: "Muldor", code: 666, userInfo: nil)
                 
                 interactor.loginFailed(error)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that login failed")
@@ -58,11 +58,11 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
         }
         
         func testLoginSucceededWithAnythingShouldTellPresenterLoginSuccess() {
-                expectation = expectationWithDescription("Presenter login success in from login succeeded")
+                expectation = self.expectation(withDescription: "Presenter login success in from login succeeded")
                 
                 interactor.loginSucceeded()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told login succeeded")
@@ -72,16 +72,16 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
 
         // MARK: - Interactor Input
         func testLoginWithUsernameIAmAndPasswordAwesomeShouldCallLoginServiceLogInWithUsernameInBackground() {
-                expectation = expectationWithDescription("Log in with username in background from login")
+                expectation = self.expectation(withDescription: "Log in with username in background from login")
                 
                 interactor.loginService = LoginInteractorTests.self
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedNotification:", name: "Log in with username in background from login", object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(LoginInteractorTests.receivedNotification(_:)), name: NSNotification.Name(rawValue: "Log in with username in background from login"), object: nil)
                 
                 interactor.login("I Am", password: "Awesome")
                 
-                NSNotificationCenter.defaultCenter().removeObserver(self)
+                NotificationCenter.default.removeObserver(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Login service never told to log in with username in background")
@@ -90,7 +90,7 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
         }
 
         // MARK: - Interactor Output
-        func failedLogin(error: NSError?) {
+        func failedLogin(_ error: NSError?) {
                 if let exp = expectation {
                         if exp.description == "Presenter failed login from login failed" {
                                 exp.fulfill()
@@ -109,8 +109,8 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
         }
         
         // MARK: - Login Interactor User
-        class func logInWithUsernameInBackground(username: String, password: String, block: PFUserResultBlock?) {
+        class func logInWithUsernameInBackground(_ username: String, password: String, block: PFUserResultBlock?) {
                 let dictionary = ["username" : username, "password" : password]
-                NSNotificationCenter.defaultCenter().postNotificationName("Log in with username in background from login", object: dictionary)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "Log in with username in background from login"), object: dictionary)
         }
 }

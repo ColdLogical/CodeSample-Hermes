@@ -19,7 +19,7 @@ class RegisterInteractor: NSObject, RegisterInteractorInput {
         lazy var newUser : RegisterInteractorUser = PFUser()
         
         // MARK: - Operational
-        func signUpFailed(error: NSError?) {
+        func signUpFailed(_ error: NSError?) {
                 presenter.signUpFailure(error)
         }
         
@@ -28,7 +28,7 @@ class RegisterInteractor: NSObject, RegisterInteractorInput {
         }
         
         // MARK: - Interactor Input
-        func registerUser(username: String, password: String) {
+        func registerUser(_ username: String, password: String) {
                 newUser.username = username
                 newUser.password = password
                 
@@ -36,7 +36,7 @@ class RegisterInteractor: NSObject, RegisterInteractorInput {
                         if success {
                                 self.signUpSucceeded()
                         } else {
-                                self.signUpFailed(error)
+                                self.signUpFailed(error as NSError?)
                         }
                 }
         }

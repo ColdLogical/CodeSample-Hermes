@@ -15,7 +15,7 @@ class AddJogInteractor: NSObject, AddJogInteractorInput {
         // MARK: - Instance Variables
         
         // MARK: - Operational
-        func failedSavingJog(error: NSError?) {
+        func failedSavingJog(_ error: NSError?) {
                 presenter.saveJogFailed()
         }
         
@@ -24,12 +24,12 @@ class AddJogInteractor: NSObject, AddJogInteractorInput {
         }
         
         // MARK: - Interactor Input
-        func saveJog(jog: Jog) {
-                jog.saveInBackgroundWithBlock { (success, error) -> Void in
+        func saveJog(_ jog: Jog) {
+                jog.saveInBackground { (success, error) -> Void in
                         if success {
                                 self.successSavingJog()
                         } else {
-                                self.failedSavingJog(error)
+                                self.failedSavingJog(error as NSError?)
                         }
                 }
         }

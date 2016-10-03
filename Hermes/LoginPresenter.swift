@@ -19,7 +19,7 @@ class LoginPresenter : NSObject, LoginInteractorOutput, LoginPresenterInterface,
         // MARK: - Operational
         
         // MARK: - Interactor Output
-        func failedLogin(error: NSError?) {
+        func failedLogin(_ error: NSError?) {
                 view.showMessage("Login failed. Please try again.")
         }
         
@@ -28,7 +28,7 @@ class LoginPresenter : NSObject, LoginInteractorOutput, LoginPresenterInterface,
         }
         
         // MARK: - Presenter Interface
-        func userTappedLogin(username: String, password: String) {
+        func userTappedLogin(_ username: String, password: String) {
                 view.showMessage("Logging In...")
                 interactor.login(username, password: password)
         }

@@ -19,11 +19,11 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         @IBOutlet var timePicker: UIDatePicker?
         
         // MARK: - Outlets
-        @IBAction func cancelTapped(sender: AnyObject?) {
+        @IBAction func cancelTapped(_ sender: AnyObject?) {
                 presenter.userTappedCancel()
         }
         
-        @IBAction func saveTapped(sender: AnyObject?) {
+        @IBAction func saveTapped(_ sender: AnyObject?) {
                 var distance = distanceField!.text
                 if distance == nil {
                         distance = "0.0"
@@ -37,13 +37,13 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         }
         
         // MARK: - Operational
-        func updateFromJog(jog: Jog) {
+        func updateFromJog(_ jog: Jog) {
                 distanceField?.text = String(format: "%.2f", jog.distance)
-                datePicker?.date = jog.date
+                datePicker?.date = jog.date as Date
                 timePicker?.countDownDuration = jog.time
         }
         
-        override func viewWillAppear(animated: Bool) {
+        override func viewWillAppear(_ animated: Bool) {
                 super.viewWillAppear(animated)
                 
                 if let cj = currentJog {
@@ -52,14 +52,14 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         }
         
         // MARK: - View Interface
-        func showJog(jog: Jog) {
+        func showJog(_ jog: Jog) {
                 currentJog = jog
                 updateFromJog(jog)
         }
         
         func showSaveJogFailed() {
-                let alert = UIAlertController.init(title: "Error", message: "Saving the jog failed, please try again", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = UIAlertController.init(title: "Error", message: "Saving the jog failed, please try again", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
         }
 }

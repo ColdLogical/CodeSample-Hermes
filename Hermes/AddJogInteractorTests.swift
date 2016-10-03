@@ -31,11 +31,11 @@ class AddJogInteractorTests: XCTestCase, AddJogInteractorOutput {
         
         // MARK: - Operational
         func testFailedSavingJogWithAnythingShouldTellPresenterSaveJogFailed() {
-                expectation = expectationWithDescription("Presenter save jog failed from failed saving jog")
+                expectation = self.expectation(withDescription: "Presenter save jog failed from failed saving jog")
                 
                 interactor.failedSavingJog(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told saving jog failed")
@@ -44,11 +44,11 @@ class AddJogInteractorTests: XCTestCase, AddJogInteractorOutput {
         }
         
         func testSuccessSavingJogWithAnythingShouldTellPresenterSavedJog() {
-                expectation = expectationWithDescription("Presenter saved jog from success saving jog")
+                expectation = self.expectation(withDescription: "Presenter saved jog from success saving jog")
                 
                 interactor.successSavingJog()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that jog saved")

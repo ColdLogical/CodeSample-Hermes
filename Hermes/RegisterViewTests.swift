@@ -21,7 +21,7 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         override func setUp() {
                 super.setUp()
 
-                let sb = UIStoryboard(name: kRegisterStoryboardIdentifier, bundle: NSBundle(forClass: RegisterView.self))
+                let sb = UIStoryboard(name: kRegisterStoryboardIdentifier, bundle: Bundle(forClass: RegisterView.self))
                 view = sb.instantiateViewControllerWithIdentifier(kRegisterViewIdentifier) as! RegisterView
 		view.loadView()
                 view.presenter = self
@@ -39,14 +39,14 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         
         // MARK: - Operational
         func testRegisterTappedWithUsernameIAmPasswordAwesomeShouldTellPresenterUserTappedRegisterWithUsernameIAmPasswordAwesome() {
-                expectation = expectationWithDescription("Presenter user tapped register from register tapped")
+                expectation = self.expectation(withDescription: "Presenter user tapped register from register tapped")
                 
                 view.usernameField!.text = "I Am"
                 view.passwordField!.text = "Awesome"
                 
                 view.registerTapped(nil)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that register was tapped")
@@ -80,7 +80,7 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         }
         
         // MARK: - Presenter Interface
-        func userTappedRegister(username: String, password: String) {
+        func userTappedRegister(_ username: String, password: String) {
                 if let exp = expectation {
                         if exp.description == "Presenter user tapped register from register tapped" {
                                 exp.fulfill()

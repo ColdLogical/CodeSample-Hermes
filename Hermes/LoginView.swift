@@ -20,7 +20,7 @@ class LoginView : UIViewController, LoginNavigation, LoginViewInterface {
         @IBOutlet var usernameField: UITextField?
         
         // MARK: - Operational
-        @IBAction func loginTapped(sender: AnyObject?) {
+        @IBAction func loginTapped(_ sender: AnyObject?) {
                 let username = usernameField!.text
                 let password = passwordField!.text
                 
@@ -37,13 +37,13 @@ class LoginView : UIViewController, LoginNavigation, LoginViewInterface {
                 }
         }
         
-        @IBAction func registerTapped(sender: AnyObject?) {
+        @IBAction func registerTapped(_ sender: AnyObject?) {
                 presenter.userTappedRegister()
         }
         
         // MARK: - View Interface
-        func showMessage(message: String) {
-                self.messageLabel!.hidden = false
+        func showMessage(_ message: String) {
+                self.messageLabel!.isHidden = false
                 self.messageLabel!.text = message
         }
         

@@ -10,15 +10,15 @@ import Parse
 
 // VIPER Interface for communication from Presenter to Interactor
 protocol JogsInteractorInput : class {
-        func deleteJog(jog: Jog)
+        func deleteJog(_ jog: Jog)
         func fetchCurrentUser()
-        func fetchJogs(user: PFUser?)
+        func fetchJogs(_ user: PFUser?)
         func logout()
 }
 
 protocol JogsInteractorRoleQuery {
-        func getFirstObjectInBackgroundWithBlock(block: ((PFObject?, NSError?) -> Void)?)
-        func whereKey(key: String, equalTo: AnyObject) -> Self
+        func getFirstObjectInBackgroundWithBlock(_ block: ((PFObject?, NSError?) -> Void)?)
+        func whereKey(_ key: String, equalTo: AnyObject) -> Self
 }
 
 protocol JogsInteractorUserService {

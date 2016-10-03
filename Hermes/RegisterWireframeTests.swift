@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, RegisterNavigationController {
         var wireframe = RegisterWireframe()
@@ -76,11 +76,11 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         
         // MARK: - Module Interface
         func testPopViewFromNavigationControllerAnythingShouldCallNavigationPopViewControllerWithAnimatedTrue() {
-                expectation = expectationWithDescription("Pop view controller animated from pop view from navigation controller")
+                expectation = self.expectation(withDescription: "Pop view controller animated from pop view from navigation controller")
                 
                 wireframe.popViewFromNavigationController(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Navigation controller never told to animate the pop of the register modules view controller")
@@ -89,11 +89,11 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         }
         
         func testPushOnNavigationControllerWithAnythingShouldTellPresenterPresenting() {
-                expectation = expectationWithDescription("Presenter presenting from push on navigation controller")
+                expectation = self.expectation(withDescription: "Presenter presenting from push on navigation controller")
                 
                 wireframe.pushOnNavigationController(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that the module is initially presenting")
@@ -102,11 +102,11 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         }
         
         func testPushOnNavigationControllerWithNonNilNavigationControllerShouldCallNavigationPushViewControllerWithModuleViewControllerAnimatedTrue() {
-                expectation = expectationWithDescription("Push view controller animated from push on navigation controller")
+                expectation = self.expectation(withDescription: "Push view controller animated from push on navigation controller")
                 
                 wireframe.pushOnNavigationController(self)
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Navigation controller never told to animate the push of the register modules view controller")
@@ -116,11 +116,11 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         
         // MARK: - Wireframe Interface
         func testRegistrationFinishedWithNonNilDelegateShouldTellDelegateRegistrationCompleted() {
-                expectation = expectationWithDescription("Delegate registration completed from wireframe registration finished")
+                expectation = self.expectation(withDescription: "Delegate registration completed from wireframe registration finished")
                 
                 wireframe.registrationFinished()
                 
-                waitForExpectationsWithTimeout(5) {
+                waitForExpectations(timeout: 5) {
                         (error: NSError?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that registration completed")
@@ -129,7 +129,7 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         }
         
         // MARK: - Delegate
-        func registrationCompleted(registrationModule: RegisterModuleInterface) {
+        func registrationCompleted(_ registrationModule: RegisterModuleInterface) {
                 if let exp = expectation {
                         if exp.description == "Delegate registration completed from wireframe registration finished" {
                                 exp.fulfill()
@@ -149,7 +149,7 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         }
         
         // MARK: - Register Navigation Controller
-        func popViewControllerAnimated(animated: Bool) -> UIViewController? {
+        func popViewControllerAnimated(_ animated: Bool) -> UIViewController? {
                 if let exp = expectation {
                         if exp.description == "Pop view controller animated from pop view from navigation controller" {
                                 exp.fulfill()
@@ -161,7 +161,7 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
                 return nil
         }
         
-        func pushViewController(viewController: UIViewController, animated: Bool) {
+        func pushViewController(_ viewController: UIViewController, animated: Bool) {
                 if let exp = expectation {
                         if exp.description == "Push view controller animated from push on navigation controller" {
                                 exp.fulfill()

@@ -19,7 +19,7 @@ class RegisterPresenter : NSObject, RegisterInteractorOutput, RegisterPresenterI
         // MARK: - Operational
         
         // MARK: - Interactor Output
-        func signUpFailure(error: NSError?) {
+        func signUpFailure(_ error: NSError?) {
                 view.showMessage("Failed to register... Try again please")
         }
         
@@ -28,7 +28,7 @@ class RegisterPresenter : NSObject, RegisterInteractorOutput, RegisterPresenterI
         }
         
         // MARK: - Presenter Interface
-        func userTappedRegister(username: String, password: String) {
+        func userTappedRegister(_ username: String, password: String) {
                 view.showMessage("Registering...")
                 interactor.registerUser(username, password: password)
         }

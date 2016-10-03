@@ -11,19 +11,21 @@ import Parse
 
 class Jog : PFObject, PFSubclassing {
         
-        @NSManaged var date: NSDate
+//        private static var __once: () = {
+//                        self.registerSubclass()
+//                }()
+        
+        @NSManaged var date: Date
         @NSManaged var distance: Double
-        @NSManaged var time: NSTimeInterval
+        @NSManaged var time: TimeInterval
         @NSManaged var user: PFUser
         
-        override class func initialize() {
-                struct Static {
-                        static var onceToken : dispatch_once_t = 0;
-                }
-                dispatch_once(&Static.onceToken) {
-                        self.registerSubclass()
-                }
-        }
+//        override class func initialize() {
+//                struct Static {
+//                        static var onceToken : Int = 0;
+//                }
+//                _ = Jog.__once
+//        }
         
         static func parseClassName() -> String {
                 return "Jog"
