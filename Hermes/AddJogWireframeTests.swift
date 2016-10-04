@@ -76,14 +76,14 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         
         // MARK: - Module Interface
         func testDismissWithAnythingShouldTellViewToDismissViewControllerAnimatedTrueCompletionNil() {
-                expectation = self.expectation(withDescription: "View dismiss view controller from dismiss")
+                expectation = expectation(description: "View dismiss view controller from dismiss")
                 
                 wireframe.view = self
                 
                 wireframe.dismiss()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to dismiss view controller")
                         }
@@ -91,7 +91,7 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         }
         
         func testPresentModallyOnViewControllerWithNonNilJogShouldCallPresenterPresentingJog() {
-                expectation = self.expectation(withDescription: "Presenter presenting jog from present modally on view controller")
+                expectation = expectation(description: "Presenter presenting jog from present modally on view controller")
                 
                 let jog = Jog()
                 jog.distance = 314159
@@ -99,7 +99,7 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
                 wireframe.presentModallyOnViewController(self, jog: jog)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told presenting jog")
                         }
@@ -107,12 +107,12 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         }
         
         func testPresentModallyOnViewControllerWithNonNilViewControllerShouldCallPresentViewControllerAnimatedTrueCompletionNil() {
-                expectation = self.expectation(withDescription: "View controller present view controller from present modally on view controller")
+                expectation = expectation(description: "View controller present view controller from present modally on view controller")
                 
                 wireframe.presentModallyOnViewController(self, jog: nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View Controller never told to present modally")
                         }
@@ -121,12 +121,12 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         
         // MARK: - Wireframe Interface
         func testAddJogFinishedWithNonNilDelegateShouldTellDelegateAddJogCompleted() {
-                expectation = self.expectation(withDescription: "Delegate add jog completed from add jog finished")
+                expectation = expectation(description: "Delegate add jog completed from add jog finished")
                 
                 wireframe.addJogFinished()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that add jog finished")
                         }
@@ -134,12 +134,12 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
         }
         
         func testCancelAddJogWithNonNilDelegateShouldTellDelegateAddJogCancelled() {
-                expectation = self.expectation(withDescription: "Delegate add jog cancelled from cancel add jog")
+                expectation = expectation(description: "Delegate add jog cancelled from cancel add jog")
                 
                 wireframe.cancelAddJog()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told add jog was cancelled")
                         }

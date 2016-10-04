@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRouting, LoginModalViewController, RegisterModuleInterface {
         var wireframe = LoginWireframe()
@@ -53,35 +53,35 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         // MARK: - Lazy Loaders
         func testLoginInteractorLazyLoaderWithNilValueShouldInstantiateInteractor() {
                 XCTAssertNotNil (wireframe.moduleInteractor, "Lazy loader should create a new interactor if it doesnt exist")
-                XCTAssertTrue (wireframe.moduleInteractor.isKindOfClass(LoginInteractor), "Lazily loader should create an instance of LoginInteractor")
+                XCTAssertTrue (wireframe.moduleInteractor.isKind(of: LoginInteractor.self), "Lazily loader should create an instance of LoginInteractor")
         }
 
         func testLoginPresenterLazyLoaderWithNilValueShouldInstantiatePresenter() {
                 XCTAssertNotNil (wireframe.modulePresenter, "Lazy loader should create a new presenter if it doesnt exist")
-                XCTAssertTrue (wireframe.modulePresenter.isKindOfClass(LoginPresenter), "Lazily loader should create an instance of LoginPresenter")
+                XCTAssertTrue (wireframe.modulePresenter.isKind(of: LoginPresenter.self), "Lazily loader should create an instance of LoginPresenter")
         }
 
         func testLoginViewLazyLoaderWithNilValueShouldInstantiateView() {
                 XCTAssertNotNil (wireframe.moduleView, "Lazy loader should create a new view if it doesnt exist")
-                XCTAssertTrue (wireframe.moduleView.isKindOfClass(LoginView), "Lazily loader should create an instance of LoginView")
+                XCTAssertTrue (wireframe.moduleView.isKind(of: LoginView.self), "Lazily loader should create an instance of LoginView")
         }
 
         func testStoryboardWithNothingShouldReturnStoryboardWithkLoginStoryboardIdentifier() {
                 let storyboard = LoginWireframe.storyboard()
                 
-                XCTAssertEqual (kLoginStoryboardIdentifier, storyboard.valueForKey("name") as! String?, "Storyboard identifier should be the constant identifier defined in the LoginWireframeProtocols file")
+                XCTAssertEqual (kLoginStoryboardIdentifier, storyboard.value(forKey: "name") as! String?, "Storyboard identifier should be the constant identifier defined in the LoginWireframeProtocols file")
         }
 
         // MARK: - Module Interface
         func testDismissWithAnythingShouldTellViewToDismissViewControllerAnimatedTrueAndNilCompletion() {
-                expectation = self.expectation(withDescription: "Dismiss view controller animated from dismiss ")
+                expectation = expectation(description: "Dismiss view controller animated from dismiss ")
                 
                 wireframe.view = self;
                 
                 wireframe.dismiss()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to dismiss view controller")
                         }
@@ -89,12 +89,12 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         func testPresentModallyOnViewControllerWithNonNilViewControllerShouldCallPresentViewControllerOnTheViewControllerPassedIn() {
-                expectation = self.expectation(withDescription: "View controller present view controller from present modally on view controller")
+                expectation = expectation(description: "View controller present view controller from present modally on view controller")
                 
                 wireframe.presentModallyOnViewController(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View controller never told to present view controller")
                         }
@@ -103,12 +103,12 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         
         // MARK: - Wireframe Interface
         func testLoginFinishedWithNonNilDelegateShouldTellDelegateLoginCompleted() {
-                expectation = self.expectation(withDescription: "Delegate login completed from login finished")
+                expectation = expectation(description: "Delegate login completed from login finished")
                 
                 wireframe.loginFinished()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that login completed")
                         }
@@ -116,14 +116,14 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         func testPresentRegisterWithAnythingShouldTellRegisterModuleToPushOntoModulesNavigationController() {
-                expectation = self.expectation(withDescription: "Register module push on navigation controller from present register")
+                expectation = expectation(description: "Register module push on navigation controller from present register")
                 
                 wireframe.registerModule = self
                 
                 wireframe.presentRegister()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Register module never told to push onto login's navigation controller")
                         }
@@ -132,12 +132,12 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         
         // MARK: - Register Delegate
         func testRegistrationCompletedWithAnythingShouldTellThatRegisterModuleToPopView() {
-                expectation = self.expectation(withDescription: "Register module pop view from registration completed")
+                expectation = expectation(description: "Register module pop view from registration completed")
                 
                 wireframe.registrationCompleted(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Register module never told to pop view")
                         }
@@ -145,12 +145,12 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
         }
         
         func testRegistrationCompletedWithNonNilDelegateShouldTellDelegateLoginCompleted() {
-                expectation = self.expectation(withDescription: "Delegate login completed from registration completed")
+                expectation = expectation(description: "Delegate login completed from registration completed")
                 
                 wireframe.registrationCompleted(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that login was completed")
                         }
@@ -167,8 +167,6 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
                                 XCTAssert(loginModule === wireframe ? true : false, "Login module should be the login modules wireframe")
                         }
                 }
-                
-                "Delegate login completed from login finished"
         }
         
         // MARK: - Login Navigation

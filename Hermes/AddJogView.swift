@@ -38,9 +38,9 @@ class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
         
         // MARK: - Operational
         func updateFromJog(_ jog: Jog) {
-                distanceField?.text = String(format: "%.2f", jog.distance)
-                datePicker?.date = jog.date as Date
-                timePicker?.countDownDuration = jog.time
+                distanceField?.text = String(format: "%.2f", jog.distance ?? 0)
+                datePicker?.date = jog.date ?? Date() as Date 
+                timePicker?.countDownDuration = jog.time ?? 0
         }
         
         override func viewWillAppear(_ animated: Bool) {

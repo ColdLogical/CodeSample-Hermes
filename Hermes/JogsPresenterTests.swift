@@ -34,12 +34,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         
         // MARK: - Operational
         func testFailedDeletingJogWithAnythingShouldTellViewToShowDeleteJogFailed() {
-                expectation = self.expectation(withDescription: "View show delete jog failed from failed deleting jog")
+                expectation = expectation(description: "View show delete jog failed from failed deleting jog")
                 
                 presenter.failedDeletingJog()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show delete jog failed message")
                         }
@@ -47,12 +47,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testFailedFetchingJogsWithAnythingShouldTellViewToShowFetchingJogsFailed() {
-                expectation = self.expectation(withDescription: "View show fetching jog failed from failed fetching jogs")
+                expectation = expectation(description: "View show fetching jog failed from failed fetching jogs")
                 
                 presenter.failedFetchingJogs()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show fetching jogs failed message")
                         }
@@ -60,12 +60,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testPresentingJogsWithAnythinyShouldTellInteractorToFetchCurrentUser() {
-                expectation = self.expectation(withDescription: "Interactor fetch current user from presenter presenting jogs")
+                expectation = expectation(description: "Interactor fetch current user from presenter presenting jogs")
                 
                 presenter.presentingJogs()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to fetch current user")
                         }
@@ -74,7 +74,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
 
         // MARK: - Interactor Output
         func testDeletedJogWithCurrentUserShouldTellInteractorToFetchJogs() {
-                expectation = self.expectation(withDescription: "Interactor fetch jogs from deleted jog")
+                expectation = expectation(description: "Interactor fetch jogs from deleted jog")
                 
                 let user = PFUser()
                 user.username = "Sarah Kerrigan"
@@ -83,7 +83,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 presenter.deletedJog()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to fetch jogs")
                         }
@@ -91,12 +91,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testFailedFetchingCurrentUserWithAnythingShouldTellWireframeToPresentLogin() {
-                expectation = self.expectation(withDescription: "Wireframe presenter login from failed fetching current user")
+                expectation = expectation(description: "Wireframe presenter login from failed fetching current user")
                 
                 presenter.failedFetchingCurrentUser()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present login")
                         }
@@ -104,7 +104,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testFetchedCurrentUserWithUsernameSarahKerriganIsAdminFalseShouldTellInteractorToFetchJogsForSarahKerrigan() {
-                expectation = self.expectation(withDescription: "Fetch jogs for user from fetched current user")
+                expectation = expectation(description: "Fetch jogs for user from fetched current user")
                 
                 let user = PFUser()
                 user.username = "Queen of Blades"
@@ -112,7 +112,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 presenter.fetchedCurrentUser(user, isAdmin: false)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to fetch jogs for user")
                         }
@@ -120,7 +120,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testFetchedJogsWith3JogsShouldTellViewToShow3Jogs() {
-                expectation = self.expectation(withDescription: "View show jogs from fetched jogs")
+                expectation = expectation(description: "View show jogs from fetched jogs")
                 
                 let j1 = Jog()
                 let j2 = Jog()
@@ -129,7 +129,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 presenter.fetchedJogs([j1, j2, j3])
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show jogs")
                         }
@@ -138,12 +138,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
 
         // MARK: - Presenter Interface
         func testUserTappedAddWithAnythingShouldTellWireframeToPresentAddJog() {
-                expectation = self.expectation(withDescription: "Wireframe present add jog from user tapped add")
+                expectation = expectation(description: "Wireframe present add jog from user tapped add")
                 
                 presenter.userTappedAdd()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present add jog")
                         }
@@ -151,7 +151,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testUserTappedDeleteWithNonNilJogShouldTellInteractorToDeleteJog() {
-                expectation = self.expectation(withDescription: "Interactor delete jog from user tapped delete")
+                expectation = expectation(description: "Interactor delete jog from user tapped delete")
                 
                 let jog = Jog()
                 jog.distance = 314159
@@ -159,7 +159,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 presenter.userTappedDelete(jog)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to delete the jog")
                         }
@@ -167,7 +167,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testUserTappedJogWithNonNilJogShouldTellWireframeToPresentAddJogWithTheJogTapped() {
-                expectation = self.expectation(withDescription: "Wireframe present add jog with jog from user tapped jog")
+                expectation = expectation(description: "Wireframe present add jog with jog from user tapped jog")
                 
                 let jog = Jog()
                 jog.distance = 314159
@@ -175,7 +175,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 presenter.userTappedJog(jog)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present add jog")
                         }
@@ -183,12 +183,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testUserTappedLogoutWithAnythingShouldTellInteractorToLogout() {
-                expectation = self.expectation(withDescription: "Interactor logout from user tapped logout")
+                expectation = expectation(description: "Interactor logout from user tapped logout")
                 
                 presenter.userTappedLogout()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to logout")
                         }
@@ -196,12 +196,12 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
         }
         
         func testUserTappedLogoutWithAnythingShouldTellWireframeToPresentLogin() {
-                expectation = self.expectation(withDescription: "Wireframe present login from user tapped logout")
+                expectation = expectation(description: "Wireframe present login from user tapped logout")
                 
                 presenter.userTappedLogout()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present login")
                         }

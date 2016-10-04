@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface, LoginWireframeInterface {
         var presenter = LoginPresenter()
@@ -35,12 +35,12 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
 
         // MARK: - Interactor Output
         func testFailedLoginWithAnythingShouldTellViewShowMessageLoginFailedTryAgain() {
-                expectation = self.expectation(withDescription: "View show message login failed from failed login")
+                expectation = expectation(description: "View show message login failed from failed login")
                 
                 presenter.failedLogin(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show login failed message")
                         }
@@ -48,12 +48,12 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         func testLoginSuccessWithAnythingShouldTellWireframeLoginFinished() {
-                expectation = self.expectation(withDescription: "Wireframe login finished from login Success")
+                expectation = expectation(description: "Wireframe login finished from login Success")
                 
                 presenter.loginSuccess()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told login finished")
                         }
@@ -62,12 +62,12 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
 
         // MARK: - Presenter Interface
         func testUserTappedLoginWithUsernameIAmAndPasswordAwesomeShouldTellInteractorToLoginWithUsernameIAmAndPasswordAwesome() {
-                expectation = self.expectation(withDescription: "Interactor login from user tapped login")
+                expectation = expectation(description: "Interactor login from user tapped login")
                 
                 presenter.userTappedLogin("I Am", password: "Awesome")
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to login")
                         }
@@ -75,12 +75,12 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         func testUserTappedLoginWithAnythingShouldTellViewToShowLoggingIn() {
-                expectation = self.expectation(withDescription: "View show logging in message from user tapped login")
+                expectation = expectation(description: "View show logging in message from user tapped login")
                 
                 presenter.userTappedLogin("Anything", password: "Anything")
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show logging in message")
                         }
@@ -88,12 +88,12 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
         }
         
         func testUserTappedRegisterWithAnythingShouldTellWireframeToPresentRegisterModule() {
-                expectation = self.expectation(withDescription: "Wireframe present register from user tapped register")
+                expectation = expectation(description: "Wireframe present register from user tapped register")
                 
                 presenter.userTappedRegister()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to present register module")
                         }

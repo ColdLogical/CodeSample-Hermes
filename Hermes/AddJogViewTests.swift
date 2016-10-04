@@ -39,12 +39,12 @@ class AddJogViewTests: XCTestCase, AddJogPresenterInterface {
         
         // MARK: - Operational
         func testCancelTappedWithAnythingShouldTellPresenterUserTappedCancel() {
-                expectation = self.expectation(withDescription: "Presenter user tapped cancel from cancel tapped")
+                expectation = expectation(description: "Presenter user tapped cancel from cancel tapped")
                 
                 view.cancelTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that user tapped cancel")
                         }
@@ -52,7 +52,7 @@ class AddJogViewTests: XCTestCase, AddJogPresenterInterface {
         }
         
         func testSaveTappedWithDistance87DateApril23Time1MinuteShouldTellPresenterUserTappedSaveDistance87DateApril23Time1Minute() {
-                expectation = self.expectation(withDescription: "Presener user tapped save from save tapped")
+                expectation = expectation(description: "Presener user tapped save from save tapped")
                 
                 view.distanceField!.text = "8.7"
                 view.datePicker!.date = Date(timeIntervalSince1970: 514623600)
@@ -61,7 +61,7 @@ class AddJogViewTests: XCTestCase, AddJogPresenterInterface {
                 view.saveTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that user tapped save")
                         }

@@ -53,35 +53,35 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         // MARK: - Lazy Loaders
         func testRegisterInteractorLazyLoaderWithNilValueShouldInstantiateInteractor() {
                 XCTAssertNotNil (wireframe.moduleInteractor, "Lazy loader should create a new interactor if it doesnt exist")
-                XCTAssertTrue (wireframe.moduleInteractor.isKindOfClass(RegisterInteractor), "Lazily loader should create an instance of RegisterInteractor")
+                XCTAssertTrue (wireframe.moduleInteractor.isKind(of: RegisterInteractor.self), "Lazily loader should create an instance of RegisterInteractor")
         }
 
         func testRegisterPresenterLazyLoaderWithNilValueShouldInstantiatePresenter() {
                 XCTAssertNotNil (wireframe.modulePresenter, "Lazy loader should create a new presenter if it doesnt exist")
-                XCTAssertTrue (wireframe.modulePresenter.isKindOfClass(RegisterPresenter), "Lazily loader should create an instance of RegisterPresenter")
+                XCTAssertTrue (wireframe.modulePresenter.isKind(of: RegisterPresenter.self), "Lazily loader should create an instance of RegisterPresenter")
         }
 
         func testRegisterViewLazyLoaderWithNilValueShouldInstantiateView() {
                 XCTAssertNotNil (wireframe.moduleView, "Lazy loader should create a new view if it doesnt exist")
-                XCTAssertTrue (wireframe.moduleView.isKindOfClass(RegisterView), "Lazily loader should create an instance of RegisterView")
+                XCTAssertTrue (wireframe.moduleView.isKind(of: RegisterView.self), "Lazily loader should create an instance of RegisterView")
         }
 
         func testStoryboardWithNothingShouldReturnStoryboardWithkRegisterStoryboardIdentifier() {
                 let storyboard = RegisterWireframe.storyboard()
                 
-                XCTAssertEqual (kRegisterStoryboardIdentifier, storyboard.valueForKey("name") as! String?, "Storyboard identifier should be the constant identifier defined in the RegisterWireframeProtocols file")
+                XCTAssertEqual (kRegisterStoryboardIdentifier, storyboard.value(forKey:"name") as! String?, "Storyboard identifier should be the constant identifier defined in the RegisterWireframeProtocols file")
         }
 
         // MARK: - Operational
         
         // MARK: - Module Interface
         func testPopViewFromNavigationControllerAnythingShouldCallNavigationPopViewControllerWithAnimatedTrue() {
-                expectation = self.expectation(withDescription: "Pop view controller animated from pop view from navigation controller")
+                expectation = expectation(description: "Pop view controller animated from pop view from navigation controller")
                 
                 wireframe.popViewFromNavigationController(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Navigation controller never told to animate the pop of the register modules view controller")
                         }
@@ -89,12 +89,12 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         }
         
         func testPushOnNavigationControllerWithAnythingShouldTellPresenterPresenting() {
-                expectation = self.expectation(withDescription: "Presenter presenting from push on navigation controller")
+                expectation = expectation(description: "Presenter presenting from push on navigation controller")
                 
                 wireframe.pushOnNavigationController(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that the module is initially presenting")
                         }
@@ -102,12 +102,12 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         }
         
         func testPushOnNavigationControllerWithNonNilNavigationControllerShouldCallNavigationPushViewControllerWithModuleViewControllerAnimatedTrue() {
-                expectation = self.expectation(withDescription: "Push view controller animated from push on navigation controller")
+                expectation = expectation(description: "Push view controller animated from push on navigation controller")
                 
                 wireframe.pushOnNavigationController(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Navigation controller never told to animate the push of the register modules view controller")
                         }
@@ -116,12 +116,12 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
         
         // MARK: - Wireframe Interface
         func testRegistrationFinishedWithNonNilDelegateShouldTellDelegateRegistrationCompleted() {
-                expectation = self.expectation(withDescription: "Delegate registration completed from wireframe registration finished")
+                expectation = self.expectation(description: "Delegate registration completed from wireframe registration finished")
                 
                 wireframe.registrationFinished()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Delegate never told that registration completed")
                         }

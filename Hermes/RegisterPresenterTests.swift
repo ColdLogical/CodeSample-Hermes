@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewInterface, RegisterWireframeInterface {
         var presenter = RegisterPresenter()
@@ -35,14 +35,14 @@ class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewI
 
         // MARK: - Interactor Output
         func testSignUpFailureWithAnythingShouldTellViewToDisplayFailedToSignUpTryAgain() {
-                expectation = self.expectation(withDescription: "View show failure message from sign up failure")
+                expectation = expectation(description: "View show failure message from sign up failure")
                 
                 let error = NSError(domain: "Muldor", code: 666, userInfo: nil)
                 
                 presenter.signUpFailure(error)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show sign up failure message")
                         }
@@ -50,12 +50,12 @@ class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewI
         }
         
         func testSignUpSuccessWithAnythingShouldTellWireframeRegistrationFinished() {
-                expectation = self.expectation(withDescription: "Wireframe register finished from sign up success")
+                expectation = expectation(description: "Wireframe register finished from sign up success")
                 
                 presenter.signUpSuccess()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told that registration has finished")
                         }
@@ -64,12 +64,12 @@ class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewI
 
         // MARK: - Presenter Interface
         func testUserTappedRegisterWithAnythingShouldTellViewToShowRegisteringMessage() {
-                expectation = self.expectation(withDescription: "View show register message from user tapped register")
+                expectation = expectation(description: "View show register message from user tapped register")
                 
                 presenter.userTappedRegister("Anything", password: "Anything")
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to present register module")
                         }
@@ -77,12 +77,12 @@ class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewI
         }
         
         func testUserTappedRegisterWithUsernameIAmAndPasswordAwesomeShouldTellInteractorToRegisterUser() {
-                expectation = self.expectation(withDescription: "Interactor register user from user tapped register")
+                expectation = expectation(description: "Interactor register user from user tapped register")
                 
                 presenter.userTappedRegister("I Am", password: "Awesome")
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to present register module")
                         }
@@ -91,12 +91,12 @@ class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewI
         
         // MARK: - Routing
         func testPresentingWithAnythingShouldTellViewToShowAnEmptyMessage() {
-                expectation = self.expectation(withDescription: "View show empty message from presenting")
+                expectation = expectation(description: "View show empty message from presenting")
                 
                 presenter.presenting()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show empty message")
                         }

@@ -45,7 +45,7 @@ class JogsView : UITableViewController, JogsViewInterface {
                 var time: TimeInterval = 0
                 
                 for (_, jog) in pastWeekJogs.enumerated() {
-                        time += jog.time
+                        time += jog.time ?? 0
                 }
                 
                 let result: Double
@@ -64,7 +64,7 @@ class JogsView : UITableViewController, JogsViewInterface {
                 var distance: Double = 0
                 
                 for (_, jog) in pastWeekJogs.enumerated() {
-                        distance += jog.distance
+                        distance += jog.distance ?? 0
                 }
                 
                 return distance
@@ -74,7 +74,10 @@ class JogsView : UITableViewController, JogsViewInterface {
                 let aWeekAgo = (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.day, value: -7, to: Date(), options: NSCalendar.Options(rawValue: 0))!
                 
                 return jogs.filter({ (jog) -> Bool in
-                        return jog.date.compare(aWeekAgo) == ComparisonResult.orderedDescending
+                        if let date = jog.date {
+                                return date.compare(aWeekAgo) == ComparisonResult.orderedDescending
+                        }
+                        return false
                 })
         }
         
@@ -82,7 +85,19 @@ class JogsView : UITableViewController, JogsViewInterface {
                 jogs.sort { (j1, j2) -> Bool in
                         var result: Bool
                         
-                        if j2.date.compare(j1.date as Date) == ComparisonResult.orderedAscending {
+                        if j1.date == nil && j2.date == nil {
+                                return true
+                        } else {
+                                if j1.date == nil && j2.date != nil {
+                                        return false
+                                }
+                                
+                                if j1.date != nil && j2.date == nil {
+                                        return true
+                                }
+                        }
+                        
+                        if j2.date!.compare(j1.date! as Date) == ComparisonResult.orderedAscending {
                                 result = true
                         } else {
                                 result = false
@@ -126,12 +141,17 @@ class JogsView : UITableViewController, JogsViewInterface {
                 let jog = jogs[(indexPath as NSIndexPath).row]
                 
                 if let c = tableView.dequeueReusableCell(withIdentifier: "JogCell") as? JogCell {
-                        c.distanceLabel?.text = String(jog.distance)
-                        c.timeLabel?.text = String(format: "%.0f min", jog.time/60)
-                        c.dateLabel?.text = dateFormatter.string(from: jog.date as Date)
+                        let distance = jog.distance ?? 0
+                        let time = jog.time ?? 0
                         
-                        if jog.time > 0 {
-                                c.averageSpeedLabel?.text = String(format: "%.1f / hr", jog.distance/(jog.time/60/60))
+                        c.distanceLabel?.text = String(distance)
+                        c.timeLabel?.text = String(format: "%.0f min", time/60)
+                        if let date = jog.date {
+                                c.dateLabel?.text = dateFormatter.string(from: date as Date)
+                        }
+                        
+                        if jog.time ?? 0 > 0 {
+                                c.averageSpeedLabel?.text = String(format: "%.1f / hr", distance/(time/60/60))
                         } else {
                                 c.averageSpeedLabel?.text = "0"
                         }

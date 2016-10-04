@@ -39,13 +39,13 @@ class JogsInteractor: NSObject, JogsInteractorInput {
         
         // MARK: - Interactor Input
         func deleteJog(_ jog: Jog) {
-                jog.deleteInBackground { (success, error) -> Void in
-                        if success {
-                                self.successDeletingJog()
-                        } else {
-                                self.failedDeletingJog(error as NSError?)
-                        }
-                }
+//                jog.deleteInBackground { (success, error) -> Void in
+//                        if success {
+//                                self.successDeletingJog()
+//                        } else {
+//                                self.failedDeletingJog(error as NSError?)
+//                        }
+//                }
         }
         
         func fetchCurrentUser() {
@@ -69,21 +69,21 @@ class JogsInteractor: NSObject, JogsInteractorInput {
         }
         
         func fetchJogs(_ user: PFUser?) {
-                let query = PFQuery(className: "Jog")
-                
-                if let u = user {
-                        query.whereKey("user", equalTo: u)
-                }
-                
-                query.findObjectsInBackground { (jogs, error) -> Void in
-                        if let j = jogs as? [Jog] {
-                                self.successFetchingJogs(j)
-                        } else {
-                                if let e = error {
-                                        self.failedFetchingJogs(e as NSError?)
-                                }
-                        }
-                }
+//                let query = PFQuery(className: "Jog")
+//                
+//                if let u = user {
+//                        query.whereKey("user", equalTo: u)
+//                }
+//                
+//                query.findObjectsInBackground { (jogs, error) -> Void in
+//                        if let j = jogs as? [Jog] {
+//                                self.successFetchingJogs(j)
+//                        } else {
+//                                if let e = error {
+//                                        self.failedFetchingJogs(e as NSError?)
+//                                }
+//                        }
+//                }
         }
         
         func logout() {

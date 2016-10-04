@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class LoginViewTests: XCTestCase, LoginPresenterInterface {
         var view = LoginView()
@@ -21,8 +21,8 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         override func setUp() {
                 super.setUp()
 
-                let sb = UIStoryboard(name: kLoginStoryboardIdentifier, bundle: Bundle(forClass: LoginView.self))
-                view = sb.instantiateViewControllerWithIdentifier(kLoginViewIdentifier) as! LoginView
+                let sb = UIStoryboard(name: kLoginStoryboardIdentifier, bundle: Bundle(for: LoginView.self))
+                view = sb.instantiateViewController(withIdentifier: kLoginViewIdentifier) as! LoginView
 		view.loadView()
                 view.presenter = self
 
@@ -39,7 +39,7 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         
         // MARK: - Operational
         func testLoginTappedWithUsernameIAmPasswordAwesomeShouldTellPresenterUserTappedRegisterWithUsernameIAmPasswordAwesome() {
-                expectation = self.expectation(withDescription: "Presenter user tapped login from login tapped")
+                expectation = expectation(description: "Presenter user tapped login from login tapped")
                 
                 view.usernameField!.text = "I Am"
                 view.passwordField!.text = "Awesome"
@@ -47,7 +47,7 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
                 view.loginTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that login was tapped")
                         }
@@ -72,12 +72,12 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         }
         
         func testRegisterTappedWithAnythingShouldTellPresenterUserTappedRegister() {
-                expectation = self.expectation(withDescription: "Presenter user tapped register from register tapped")
+                expectation = expectation(description: "Presenter user tapped register from register tapped")
                 
                 view.registerTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that register was tapped")
                         }
@@ -88,7 +88,7 @@ class LoginViewTests: XCTestCase, LoginPresenterInterface {
         func testShowMessageWithTextIAmAwesomeShouldSetMessageLabelNotHiddenAndTextToIAmAwesome() {
                 view.showMessage("I Am Awesome")
                 
-                XCTAssertFalse(view.messageLabel!.hidden, "Message label should not be hidden")
+                XCTAssertFalse(view.messageLabel!.isHidden, "Message label should not be hidden")
                 XCTAssertEqual("I Am Awesome", view.messageLabel!.text, "Message label's text should be I Am Awesome")
         }
 

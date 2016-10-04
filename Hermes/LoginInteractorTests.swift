@@ -10,7 +10,7 @@ import Foundation
 import Parse
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUser {
         var interactor = LoginInteractor()
@@ -35,22 +35,24 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
                         if exp.description == "Log in with username in background from login" {
                                 exp.fulfill()
                                 
-                                XCTAssertEqual("I Am", notification.object!["username"], "Username should be I Am")
-                                XCTAssertEqual("Awesome", notification.object!["password"], "Password should be Awesome")
+                                let object = notification.object as! [ String : String ]
+                                
+                                XCTAssertEqual("I Am", object["username"], "Username should be I Am")
+                                XCTAssertEqual("Awesome", object["password"], "Password should be Awesome")
                         }
                 }
         }
         
         // MARK: - Operational
         func testLoginFailedWithAnythingShouldTellPresenterLoginFailure() {
-                expectation = self.expectation(withDescription: "Presenter failed login from login failed")
+                expectation = expectation(description: "Presenter failed login from login failed")
                 
                 let error = NSError(domain: "Muldor", code: 666, userInfo: nil)
                 
                 interactor.loginFailed(error)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that login failed")
                         }
@@ -58,12 +60,12 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
         }
         
         func testLoginSucceededWithAnythingShouldTellPresenterLoginSuccess() {
-                expectation = self.expectation(withDescription: "Presenter login success in from login succeeded")
+                expectation = expectation(description: "Presenter login success in from login succeeded")
                 
                 interactor.loginSucceeded()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told login succeeded")
                         }
@@ -72,7 +74,7 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
 
         // MARK: - Interactor Input
         func testLoginWithUsernameIAmAndPasswordAwesomeShouldCallLoginServiceLogInWithUsernameInBackground() {
-                expectation = self.expectation(withDescription: "Log in with username in background from login")
+                expectation = expectation(description: "Log in with username in background from login")
                 
                 interactor.loginService = LoginInteractorTests.self
                 NotificationCenter.default.addObserver(self, selector: #selector(LoginInteractorTests.receivedNotification(_:)), name: NSNotification.Name(rawValue: "Log in with username in background from login"), object: nil)
@@ -82,7 +84,7 @@ class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUs
                 NotificationCenter.default.removeObserver(self)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Login service never told to log in with username in background")
                         }

@@ -25,13 +25,13 @@ class AddJogInteractor: NSObject, AddJogInteractorInput {
         
         // MARK: - Interactor Input
         func saveJog(_ jog: Jog) {
-                jog.saveInBackground { (success, error) -> Void in
-                        if success {
-                                self.successSavingJog()
-                        } else {
-                                self.failedSavingJog(error as NSError?)
-                        }
-                }
+//                jog.saveInBackground { (success, error) -> Void in
+//                        if success {
+//                                self.successSavingJog()
+//                        } else {
+//                                self.failedSavingJog(error as NSError?)
+//                        }
+//                }
         }
         
 }

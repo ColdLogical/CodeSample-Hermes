@@ -38,7 +38,7 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
                 if let j = jog {
                         currentJog = j
                 } else {
-                        currentJog = Jog(className: Jog.parseClassName());
+                        currentJog = Jog()
                 }
                 
                 currentJog.date = date

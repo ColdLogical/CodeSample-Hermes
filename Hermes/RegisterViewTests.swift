@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-@testable import Supremacy
+@testable import Hermes
 
 class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         var view = RegisterView()
@@ -21,8 +21,8 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         override func setUp() {
                 super.setUp()
 
-                let sb = UIStoryboard(name: kRegisterStoryboardIdentifier, bundle: Bundle(forClass: RegisterView.self))
-                view = sb.instantiateViewControllerWithIdentifier(kRegisterViewIdentifier) as! RegisterView
+                let sb = UIStoryboard(name: kRegisterStoryboardIdentifier, bundle: Bundle(for: RegisterView.self))
+                view = sb.instantiateViewController(withIdentifier: kRegisterViewIdentifier) as! RegisterView
 		view.loadView()
                 view.presenter = self
 
@@ -39,7 +39,7 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         
         // MARK: - Operational
         func testRegisterTappedWithUsernameIAmPasswordAwesomeShouldTellPresenterUserTappedRegisterWithUsernameIAmPasswordAwesome() {
-                expectation = self.expectation(withDescription: "Presenter user tapped register from register tapped")
+                expectation = expectation(description: "Presenter user tapped register from register tapped")
                 
                 view.usernameField!.text = "I Am"
                 view.passwordField!.text = "Awesome"
@@ -47,7 +47,7 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
                 view.registerTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that register was tapped")
                         }
@@ -75,7 +75,7 @@ class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
         func testShowMessageWithTextIAmAwesomeShouldSetMessageLabelNotHiddenAndTextToIAmAwesome() {
                 view.showMessage("I Am Awesome")
                 
-                XCTAssertFalse(view.messageLabel!.hidden, "Message label should not be hidden")
+                XCTAssertFalse(view.messageLabel!.isHidden, "Message label should not be hidden")
                 XCTAssertEqual("I Am Awesome", view.messageLabel!.text, "Message label's text should be I Am Awesome")
         }
         

@@ -59,8 +59,6 @@
 		0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD871BE5419C008A322C /* JogsWireframeTests.swift */; };
 		0190DDC91BE5421B008A322C /* JogsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD901BE541A5008A322C /* JogsViewTests.swift */; };
 		0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0190DDCC1BE543D2008A322C /* Login.storyboard */; };
-		0196F9901BE583A3003A95C3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816B1A49DB6800E65899 /* Bolts.framework */; };
-		0196F9911BE583AA003A95C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816C1A49DB6800E65899 /* Parse.framework */; };
 		0196F9921BE583AD003A95C3 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
@@ -70,9 +68,9 @@
 		01C639251DA2E82900137219 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639211DA2E82900137219 /* Jogs.storyboard */; };
 		01C639261DA2E82900137219 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C639221DA2E82900137219 /* LaunchScreen.xib */; };
 		01C639271DA2E82900137219 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639231DA2E82900137219 /* Register.storyboard */; };
+		01F240C41DA4621900245683 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F240C21DA4621900245683 /* Bolts.framework */; };
+		01F240C51DA4621900245683 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F240C31DA4621900245683 /* Parse.framework */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
-		81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816B1A49DB6800E65899 /* Bolts.framework */; };
-		81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816C1A49DB6800E65899 /* Parse.framework */; };
 		81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
@@ -150,11 +148,11 @@
 		01C639211DA2E82900137219 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Jogs.storyboard; path = Hermes/Jogs.storyboard; sourceTree = "<group>"; };
 		01C639221DA2E82900137219 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Hermes/LaunchScreen.xib; sourceTree = "<group>"; };
 		01C639231DA2E82900137219 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = Hermes/Register.storyboard; sourceTree = "<group>"; };
+		01F240C21DA4621900245683 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		01F240C31DA4621900245683 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		81BA816B1A49DB6800E65899 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		81BA816C1A49DB6800E65899 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		81BA81761A49E0D500E65899 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		81BA81781A49E0DB00E65899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -166,8 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0196F9901BE583A3003A95C3 /* Bolts.framework in Frameworks */,
-				0196F9911BE583AA003A95C3 /* Parse.framework in Frameworks */,
 				0196F9921BE583AD003A95C3 /* libstdc++.6.dylib in Frameworks */,
 				0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */,
 				0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */,
@@ -179,12 +175,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F240C41DA4621900245683 /* Bolts.framework in Frameworks */,
 				81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */,
 				81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
+				01F240C51DA4621900245683 /* Parse.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
-				81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */,
-				81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,8 +420,8 @@
 		81BA816A1A49DB5600E65899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81BA816B1A49DB6800E65899 /* Bolts.framework */,
-				81BA816C1A49DB6800E65899 /* Parse.framework */,
+				01F240C21DA4621900245683 /* Bolts.framework */,
+				01F240C31DA4621900245683 /* Parse.framework */,
 				81BA81751A49E0C500E65899 /* System Frameworks */,
 			);
 			name = Frameworks;

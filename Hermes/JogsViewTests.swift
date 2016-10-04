@@ -39,12 +39,12 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         // MARK: - Operational
         func testAddJogsTappedWithAnythingShouldTellPresenterUserTappedAdd() {
-                expectation = self.expectation(withDescription: "Presenter user tapped add from add jogs tapped")
+                expectation = expectation(description: "Presenter user tapped add from add jogs tapped")
                 
                 view.addJogTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that user tapped add")
                         }
@@ -98,12 +98,12 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         }
         
         func testLogoutTappedWithAnythingShouldTellPresenterUserTappedLogout() {
-                expectation = self.expectation(withDescription: "Presenter user tapped logout from logout tapped")
+                expectation = expectation(description: "Presenter user tapped logout from logout tapped")
                 
                 view.logoutTapped(nil)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told that user tapped logout")
                         }
@@ -169,7 +169,7 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
         
         // MARK: - Table View Delegate
         func testTableViewDidSelectRowAtIndexPathWithJogAtIndexPathShouldTellPresenterJogWasTapped() {
-                expectation = self.expectation(withDescription: "Presenter user tapped jog from did select row")
+                expectation = expectation(description: "Presenter user tapped jog from did select row")
                 
                 let j1 = Jog()
                 j1.distance = 314159
@@ -179,7 +179,7 @@ class JogsViewTests: XCTestCase, JogsPresenterInterface {
                 view.tableView(view.tableView, didSelectRowAt: IndexPath.init(row: 0, section: 0))
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Presenter never told jog was tapped")
                         }

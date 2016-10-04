@@ -79,8 +79,7 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
 	}
         
         // MARK: - Operational
-        func presentInWindow(_ window: JogsWindow) {
-                window.rootViewController = moduleNavigationController
+        func presentJogs() {
                 presenter.presentingJogs()
         }
         
@@ -95,14 +94,15 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         
         // MARK: - Login Delegate
         func loginCompleted(_ loginModule: LoginModuleInterface) {
-                loginModule.dismiss()
+                moduleView.dismiss(animated: true, completion: nil)
                 _loginModule = nil
+                
                 presenter.presentingJogs()
         }
         
         // MARK: - Add Jog Delegate
         func addJogCancelled(_ addJogModule: AddJogModuleInterface) {
-                addJogModule.dismiss()
+                moduleView.dismiss(animated: true, completion: nil)
                 _addJogModule = nil
         }
         

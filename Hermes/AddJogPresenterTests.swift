@@ -36,24 +36,24 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
 
         // MARK: - Interactor Output
         func testSaveJogFailureWithAnythingShouldTellViewToShowSaveJogFailed() {
-                expectation = self.expectation(withDescription: "View show save jog failed from save jog failed")
+                expectation = expectation(description: "View show save jog failed from save jog failed")
                 
                 presenter.saveJogFailed()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show save jog failed")
                         }
                 }
         }
         func testSavedJogWithAnythingShouldTellWireframeAddJogFinished() {
-                expectation = self.expectation(withDescription: "Wireframe add jog finished from saved jog")
+                expectation = expectation(description: "Wireframe add jog finished from saved jog")
                 
                 presenter.savedJog()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told that add jog finished")
                         }
@@ -62,12 +62,12 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
 
         // MARK: - Presenter Interface
         func testUserTappedCancelWithAnythingShouldTellWireframeToCancelAddJog() {
-                expectation = self.expectation(withDescription: "Wireframe cancel add jog from presenter user tapped cancel")
+                expectation = expectation(description: "Wireframe cancel add jog from presenter user tapped cancel")
                 
                 presenter.userTappedCancel()
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Wireframe never told to cancel add jog")
                         }
@@ -75,12 +75,12 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         }
         
         func testUserTappedSaveWithNilJogDistance4DateApril231986Time60ShouldTellInteractorToSaveANewJogWithDistance4DateApril231986Time60() {
-                expectation = self.expectation(withDescription: "Interactor save jog from user tapped save")
+                expectation = expectation(description: "Interactor save jog from user tapped save")
                 
                 presenter.userTappedSave(nil, distance: "4", date: Date(timeIntervalSince1970: 514623600), time: 60)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("Interactor never told to save jog")
                         }
@@ -89,7 +89,7 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
 
         // MARK: - Routing
         func testPresentingJogWithNonNilJogShouldTellViewToShowJog() {
-                expectation = self.expectation(withDescription: "View show jog from presenting jog")
+                expectation = expectation(description: "View show jog from presenting jog")
                 
                 let j1 = Jog()
                 j1.distance = 314159
@@ -97,7 +97,7 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
                 presenter.presentingJog(j1)
                 
                 waitForExpectations(timeout: 5) {
-                        (error: NSError?) -> Void in
+                        (error: Error?) -> Void in
                         if error != nil {
                                 XCTFail("View never told to show jog")
                         }
