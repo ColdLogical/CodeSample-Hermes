@@ -10,19 +10,18 @@ import Foundation
 
 class AddJogInteractor: NSObject, AddJogPresenterToInteractorInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : AddJogInteractorToPresenterInterface = AddJogPresenter()
-        
+        lazy var presenter: AddJogInteractorToPresenterInterface = AddJogPresenter()
         // MARK: - Instance Variables
-        
+
         // MARK: - Operational
         func failedSavingJog(_ error: NSError?) {
                 presenter.saveJogFailed()
         }
-        
+
         func successSavingJog() {
                 presenter.savedJog()
         }
-        
+
         // MARK: - Interactor Input
         func saveJog(_ jog: Jog) {
 //                jog.saveInBackground { (success, error) -> Void in
@@ -33,5 +32,5 @@ class AddJogInteractor: NSObject, AddJogPresenterToInteractorInterface {
 //                        }
 //                }
         }
-        
+
 }

@@ -77,7 +77,7 @@ extension DataRequest {
     ///
     /// - returns: An image response serializer.
     public class func imageResponseSerializer(
-        imageScale: CGFloat = DataRequest.imageScale,
+        _ imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true)
         -> DataResponseSerializer<Image>
     {
@@ -120,7 +120,7 @@ extension DataRequest {
     /// - returns: The request.
     @discardableResult
     public func responseImage(
-        imageScale: CGFloat = DataRequest.imageScale,
+        _ imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true,
         completionHandler: @escaping (DataResponse<Image>) -> Void)
         -> Self
@@ -154,7 +154,7 @@ extension DataRequest {
     /// - returns: The request.
     @discardableResult
     public func streamImage(
-        imageScale: CGFloat = DataRequest.imageScale,
+        _ imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true,
         completionHandler: @escaping (Image) -> Void)
         -> Self
@@ -174,7 +174,7 @@ extension DataRequest {
         }
     }
 
-    private class func serializeImage(
+    fileprivate class func serializeImage(
         from data: Data,
         imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true)
@@ -192,7 +192,7 @@ extension DataRequest {
         }
     }
 
-    private class func image(from data: Data, withImageScale imageScale: CGFloat) throws -> UIImage {
+    fileprivate class func image(from data: Data, withImageScale imageScale: CGFloat) throws -> UIImage {
         if let image = UIImage.af_threadSafeImage(with: data, scale: imageScale) {
             return image
         }
@@ -200,7 +200,7 @@ extension DataRequest {
         throw AFIError.imageSerializationFailed
     }
 
-    private class var imageScale: CGFloat {
+    fileprivate class var imageScale: CGFloat {
         #if os(iOS) || os(tvOS)
             return UIScreen.main.scale
         #elseif os(watchOS)
@@ -292,7 +292,7 @@ extension DataRequest {
 
     // MARK: - Private - Shared Helper Methods
 
-    private class func validateContentType(for request: URLRequest?, response: HTTPURLResponse?) throws {
+    fileprivate class func validateContentType(for request: URLRequest?, response: HTTPURLResponse?) throws {
         if let url = request?.url, url.isFileURL { return }
 
         guard let mimeType = response?.mimeType else {

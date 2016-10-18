@@ -456,7 +456,9 @@
 				81BA81461A49DA1800E65899 /* Products */,
 				9C88A3F066274FFC2870E591 /* Pods */,
 			);
+			indentWidth = 8;
 			sourceTree = "<group>";
+			tabWidth = 8;
 		};
 		81BA81461A49DA1800E65899 /* Products */ = {
 			isa = PBXGroup;
@@ -564,6 +566,7 @@
 					};
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 84B7N872X6;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -960,6 +963,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 84B7N872X6;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -982,6 +986,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 84B7N872X6;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

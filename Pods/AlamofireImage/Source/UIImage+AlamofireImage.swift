@@ -74,7 +74,7 @@ extension UIImage {
 // MARK: - Inflation
 
 extension UIImage {
-    private struct AssociatedKey {
+    fileprivate struct AssociatedKey {
         static var inflated = "af_UIImage.Inflated"
     }
 

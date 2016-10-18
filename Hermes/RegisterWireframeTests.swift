@@ -8,10 +8,15 @@
 
 import UIKit
 import XCTest
+import Firebase
 
 @testable import Hermes
 
-class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterWireframeToPresenterInterface, RegisterNavigationController {
+class RegisterWireframeTests: XCTestCase
+        , RegisterDelegate
+        , RegisterWireframeToPresenterInterface
+        , RegisterNavigationController
+{
         var wireframe = RegisterWireframe()
         
         // MARK: - Test Objects

@@ -68,8 +68,8 @@ public protocol ImageRequestCache: ImageCache {
 /// the memory capacity is reached, the image cache is sorted by last access date, then the oldest image is continuously
 /// purged until the preferred memory usage after purge is met. Each time an image is accessed through the cache, the
 /// internal access date of the image is updated.
-public class AutoPurgingImageCache: ImageRequestCache {
-    private class CachedImage {
+open class AutoPurgingImageCache: ImageRequestCache {
+    fileprivate class CachedImage {
         let image: Image
         let identifier: String
         let totalBytes: UInt64
@@ -104,7 +104,7 @@ public class AutoPurgingImageCache: ImageRequestCache {
     // MARK: Properties
 
     /// The current total memory usage in bytes of all images stored within the cache.
-    public var memoryUsage: UInt64 {
+    open var memoryUsage: UInt64 {
         var memoryUsage: UInt64 = 0
         synchronizationQueue.sync { memoryUsage = self.currentMemoryUsage }
 
@@ -112,15 +112,15 @@ public class AutoPurgingImageCache: ImageRequestCache {
     }
 
     /// The total memory capacity of the cache in bytes.
-    public let memoryCapacity: UInt64
+    open let memoryCapacity: UInt64
 
     /// The preferred memory usage after purge in bytes. During a purge, images will be purged until the memory
     /// capacity drops below this limit.
-    public let preferredMemoryUsageAfterPurge: UInt64
+    open let preferredMemoryUsageAfterPurge: UInt64
 
-    private let synchronizationQueue: DispatchQueue
-    private var cachedImages: [String: CachedImage]
-    private var currentMemoryUsage: UInt64
+    fileprivate let synchronizationQueue: DispatchQueue
+    fileprivate var cachedImages: [String: CachedImage]
+    fileprivate var currentMemoryUsage: UInt64
 
     // MARK: Initialization
 

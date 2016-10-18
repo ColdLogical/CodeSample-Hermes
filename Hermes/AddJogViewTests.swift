@@ -22,7 +22,7 @@ class AddJogViewTests: XCTestCase, AddJogViewToPresenterInterface {
                 super.setUp()
 
                 let sb = UIStoryboard(name: kAddJogStoryboardIdentifier, bundle: Bundle(for: AddJogView.self))
-                view = sb.instantiateViewController(withIdentifier: kAddJogViewIdentifier) as! AddJogView
+                view = sb.instantiateViewController(withIdentifier: kAddJogViewIdentifier) as? AddJogView
 		view.loadView()
                 view.presenter = self
 
@@ -56,7 +56,7 @@ class AddJogViewTests: XCTestCase, AddJogViewToPresenterInterface {
                 
                 view.distanceField!.text = "8.7"
                 view.datePicker!.date = Date(timeIntervalSince1970: 514623600)
-                view.timePicker!.countDownDuration = 60;
+                view.timePicker!.countDownDuration = 60
                 
                 view.saveTapped(nil)
                 

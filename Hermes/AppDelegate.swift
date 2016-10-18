@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return w
         }()
         
-        lazy var jogsModule : JogsWireframe = JogsWireframe()
+        lazy var jogsModule: JogsWireframe = JogsWireframe()
         
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
                 FIRApp.configure()

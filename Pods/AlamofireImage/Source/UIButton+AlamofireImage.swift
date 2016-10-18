@@ -33,7 +33,7 @@ extension UIButton {
 
     // MARK: - Private - AssociatedKeys
 
-    private struct AssociatedKey {
+    fileprivate struct AssociatedKey {
         static var imageDownloader = "af_UIButton.ImageDownloader"
         static var sharedImageDownloader = "af_UIButton.SharedImageDownloader"
         static var imageReceipts = "af_UIButton.ImageReceipts"
@@ -88,7 +88,7 @@ extension UIButton {
         }
     }
 
-    private var backgroundImageRequestReceipts: [UInt: RequestReceipt] {
+    fileprivate var backgroundImageRequestReceipts: [UInt: RequestReceipt] {
         get {
             guard let
                 receipts = objc_getAssociatedObject(self, &AssociatedKey.backgroundImageReceipts) as? [UInt: RequestReceipt]
@@ -413,7 +413,7 @@ extension UIButton {
 
     // MARK: - Private - URL Request Helpers
 
-    private func isImageURLRequest(
+    fileprivate func isImageURLRequest(
         _ urlRequest: URLRequestConvertible?,
         equalToActiveRequestURLForState state: UIControlState)
         -> Bool
@@ -429,7 +429,7 @@ extension UIButton {
         return false
     }
 
-    private func isBackgroundImageURLRequest(
+    fileprivate func isBackgroundImageURLRequest(
         _ urlRequest: URLRequestConvertible?,
         equalToActiveRequestURLForState state: UIControlState)
         -> Bool
@@ -445,7 +445,7 @@ extension UIButton {
         return false
     }
 
-    private func urlRequest(with url: URL) -> URLRequest {
+    fileprivate func urlRequest(with url: URL) -> URLRequest {
         var urlRequest = URLRequest(url: url)
 
         for mimeType in DataRequest.acceptableImageContentTypes {
