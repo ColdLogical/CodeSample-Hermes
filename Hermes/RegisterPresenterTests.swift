@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewInterface, RegisterWireframeInterface {
+class RegisterPresenterTests: XCTestCase, RegisterPresenterToInteractorInterface, RegisterPresenterToViewInterface, RegisterPresenterToWireframeInterface {
         var presenter = RegisterPresenter()
         
         // MARK: - Test Objects
@@ -89,7 +89,7 @@ class RegisterPresenterTests: XCTestCase, RegisterInteractorInput, RegisterViewI
                 }
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func testPresentingWithAnythingShouldTellViewToShowAnEmptyMessage() {
                 expectation = expectation(description: "View show empty message from presenting")
                 

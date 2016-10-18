@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-class JogsView : UITableViewController, JogsViewInterface {
+class JogsView : UITableViewController, JogsPresenterToViewInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : JogsPresenterInterface = JogsPresenter()
+        lazy var presenter : JogsViewToPresenterInterface = JogsPresenter()
         
         // MARK: - Instance Variables
         var ascending: Bool = false

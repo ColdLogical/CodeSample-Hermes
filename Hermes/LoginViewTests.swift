@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class LoginViewTests: XCTestCase, LoginPresenterInterface {
+class LoginViewTests: XCTestCase, LoginViewToPresenterInterface {
         var view = LoginView()
 	var window = UIWindow()
         

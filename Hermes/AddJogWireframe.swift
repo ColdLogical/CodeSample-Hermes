@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface {
+class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogPresenterToWireframeInterface {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = AddJogInteractor()
         lazy var moduleNavigationController: UINavigationController = {
@@ -20,7 +20,7 @@ class AddJogWireframe: NSObject, AddJogModuleInterface, AddJogWireframeInterface
         lazy var moduleView: AddJogView = {
                 return self.moduleNavigationController.viewControllers[0] as! AddJogView
         }()
-        lazy var presenter : AddJogRouting = self.modulePresenter
+        lazy var presenter : AddJogWireframeToPresenterInterface = self.modulePresenter
         lazy var view : AddJogNavigation = self.moduleView
 
         // MARK: - Instance Variables

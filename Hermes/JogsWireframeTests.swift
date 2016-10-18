@@ -13,7 +13,7 @@ import XCTest
 
 class JogsWireframeTests: XCTestCase
         , JogsDelegate
-        , JogsRouting
+        , JogsWireframeToPresenterInterface
         , LoginModuleInterface
         , AddJogModuleInterface {
         var wireframe = JogsWireframe()
@@ -136,7 +136,7 @@ class JogsWireframeTests: XCTestCase
         
         // MARK: - Delegate
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func presentingJogs() {
                 if let exp = expectation {
                         if exp.description == "Presenter told presenting jogs from wireframe present in window" {

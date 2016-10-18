@@ -12,13 +12,15 @@ import Parse
 //extension PFQuery : JogsInteractorRoleQuery { }
 extension PFUser : JogsInteractorUserService { }
 
-class JogsInteractor: NSObject, JogsInteractorInput {
+class JogsInteractor: NSObject
+        , JogsPresenterToInteractorInterface
+        {
         // MARK: - VIPER Stack
-        lazy var presenter : JogsInteractorOutput = JogsPresenter()
-//        lazy var roleQuery : JogsInteractorRoleQuery? = PFRole.query()
-        lazy var userService : JogsInteractorUserService.Type = PFUser.self
+        weak var presenter : JogsInteractorToPresenterInterface!
         
         // MARK: - Instance Variables
+//        lazy var roleQuery : JogsInteractorRoleQuery? = PFRole.query()
+        lazy var userService : JogsInteractorUserService.Type = PFUser.self
         
         // MARK: - Operational
         func failedDeletingJog(_ error: NSError?) {

@@ -11,7 +11,7 @@ import UIKit
 extension UINavigationController : LoginModalViewController { }
 extension UINavigationController : AddJogModalViewController { }
 
-class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDelegate {
+class JogsWireframe: NSObject, JogsPresenterToWireframeInterface, LoginDelegate, AddJogDelegate {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = JogsInteractor()
         lazy var moduleNavigationController: UINavigationController = {
@@ -23,7 +23,7 @@ class JogsWireframe: NSObject, JogsWireframeInterface, LoginDelegate, AddJogDele
         lazy var moduleView: JogsView = {
                 return self.moduleNavigationController.viewControllers[0] as! JogsView
         }()
-        lazy var presenter : JogsRouting = self.modulePresenter
+        lazy var presenter : JogsWireframeToPresenterInterface = self.modulePresenter
 
         // MARK: - Instance Variables
         var delegate: JogsDelegate?

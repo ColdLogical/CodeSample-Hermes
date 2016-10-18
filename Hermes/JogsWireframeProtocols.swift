@@ -24,7 +24,7 @@ protocol JogsModuleInterface : class {
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
-protocol JogsWireframeInterface : class {
+protocol JogsPresenterToWireframeInterface : class {
         func presentAddJog(_ jog: Jog?)
         func presentLogin()
 }

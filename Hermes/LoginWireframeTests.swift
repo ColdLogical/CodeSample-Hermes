@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRouting, LoginModalViewController, RegisterModuleInterface {
+class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginWireframeToPresenterInterface, LoginModalViewController, RegisterModuleInterface {
         var wireframe = LoginWireframe()
         
         // MARK: - Test Objects
@@ -181,7 +181,7 @@ class LoginWireframeTests: XCTestCase, LoginDelegate, LoginNavigation, LoginRout
                 }
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         
         // MARK: - LoginModalViewController
         func presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {

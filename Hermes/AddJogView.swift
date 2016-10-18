@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AddJogView : UIViewController, AddJogNavigation, AddJogViewInterface {
+class AddJogView : UIViewController, AddJogNavigation, AddJogPresenterToViewInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : AddJogPresenterInterface = AddJogPresenter()
+        lazy var presenter : AddJogViewToPresenterInterface = AddJogPresenter()
         
         // MARK: - Instance Variables
         var currentJog: Jog?

@@ -31,7 +31,7 @@ protocol AddJogNavigation: class {
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
-protocol AddJogWireframeInterface : class {
+protocol AddJogPresenterToWireframeInterface : class {
         func addJogFinished()
         func cancelAddJog()
 }

@@ -9,7 +9,7 @@
 import Parse
 
 // VIPER Interface for communication from Interactor -> Presenter
-protocol JogsInteractorOutput : class {
+protocol JogsInteractorToPresenterInterface : class {
         func failedDeletingJog()
         func failedFetchingCurrentUser()
         func failedFetchingJogs()
@@ -19,7 +19,7 @@ protocol JogsInteractorOutput : class {
 }
 
 // VIPER Interface for communication from View -> Presenter
-protocol JogsPresenterInterface : class {
+protocol JogsViewToPresenterInterface : class {
         func userTappedAdd()
         func userTappedDelete(_ jog: Jog)
         func userTappedJog(_ jog: Jog)
@@ -27,6 +27,6 @@ protocol JogsPresenterInterface : class {
 }
 
 // VIPER Interface for communication from Wireframe -> Presenter
-protocol JogsRouting : class {
+protocol JogsWireframeToPresenterInterface : class {
         func presentingJogs()
 }

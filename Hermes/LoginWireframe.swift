@@ -10,7 +10,7 @@ import UIKit
 
 extension UINavigationController : RegisterNavigationController { }
 
-class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, RegisterDelegate {
+class LoginWireframe: NSObject, LoginModuleInterface, LoginPresenterToWireframeInterface, RegisterDelegate {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = LoginInteractor()
         lazy var moduleNavigationController: UINavigationController = {
@@ -23,7 +23,7 @@ class LoginWireframe: NSObject, LoginModuleInterface, LoginWireframeInterface, R
                 return self.moduleNavigationController.viewControllers[0] as! LoginView
         }()
         
-        lazy var presenter : LoginRouting = self.modulePresenter
+        lazy var presenter : LoginWireframeToPresenterInterface = self.modulePresenter
         lazy var view : LoginNavigation = self.moduleView
 
         // MARK: - Instance Variables

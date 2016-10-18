@@ -8,6 +8,7 @@
  */
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         lazy var jogsModule : JogsWireframe = JogsWireframe()
         
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                FIRApp.configure()
                 
                 window?.rootViewController = jogsModule.moduleNavigationController
                 jogsModule.presentJogs()

@@ -8,11 +8,11 @@
 
 import Foundation
 
-class RegisterPresenter : NSObject, RegisterInteractorOutput, RegisterPresenterInterface, RegisterRouting {
+class RegisterPresenter : NSObject, RegisterInteractorToPresenterInterface, RegisterViewToPresenterInterface, RegisterWireframeToPresenterInterface {
         // MARK: - VIPER Stack
-        lazy var interactor : RegisterInteractorInput = RegisterInteractor()
-        lazy var view : RegisterViewInterface = RegisterView()
-        lazy var wireframe : RegisterWireframeInterface = RegisterWireframe()
+        lazy var interactor : RegisterPresenterToInteractorInterface = RegisterInteractor()
+        lazy var view : RegisterPresenterToViewInterface = RegisterView()
+        lazy var wireframe : RegisterPresenterToWireframeInterface = RegisterWireframe()
         
         // MARK: - Instance Variables
         
@@ -33,7 +33,7 @@ class RegisterPresenter : NSObject, RegisterInteractorOutput, RegisterPresenterI
                 interactor.registerUser(username, password: password)
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func presenting() {
                 view.showMessage("")
         }

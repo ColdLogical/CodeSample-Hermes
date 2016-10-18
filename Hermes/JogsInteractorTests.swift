@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Hermes
 
-class JogsInteractorTests: XCTestCase, JogsInteractorOutput, JogsInteractorRoleQuery {
+class JogsInteractorTests: XCTestCase, JogsInteractorToPresenterInterface, JogsInteractorRoleQuery {
         var interactor = JogsInteractor()
         
         // MARK: - Test Objects

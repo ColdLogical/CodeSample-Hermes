@@ -7,7 +7,7 @@
 //
 
 // VIPER Interface for communication from Presenter -> View
-protocol AddJogViewInterface : class {
+protocol AddJogPresenterToViewInterface : class {
         func showJog(_ jog: Jog)
         func showSaveJogFailed()
 }

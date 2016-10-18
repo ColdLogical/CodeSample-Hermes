@@ -9,11 +9,11 @@
 import Foundation
 import Parse
 
-class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterface, AddJogRouting {
+class AddJogPresenter : NSObject, AddJogInteractorToPresenterInterface, AddJogViewToPresenterInterface, AddJogWireframeToPresenterInterface {
         // MARK: - VIPER Stack
-        lazy var interactor : AddJogInteractorInput = AddJogInteractor()
-        lazy var view : AddJogViewInterface = AddJogView()
-        lazy var wireframe : AddJogWireframeInterface = AddJogWireframe()
+        lazy var interactor : AddJogPresenterToInteractorInterface = AddJogInteractor()
+        lazy var view : AddJogPresenterToViewInterface = AddJogView()
+        lazy var wireframe : AddJogPresenterToWireframeInterface = AddJogWireframe()
         
         // MARK: - Instance Variables
         
@@ -55,7 +55,7 @@ class AddJogPresenter : NSObject, AddJogInteractorOutput, AddJogPresenterInterfa
                 interactor.saveJog(currentJog)
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func presentingJog(_ jog: Jog) {
                 view.showJog(jog)
         }

@@ -9,17 +9,17 @@
 import Foundation
 
 // VIPER Interface for communication from Interactor -> Presenter
-protocol RegisterInteractorOutput : class {
+protocol RegisterInteractorToPresenterInterface : class {
         func signUpFailure(_ error: NSError?)
         func signUpSuccess()
 }
 
 // VIPER Interface for communication from View -> Presenter
-protocol RegisterPresenterInterface : class {
+protocol RegisterViewToPresenterInterface : class {
         func userTappedRegister(_ username: String, password: String)
 }
 
 // VIPER Interface for communication from Wireframe -> Presenter
-protocol RegisterRouting : class {
+protocol RegisterWireframeToPresenterInterface : class {
         func presenting()
 }

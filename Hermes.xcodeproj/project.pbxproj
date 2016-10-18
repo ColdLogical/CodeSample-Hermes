@@ -33,6 +33,7 @@
 		0124D17B1BE54FE100E10F48 /* RegisterViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */; };
 		0124D17C1BE54FE100E10F48 /* RegisterWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */; };
 		012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D77B51BE0728B004F7A2C /* AppDelegate.swift */; };
+		014A56441DA5A4D6007F487A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 014A56431DA5A4D6007F487A /* GoogleService-Info.plist */; };
 		0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7C1BE5418D008A322C /* JogsInteractor.swift */; };
 		0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */; };
 		0190DD881BE5419C008A322C /* JogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD821BE5419C008A322C /* JogsPresenter.swift */; };
@@ -59,6 +60,18 @@
 		0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD871BE5419C008A322C /* JogsWireframeTests.swift */; };
 		0190DDC91BE5421B008A322C /* JogsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD901BE541A5008A322C /* JogsViewTests.swift */; };
 		0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0190DDCC1BE543D2008A322C /* Login.storyboard */; };
+		0196A2741DB6BA9600438F30 /* TestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26C1DB6BA9600438F30 /* TestInteractor.swift */; };
+		0196A2751DB6BA9600438F30 /* TestInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26D1DB6BA9600438F30 /* TestInteractorProtocols.swift */; };
+		0196A2761DB6BA9600438F30 /* TestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26E1DB6BA9600438F30 /* TestPresenter.swift */; };
+		0196A2771DB6BA9600438F30 /* TestPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26F1DB6BA9600438F30 /* TestPresenterProtocols.swift */; };
+		0196A2781DB6BA9600438F30 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2701DB6BA9600438F30 /* TestView.swift */; };
+		0196A2791DB6BA9600438F30 /* TestViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2711DB6BA9600438F30 /* TestViewProtocols.swift */; };
+		0196A27A1DB6BA9600438F30 /* TestWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2721DB6BA9600438F30 /* TestWireframe.swift */; };
+		0196A27B1DB6BA9600438F30 /* TestWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2731DB6BA9600438F30 /* TestWireframeProtocols.swift */; };
+		0196A2801DB6BAEA00438F30 /* TestInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27C1DB6BAEA00438F30 /* TestInteractorTests.swift */; };
+		0196A2811DB6BAEA00438F30 /* TestPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27D1DB6BAEA00438F30 /* TestPresenterTests.swift */; };
+		0196A2821DB6BAEA00438F30 /* TestViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27E1DB6BAEA00438F30 /* TestViewTests.swift */; };
+		0196A2831DB6BAEA00438F30 /* TestWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27F1DB6BAEA00438F30 /* TestWireframeTests.swift */; };
 		0196F9921BE583AD003A95C3 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
@@ -70,11 +83,13 @@
 		01C639271DA2E82900137219 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639231DA2E82900137219 /* Register.storyboard */; };
 		01F240C41DA4621900245683 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F240C21DA4621900245683 /* Bolts.framework */; };
 		01F240C51DA4621900245683 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F240C31DA4621900245683 /* Parse.framework */; };
+		204CD5F650E43C872B6A47F4 /* Pods_HermesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55C9C50B711A9B72AE8E2D2 /* Pods_HermesTests.framework */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
+		D7DAB2A4B9ECB1358E2D223C /* Pods_Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97ECB5A9DC93DCF33AACE236 /* Pods_Hermes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +130,7 @@
 		0124D1771BE54FE100E10F48 /* RegisterViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewTests.swift; path = Hermes/RegisterViewTests.swift; sourceTree = "<group>"; };
 		0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterWireframeTests.swift; path = Hermes/RegisterWireframeTests.swift; sourceTree = "<group>"; };
 		012D77B51BE0728B004F7A2C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Hermes/AppDelegate.swift; sourceTree = "<group>"; };
+		014A56431DA5A4D6007F487A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0190DD7C1BE5418D008A322C /* JogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractor.swift; path = Hermes/JogsInteractor.swift; sourceTree = "<group>"; };
 		0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorProtocols.swift; path = Hermes/JogsInteractorProtocols.swift; sourceTree = "<group>"; };
 		0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorTests.swift; path = Hermes/JogsInteractorTests.swift; sourceTree = "<group>"; };
@@ -143,6 +159,18 @@
 		0190DDB21BE54217008A322C /* HermesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesTests.swift; sourceTree = "<group>"; };
 		0190DDB41BE54217008A322C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0190DDCC1BE543D2008A322C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Hermes/Login.storyboard; sourceTree = "<group>"; };
+		0196A26C1DB6BA9600438F30 /* TestInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInteractor.swift; sourceTree = "<group>"; };
+		0196A26D1DB6BA9600438F30 /* TestInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInteractorProtocols.swift; sourceTree = "<group>"; };
+		0196A26E1DB6BA9600438F30 /* TestPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPresenter.swift; sourceTree = "<group>"; };
+		0196A26F1DB6BA9600438F30 /* TestPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPresenterProtocols.swift; sourceTree = "<group>"; };
+		0196A2701DB6BA9600438F30 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		0196A2711DB6BA9600438F30 /* TestViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewProtocols.swift; sourceTree = "<group>"; };
+		0196A2721DB6BA9600438F30 /* TestWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWireframe.swift; sourceTree = "<group>"; };
+		0196A2731DB6BA9600438F30 /* TestWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWireframeProtocols.swift; sourceTree = "<group>"; };
+		0196A27C1DB6BAEA00438F30 /* TestInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInteractorTests.swift; sourceTree = "<group>"; };
+		0196A27D1DB6BAEA00438F30 /* TestPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPresenterTests.swift; sourceTree = "<group>"; };
+		0196A27E1DB6BAEA00438F30 /* TestViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewTests.swift; sourceTree = "<group>"; };
+		0196A27F1DB6BAEA00438F30 /* TestWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWireframeTests.swift; sourceTree = "<group>"; };
 		01C6391E1DA2E81500137219 /* AddJog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AddJog.storyboard; path = Hermes/AddJog.storyboard; sourceTree = "<group>"; };
 		01C639201DA2E82900137219 /* JogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogCell.swift; path = Hermes/JogCell.swift; sourceTree = "<group>"; };
 		01C639211DA2E82900137219 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Jogs.storyboard; path = Hermes/Jogs.storyboard; sourceTree = "<group>"; };
@@ -150,6 +178,9 @@
 		01C639231DA2E82900137219 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = Hermes/Register.storyboard; sourceTree = "<group>"; };
 		01F240C21DA4621900245683 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		01F240C31DA4621900245683 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		0A26459D2B9E230517C6286A /* Pods-Hermes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hermes/Pods-Hermes.release.xcconfig"; sourceTree = "<group>"; };
+		37F0B3BB0F90207F8924CAC6 /* Pods-Hermes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hermes/Pods-Hermes.debug.xcconfig"; sourceTree = "<group>"; };
+		5F873A26850638DE1026E7C4 /* Pods-HermesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HermesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HermesTests/Pods-HermesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +188,9 @@
 		81BA81781A49E0DB00E65899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		97ECB5A9DC93DCF33AACE236 /* Pods_Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE73F0FFEC4B957D20DF3DF1 /* Pods-HermesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HermesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HermesTests/Pods-HermesTests.release.xcconfig"; sourceTree = "<group>"; };
+		E55C9C50B711A9B72AE8E2D2 /* Pods_HermesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HermesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +202,7 @@
 				0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */,
 				0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */,
 				0196F9951BE583AD003A95C3 /* libsqlite3.dylib in Frameworks */,
+				204CD5F650E43C872B6A47F4 /* Pods_HermesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +216,7 @@
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
 				01F240C51DA4621900245683 /* Parse.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
+				D7DAB2A4B9ECB1358E2D223C /* Pods_Hermes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +307,18 @@
 				01C639221DA2E82900137219 /* LaunchScreen.xib */,
 				0190DD6B1BE53C3B008A322C /* Jogs */,
 				0190DD571BE53C0B008A322C /* Login */,
+				0196A26C1DB6BA9600438F30 /* TestInteractor.swift */,
+				0196A27C1DB6BAEA00438F30 /* TestInteractorTests.swift */,
+				0196A27D1DB6BAEA00438F30 /* TestPresenterTests.swift */,
+				0196A27E1DB6BAEA00438F30 /* TestViewTests.swift */,
+				0196A27F1DB6BAEA00438F30 /* TestWireframeTests.swift */,
+				0196A26D1DB6BA9600438F30 /* TestInteractorProtocols.swift */,
+				0196A26E1DB6BA9600438F30 /* TestPresenter.swift */,
+				0196A26F1DB6BA9600438F30 /* TestPresenterProtocols.swift */,
+				0196A2701DB6BA9600438F30 /* TestView.swift */,
+				0196A2711DB6BA9600438F30 /* TestViewProtocols.swift */,
+				0196A2721DB6BA9600438F30 /* TestWireframe.swift */,
+				0196A2731DB6BA9600438F30 /* TestWireframeProtocols.swift */,
 			);
 			name = Hermes;
 			sourceTree = "<group>";
@@ -391,6 +439,7 @@
 		814C3AC51B69877600E307BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				014A56431DA5A4D6007F487A /* GoogleService-Info.plist */,
 				814C3AC81B69877600E307BB /* Images.xcassets */,
 				814C3AC91B69877600E307BB /* Info.plist */,
 			);
@@ -405,6 +454,7 @@
 				0190DDB11BE54217008A322C /* HermesTests */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
 				81BA81461A49DA1800E65899 /* Products */,
+				9C88A3F066274FFC2870E591 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,6 +473,8 @@
 				01F240C21DA4621900245683 /* Bolts.framework */,
 				01F240C31DA4621900245683 /* Parse.framework */,
 				81BA81751A49E0C500E65899 /* System Frameworks */,
+				97ECB5A9DC93DCF33AACE236 /* Pods_Hermes.framework */,
+				E55C9C50B711A9B72AE8E2D2 /* Pods_HermesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -438,6 +490,17 @@
 			name = "System Frameworks";
 			sourceTree = "<group>";
 		};
+		9C88A3F066274FFC2870E591 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37F0B3BB0F90207F8924CAC6 /* Pods-Hermes.debug.xcconfig */,
+				0A26459D2B9E230517C6286A /* Pods-Hermes.release.xcconfig */,
+				5F873A26850638DE1026E7C4 /* Pods-HermesTests.debug.xcconfig */,
+				DE73F0FFEC4B957D20DF3DF1 /* Pods-HermesTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,9 +508,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0190DDB71BE54217008A322C /* Build configuration list for PBXNativeTarget "HermesTests" */;
 			buildPhases = (
+				4745DF786C813F35E2F80A06 /* [CP] Check Pods Manifest.lock */,
 				0190DDAC1BE54217008A322C /* Sources */,
 				0190DDAD1BE54217008A322C /* Frameworks */,
 				0190DDAE1BE54217008A322C /* Resources */,
+				803692515D17AA961285C1D6 /* [CP] Embed Pods Frameworks */,
+				8715B845B48CB6921E0D71CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -463,10 +529,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81BA81641A49DA1800E65899 /* Build configuration list for PBXNativeTarget "Hermes" */;
 			buildPhases = (
+				5C580E3A9358D5621B515586 /* [CP] Check Pods Manifest.lock */,
 				81BA81411A49DA1800E65899 /* Sources */,
 				81BA81421A49DA1800E65899 /* Frameworks */,
 				81BA81431A49DA1800E65899 /* Resources */,
 				81CC85E11A49F6D40076DE19 /* Upload Symbol Files */,
+				00D66D4615C7A4DCEC573763 /* [CP] Embed Pods Frameworks */,
+				507C9D53F5169D502B8B571A /* [CP] Copy Pods Resources */,
+				0196A2841DB6CAC800438F30 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -535,12 +605,101 @@
 				01C639251DA2E82900137219 /* Jogs.storyboard in Resources */,
 				01C6391F1DA2E81500137219 /* AddJog.storyboard in Resources */,
 				01C639271DA2E82900137219 /* Register.storyboard in Resources */,
+				014A56441DA5A4D6007F487A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		00D66D4615C7A4DCEC573763 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hermes/Pods-Hermes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0196A2841DB6CAC800438F30 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		4745DF786C813F35E2F80A06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		507C9D53F5169D502B8B571A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hermes/Pods-Hermes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C580E3A9358D5621B515586 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		803692515D17AA961285C1D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HermesTests/Pods-HermesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		81CC85E11A49F6D40076DE19 /* Upload Symbol Files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,6 +713,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This script will upload symbol files for your application,\n# so all your crash reports are going to be symbolicated\n\n# Important!\n# Before using the script, please initialize CloudCode folder and replace <path_to_cloudcode_folder> with the path to it\n#\n# Read more on Parse.com - https://parse.com/apps/quickstart#analytics/crashreporting/ios/\n############################################################\n\n\n# export PATH=/usr/local/bin:$PATH\n# cd <path_to_cloudcode_folder>\n\n# parse symbols -p \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+		};
+		8715B845B48CB6921E0D71CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HermesTests/Pods-HermesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -569,8 +743,11 @@
 				0190DDC61BE5421B008A322C /* JogsInteractorTests.swift in Sources */,
 				0121E7881BE6B80A00C9BED5 /* AddJogInteractorTests.swift in Sources */,
 				0190DDC51BE5421B008A322C /* LoginViewTests.swift in Sources */,
+				0196A2811DB6BAEA00438F30 /* TestPresenterTests.swift in Sources */,
+				0196A2821DB6BAEA00438F30 /* TestViewTests.swift in Sources */,
 				0121E78A1BE6B80A00C9BED5 /* AddJogViewTests.swift in Sources */,
 				0121E7891BE6B80A00C9BED5 /* AddJogPresenterTests.swift in Sources */,
+				0196A2831DB6BAEA00438F30 /* TestWireframeTests.swift in Sources */,
 				0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */,
 				0190DDC31BE5421B008A322C /* LoginPresenterTests.swift in Sources */,
 				0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */,
@@ -578,6 +755,7 @@
 				0190DDC41BE5421B008A322C /* LoginWireframeTests.swift in Sources */,
 				0190DDB31BE54217008A322C /* HermesTests.swift in Sources */,
 				0124D17A1BE54FE100E10F48 /* RegisterPresenterTests.swift in Sources */,
+				0196A2801DB6BAEA00438F30 /* TestInteractorTests.swift in Sources */,
 				0190DDC71BE5421B008A322C /* JogsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +766,7 @@
 			files = (
 				0190DDA01BE541B8008A322C /* LoginPresenter.swift in Sources */,
 				0124D1731BE54FD300E10F48 /* RegisterWireframe.swift in Sources */,
+				0196A2751DB6BA9600438F30 /* TestInteractorProtocols.swift in Sources */,
 				0190DD911BE541A5008A322C /* JogsView.swift in Sources */,
 				0190DD8B1BE5419C008A322C /* JogsWireframe.swift in Sources */,
 				0190DD891BE5419C008A322C /* JogsPresenterProtocols.swift in Sources */,
@@ -598,12 +777,15 @@
 				0190DD981BE541AF008A322C /* LoginInteractorProtocols.swift in Sources */,
 				0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */,
 				0124D1741BE54FD300E10F48 /* RegisterWireframeProtocols.swift in Sources */,
+				0196A2771DB6BA9600438F30 /* TestPresenterProtocols.swift in Sources */,
 				0190DD921BE541A5008A322C /* JogsViewProtocols.swift in Sources */,
 				0124D1711BE54FD300E10F48 /* RegisterView.swift in Sources */,
 				0121E77F1BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift in Sources */,
 				0121E7811BE6B7FE00C9BED5 /* AddJogViewProtocols.swift in Sources */,
 				0190DDA31BE541B8008A322C /* LoginWireframe.swift in Sources */,
+				0196A27B1DB6BA9600438F30 /* TestWireframeProtocols.swift in Sources */,
 				0190DD971BE541AF008A322C /* LoginInteractor.swift in Sources */,
+				0196A2791DB6BA9600438F30 /* TestViewProtocols.swift in Sources */,
 				0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */,
 				0121E77E1BE6B7FE00C9BED5 /* AddJogPresenter.swift in Sources */,
 				01C639241DA2E82900137219 /* JogCell.swift in Sources */,
@@ -611,15 +793,19 @@
 				0190DDA91BE541BF008A322C /* LoginView.swift in Sources */,
 				0124D1701BE54FD300E10F48 /* RegisterPresenterProtocols.swift in Sources */,
 				0124D1721BE54FD300E10F48 /* RegisterViewProtocols.swift in Sources */,
+				0196A2761DB6BA9600438F30 /* TestPresenter.swift in Sources */,
 				0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */,
 				0121E7831BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift in Sources */,
 				0121E77D1BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift in Sources */,
 				0124D16E1BE54FD300E10F48 /* RegisterInteractorProtocols.swift in Sources */,
 				0121E7821BE6B7FE00C9BED5 /* AddJogWireframe.swift in Sources */,
+				0196A27A1DB6BA9600438F30 /* TestWireframe.swift in Sources */,
 				0190DD8C1BE5419C008A322C /* JogsWireframeProtocols.swift in Sources */,
 				0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */,
 				0121E77C1BE6B7FE00C9BED5 /* AddJogInteractor.swift in Sources */,
+				0196A2781DB6BA9600438F30 /* TestView.swift in Sources */,
 				012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */,
+				0196A2741DB6BA9600438F30 /* TestInteractor.swift in Sources */,
 				0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +823,7 @@
 /* Begin XCBuildConfiguration section */
 		0190DDB81BE54217008A322C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F873A26850638DE1026E7C4 /* Pods-HermesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -659,6 +846,7 @@
 		};
 		0190DDB91BE54217008A322C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE73F0FFEC4B957D20DF3DF1 /* Pods-HermesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -768,6 +956,7 @@
 		};
 		81BA81651A49DA1800E65899 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37F0B3BB0F90207F8924CAC6 /* Pods-Hermes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -779,7 +968,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coldlogical.Hermes;
 				PRODUCT_NAME = Hermes;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -789,6 +978,7 @@
 		};
 		81BA81661A49DA1800E65899 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A26459D2B9E230517C6286A /* Pods-Hermes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -800,7 +990,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coldlogical.Hermes;
 				PRODUCT_NAME = Hermes;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

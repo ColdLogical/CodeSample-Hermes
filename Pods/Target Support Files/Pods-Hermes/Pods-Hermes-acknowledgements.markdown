@@ -77,6 +77,34 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+## Firebase
+
+Copyright 2016 Google
+
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseCore
+
+Copyright 2016 Google
+
+## FirebaseInstanceID
+
+Copyright 2016 Google
+
+## GoogleInterchangeUtilities
+
+Copyright 2016 Google
+
+## GoogleSymbolUtilities
+
+Copyright 2016 Google
+
+## GoogleUtilities
+
+Copyright 2016 Google
+
 ## SwiftyJSON
 
 The MIT License (MIT)

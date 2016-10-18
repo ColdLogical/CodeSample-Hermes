@@ -11,9 +11,9 @@ import Parse
 
 extension PFUser : LoginInteractorUser { }
 
-class LoginInteractor: NSObject, LoginInteractorInput {
+class LoginInteractor: NSObject, LoginPresenterToInteractorInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : LoginInteractorOutput = LoginPresenter()
+        lazy var presenter : LoginInteractorToPresenterInterface = LoginPresenter()
         
         // MARK: - Instance Variables
         lazy var loginService : LoginInteractorUser.Type = PFUser.self

@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class AddJogViewTests: XCTestCase, AddJogPresenterInterface {
+class AddJogViewTests: XCTestCase, AddJogViewToPresenterInterface {
         var view = AddJogView()
 	var window = UIWindow()
         

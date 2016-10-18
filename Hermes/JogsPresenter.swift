@@ -9,11 +9,15 @@
 import Foundation
 import Parse
 
-class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, JogsRouting {
+class JogsPresenter : NSObject
+        , JogsInteractorToPresenterInterface
+        , JogsViewToPresenterInterface
+        , JogsWireframeToPresenterInterface
+        {
         // MARK: - VIPER Stack
-        lazy var interactor : JogsInteractorInput = JogsInteractor()
-        lazy var view : JogsViewInterface = JogsView()
-        lazy var wireframe : JogsWireframeInterface = JogsWireframe()
+        weak var interactor : JogsPresenterToInteractorInterface!
+        weak var view : JogsPresenterToViewInterface!
+        weak var wireframe : JogsPresenterToWireframeInterface!
         
         // MARK: - Instance Variables
         var currentUser: PFUser?
@@ -75,7 +79,7 @@ class JogsPresenter : NSObject, JogsInteractorOutput, JogsPresenterInterface, Jo
                 wireframe.presentLogin()
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func presentingJogs() {
                 interactor.fetchCurrentUser()
         }

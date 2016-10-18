@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Hermes
 
-class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, JogsWireframeInterface {
+class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPresenterToViewInterface, JogsPresenterToWireframeInterface {
         var presenter = JogsPresenter()
         
         // MARK: - Test Objects
@@ -208,7 +208,7 @@ class JogsPresenterTests: XCTestCase, JogsInteractorInput, JogsViewInterface, Jo
                 }
         }
 
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
 
         // MARK: - Interactor Input
         func deleteJog(_ jog: Jog) {

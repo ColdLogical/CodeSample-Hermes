@@ -24,7 +24,7 @@ protocol RegisterModuleInterface : class {
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
-protocol RegisterWireframeInterface : class {
+protocol RegisterPresenterToWireframeInterface : class {
         func registrationFinished()
 }
 

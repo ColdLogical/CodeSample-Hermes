@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RegisterView : UIViewController, RegisterViewInterface {
+class RegisterView : UIViewController, RegisterPresenterToViewInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : RegisterPresenterInterface = RegisterPresenter()
+        lazy var presenter : RegisterViewToPresenterInterface = RegisterPresenter()
         
         // MARK: - Instance Variables
         

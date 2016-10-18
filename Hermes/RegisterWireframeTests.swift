@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, RegisterNavigationController {
+class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterWireframeToPresenterInterface, RegisterNavigationController {
         var wireframe = RegisterWireframe()
         
         // MARK: - Test Objects
@@ -139,7 +139,7 @@ class RegisterWireframeTests: XCTestCase, RegisterDelegate, RegisterRouting, Reg
                 }
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func presenting() {
                 if let exp = expectation {
                         if exp.description == "Presenter presenting from push on navigation controller" {

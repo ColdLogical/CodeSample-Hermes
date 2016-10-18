@@ -9,18 +9,18 @@
 import Foundation
 
 // VIPER Interface for communication from Interactor -> Presenter
-protocol AddJogInteractorOutput : class {
+protocol AddJogInteractorToPresenterInterface : class {
         func savedJog()
         func saveJogFailed()
 }
 
 // VIPER Interface for communication from View -> Presenter
-protocol AddJogPresenterInterface : class {
+protocol AddJogViewToPresenterInterface : class {
         func userTappedCancel()
         func userTappedSave(_ jog: Jog?, distance: String, date: Date, time: TimeInterval)
 }
 
 // VIPER Interface for communication from Wireframe -> Presenter
-protocol AddJogRouting : class {
+protocol AddJogWireframeToPresenterInterface : class {
         func presentingJog(_ jog: Jog)
 }

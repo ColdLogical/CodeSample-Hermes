@@ -2,13 +2,33 @@ PODS:
   - Alamofire (4.0.1)
   - AlamofireImage (3.1.0):
     - Alamofire (~> 4.0)
-  - EVReflection (3.0.3)
+  - EVReflection (3.1.2)
+  - Firebase (3.7.1):
+    - Firebase/Core (= 3.7.1)
+  - Firebase/Core (3.7.1):
+    - FirebaseAnalytics (= 3.4.4)
+    - FirebaseCore (= 3.4.3)
+  - FirebaseAnalytics (3.4.4):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+  - FirebaseCore (3.4.3):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseInstanceID (1.0.8)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleUtilities (1.3.2):
+    - GoogleSymbolUtilities (~> 1.1)
   - SwiftyJSON (3.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireImage (~> 3.0)
   - EVReflection (from `https://github.com/evermeer/EVReflection`, branch `Swift3`)
+  - Firebase
   - SwiftyJSON (= 3.0.0)
 
 EXTERNAL SOURCES:
@@ -18,15 +38,22 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EVReflection:
-    :commit: ad676ba078b4d41742d0f1678127e4d564bb30ac
+    :commit: a1c0d785d3df90de27a52135d8071ea1bb7defc7
     :git: https://github.com/evermeer/EVReflection
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
-  EVReflection: affca845a5584b102b84a9568f7a4cb65ad4b8e1
+  EVReflection: 102d8ca777db55200f48b80d9628c8d50fb4109d
+  Firebase: be473484f0d515e72ffd04acf22f981773c23e58
+  FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
+  FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
 
-PODFILE CHECKSUM: 4a1023c30e01ec7bd9a35738857e0e70c18d5cad
+PODFILE CHECKSUM: a26670e3a3b648a7e04625c2345c0832d9ad81c7
 
 COCOAPODS: 1.1.0.rc.2

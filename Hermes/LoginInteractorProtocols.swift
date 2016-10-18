@@ -9,7 +9,7 @@
 import Parse
 
 // VIPER Interface for communication from Presenter to Interactor
-protocol LoginInteractorInput : class {
+protocol LoginPresenterToInteractorInterface : class {
         func login(_ username: String, password: String)
 }
 

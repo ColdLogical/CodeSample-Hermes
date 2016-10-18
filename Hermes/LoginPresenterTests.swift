@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface, LoginWireframeInterface {
+class LoginPresenterTests: XCTestCase, LoginPresenterToInteractorInterface, LoginPresenterToViewInterface, LoginPresenterToWireframeInterface {
         var presenter = LoginPresenter()
         
         // MARK: - Test Objects
@@ -100,7 +100,7 @@ class LoginPresenterTests: XCTestCase, LoginInteractorInput, LoginViewInterface,
                 }
         }
 
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
 
         // MARK: - Interactor Input
         func login(_ username: String, password: String) {

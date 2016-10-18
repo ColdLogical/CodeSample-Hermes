@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Hermes
 
-class LoginInteractorTests: XCTestCase, LoginInteractorOutput, LoginInteractorUser {
+class LoginInteractorTests: XCTestCase, LoginInteractorToPresenterInterface, LoginInteractorUser {
         var interactor = LoginInteractor()
         
         // MARK: - Test Objects

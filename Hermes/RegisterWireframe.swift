@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterWireframe: NSObject, RegisterModuleInterface, RegisterWireframeInterface {
+class RegisterWireframe: NSObject, RegisterModuleInterface, RegisterPresenterToWireframeInterface {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = RegisterInteractor()
         lazy var modulePresenter = RegisterPresenter()
@@ -17,7 +17,7 @@ class RegisterWireframe: NSObject, RegisterModuleInterface, RegisterWireframeInt
                 let vc = sb.instantiateViewController(withIdentifier: kRegisterViewIdentifier) as! RegisterView
                 return vc
         }()
-        lazy var presenter : RegisterRouting = self.modulePresenter
+        lazy var presenter : RegisterWireframeToPresenterInterface = self.modulePresenter
 
         // MARK: - Instance Variables
         var delegate: RegisterDelegate?

@@ -11,9 +11,9 @@ import Parse
 
 extension PFUser : RegisterInteractorUser { }
 
-class RegisterInteractor: NSObject, RegisterInteractorInput {
+class RegisterInteractor: NSObject, RegisterPresenterToInteractorInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : RegisterInteractorOutput = RegisterPresenter()
+        lazy var presenter : RegisterInteractorToPresenterInterface = RegisterPresenter()
         
         // MARK: - Instance Variables
         lazy var newUser : RegisterInteractorUser = PFUser()

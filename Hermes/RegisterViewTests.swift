@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class RegisterViewTests: XCTestCase, RegisterPresenterInterface {
+class RegisterViewTests: XCTestCase, RegisterViewToPresenterInterface {
         var view = RegisterView()
 	var window = UIWindow()
         

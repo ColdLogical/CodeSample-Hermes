@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogModalViewController, AddJogNavigation {
+class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogWireframeToPresenterInterface, AddJogModalViewController, AddJogNavigation {
         var wireframe = AddJogWireframe()
         
         // MARK: - Test Objects
@@ -167,7 +167,7 @@ class AddJogWireframeTests: XCTestCase, AddJogDelegate, AddJogRouting, AddJogMod
                 }
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func presentingJog(_ jog: Jog) {
                 if let exp = expectation {
                         if exp.description == "Presenter presenting jog from present modally on view controller" {

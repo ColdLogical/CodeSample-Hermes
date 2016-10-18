@@ -8,11 +8,11 @@
 
 import Foundation
 
-class LoginPresenter : NSObject, LoginInteractorOutput, LoginPresenterInterface, LoginRouting {
+class LoginPresenter : NSObject, LoginInteractorToPresenterInterface, LoginViewToPresenterInterface, LoginWireframeToPresenterInterface {
         // MARK: - VIPER Stack
-        lazy var interactor : LoginInteractorInput = LoginInteractor()
-        lazy var view : LoginViewInterface = LoginView()
-        lazy var wireframe : LoginWireframeInterface = LoginWireframe()
+        lazy var interactor : LoginPresenterToInteractorInterface = LoginInteractor()
+        lazy var view : LoginPresenterToViewInterface = LoginView()
+        lazy var wireframe : LoginPresenterToWireframeInterface = LoginWireframe()
         
         // MARK: - Instance Variables
         
@@ -37,6 +37,6 @@ class LoginPresenter : NSObject, LoginInteractorOutput, LoginPresenterInterface,
                 wireframe.presentRegister()
         }
         
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         
 }

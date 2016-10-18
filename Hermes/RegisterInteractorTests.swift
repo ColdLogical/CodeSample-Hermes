@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Hermes
 
-class RegisterInteractorTests: XCTestCase, RegisterInteractorOutput, RegisterInteractorUser {
+class RegisterInteractorTests: XCTestCase, RegisterInteractorToPresenterInterface, RegisterInteractorUser {
         var interactor = RegisterInteractor()
         
         // MARK: - Test Objects

@@ -30,7 +30,7 @@ protocol LoginNavigation: class {
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
-protocol LoginWireframeInterface : class {
+protocol LoginPresenterToWireframeInterface : class {
         func loginFinished()
         func presentRegister()
 }

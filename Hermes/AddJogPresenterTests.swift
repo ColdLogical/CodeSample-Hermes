@@ -12,7 +12,7 @@ import XCTest
 
 @testable import Hermes
 
-class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterface, AddJogWireframeInterface {
+class AddJogPresenterTests: XCTestCase, AddJogPresenterToInteractorInterface, AddJogPresenterToViewInterface, AddJogPresenterToWireframeInterface {
         var presenter = AddJogPresenter()
         
         // MARK: - Test Objects
@@ -21,6 +21,7 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
         override func setUp() {
                 super.setUp()
                 presenter = AddJogPresenter()
+            
                 presenter.interactor = self
                 presenter.view = self
                 presenter.wireframe = self
@@ -87,7 +88,7 @@ class AddJogPresenterTests: XCTestCase, AddJogInteractorInput, AddJogViewInterfa
                 }
         }
 
-        // MARK: - Routing
+        // MARK: - WireframeToPresenterInterface
         func testPresentingJogWithNonNilJogShouldTellViewToShowJog() {
                 expectation = expectation(description: "View show jog from presenting jog")
                 

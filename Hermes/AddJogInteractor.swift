@@ -8,9 +8,9 @@
 
 import Foundation
 
-class AddJogInteractor: NSObject, AddJogInteractorInput {
+class AddJogInteractor: NSObject, AddJogPresenterToInteractorInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : AddJogInteractorOutput = AddJogPresenter()
+        lazy var presenter : AddJogInteractorToPresenterInterface = AddJogPresenter()
         
         // MARK: - Instance Variables
         

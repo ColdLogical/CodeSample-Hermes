@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Hermes
 
-class AddJogInteractorTests: XCTestCase, AddJogInteractorOutput {
+class AddJogInteractorTests: XCTestCase, AddJogInteractorToPresenterInterface {
         var interactor = AddJogInteractor()
         
         // MARK: - Test Objects

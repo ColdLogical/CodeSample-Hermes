@@ -8,9 +8,9 @@
 
 import UIKit
 
-class LoginView : UIViewController, LoginNavigation, LoginViewInterface {
+class LoginView : UIViewController, LoginNavigation, LoginPresenterToViewInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : LoginPresenterInterface = LoginPresenter()
+        lazy var presenter : LoginViewToPresenterInterface = LoginPresenter()
         
         // MARK: - Instance Variables
         
