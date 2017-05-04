@@ -135,8 +135,7 @@ public func request(
     parameters: Parameters? = nil,
     encoding: ParameterEncoding = URLEncoding.default,
     headers: HTTPHeaders? = nil)
-    -> DataRequest
-{
+    -> DataRequest {
     return SessionManager.default.request(
         url,
         method: method,
@@ -183,8 +182,7 @@ public func download(
     encoding: ParameterEncoding = URLEncoding.default,
     headers: HTTPHeaders? = nil,
     to destination: DownloadRequest.DownloadFileDestination? = nil)
-    -> DownloadRequest
-{
+    -> DownloadRequest {
     return SessionManager.default.download(
         url,
         method: method,
@@ -209,8 +207,7 @@ public func download(
 public func download(
     _ urlRequest: URLRequestConvertible,
     to destination: DownloadRequest.DownloadFileDestination? = nil)
-    -> DownloadRequest
-{
+    -> DownloadRequest {
     return SessionManager.default.download(urlRequest, to: destination)
 }
 
@@ -222,6 +219,13 @@ public func download(
 /// If `destination` is not specified, the contents will remain in the temporary location determined by the
 /// underlying URL session.
 ///
+/// On the latest release of all the Apple platforms (iOS 10, macOS 10.12, tvOS 10, watchOS 3), `resumeData` is broken
+/// on background URL session configurations. There's an underlying bug in the `resumeData` generation logic where the
+/// data is written incorrectly and will always fail to resume the download. For more information about the bug and
+/// possible workarounds, please refer to the following Stack Overflow post:
+///
+///    - http://stackoverflow.com/a/39347461/1342462
+///
 /// - parameter resumeData:  The resume data. This is an opaque data blob produced by `URLSessionDownloadTask`
 ///                          when a task is cancelled. See `URLSession -downloadTask(withResumeData:)` for additional
 ///                          information.
@@ -232,8 +236,7 @@ public func download(
 public func download(
     resumingWith resumeData: Data,
     to destination: DownloadRequest.DownloadFileDestination? = nil)
-    -> DownloadRequest
-{
+    -> DownloadRequest {
     return SessionManager.default.download(resumingWith: resumeData, to: destination)
 }
 
@@ -256,8 +259,7 @@ public func upload(
     to url: URLConvertible,
     method: HTTPMethod = .post,
     headers: HTTPHeaders? = nil)
-    -> UploadRequest
-{
+    -> UploadRequest {
     return SessionManager.default.upload(fileURL, to: url, method: method, headers: headers)
 }
 
@@ -290,8 +292,7 @@ public func upload(
     to url: URLConvertible,
     method: HTTPMethod = .post,
     headers: HTTPHeaders? = nil)
-    -> UploadRequest
-{
+    -> UploadRequest {
     return SessionManager.default.upload(data, to: url, method: method, headers: headers)
 }
 
@@ -324,8 +325,7 @@ public func upload(
     to url: URLConvertible,
     method: HTTPMethod = .post,
     headers: HTTPHeaders? = nil)
-    -> UploadRequest
-{
+    -> UploadRequest {
     return SessionManager.default.upload(stream, to: url, method: method, headers: headers)
 }
 
@@ -372,8 +372,7 @@ public func upload(
     to url: URLConvertible,
     method: HTTPMethod = .post,
     headers: HTTPHeaders? = nil,
-    encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?)
-{
+    encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?) {
     return SessionManager.default.upload(
         multipartFormData: multipartFormData,
         usingThreshold: encodingMemoryThreshold,
@@ -409,8 +408,7 @@ public func upload(
     multipartFormData: @escaping (MultipartFormData) -> Void,
     usingThreshold encodingMemoryThreshold: UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold,
     with urlRequest: URLRequestConvertible,
-    encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?)
-{
+    encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?) {
     return SessionManager.default.upload(
         multipartFormData: multipartFormData,
         usingThreshold: encodingMemoryThreshold,
@@ -435,6 +433,7 @@ public func upload(
 ///
 /// - returns: The created `StreamRequest`.
 @discardableResult
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
 public func stream(withHostName hostName: String, port: Int) -> StreamRequest {
     return SessionManager.default.stream(withHostName: hostName, port: port)
 }
@@ -449,6 +448,7 @@ public func stream(withHostName hostName: String, port: Int) -> StreamRequest {
 ///
 /// - returns: The created `StreamRequest`.
 @discardableResult
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
 public func stream(with netService: NetService) -> StreamRequest {
     return SessionManager.default.stream(with: netService)
 }

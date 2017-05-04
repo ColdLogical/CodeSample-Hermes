@@ -19,7 +19,6 @@
 		0121E7891BE6B80A00C9BED5 /* AddJogPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */; };
 		0121E78A1BE6B80A00C9BED5 /* AddJogViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */; };
 		0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */; };
-		0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0121E7931BE6BB2200C9BED5 /* Jog.swift */; };
 		0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */; };
 		0124D16E1BE54FD300E10F48 /* RegisterInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */; };
 		0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1671BE54FD300E10F48 /* RegisterPresenter.swift */; };
@@ -34,14 +33,29 @@
 		0124D17C1BE54FE100E10F48 /* RegisterWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */; };
 		012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D77B51BE0728B004F7A2C /* AppDelegate.swift */; };
 		014A56441DA5A4D6007F487A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 014A56431DA5A4D6007F487A /* GoogleService-Info.plist */; };
-		0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7C1BE5418D008A322C /* JogsInteractor.swift */; };
-		0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */; };
-		0190DD881BE5419C008A322C /* JogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD821BE5419C008A322C /* JogsPresenter.swift */; };
-		0190DD891BE5419C008A322C /* JogsPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD831BE5419C008A322C /* JogsPresenterProtocols.swift */; };
-		0190DD8B1BE5419C008A322C /* JogsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD851BE5419C008A322C /* JogsWireframe.swift */; };
-		0190DD8C1BE5419C008A322C /* JogsWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD861BE5419C008A322C /* JogsWireframeProtocols.swift */; };
-		0190DD911BE541A5008A322C /* JogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD8E1BE541A5008A322C /* JogsView.swift */; };
-		0190DD921BE541A5008A322C /* JogsViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */; };
+		015903151EBA9A8500541F52 /* Jog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903061EBA9A8400541F52 /* Jog.swift */; };
+		015903161EBA9A8500541F52 /* JogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903071EBA9A8400541F52 /* JogCell.swift */; };
+		015903171EBA9A8500541F52 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015903081EBA9A8400541F52 /* Jogs.storyboard */; };
+		015903401EBA9ABA00541F52 /* JogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903371EBA9ABA00541F52 /* JogsInteractor.swift */; };
+		015903411EBA9ABA00541F52 /* JogsInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903381EBA9ABA00541F52 /* JogsInteractorProtocols.swift */; };
+		015903421EBA9ABA00541F52 /* JogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903391EBA9ABA00541F52 /* JogsPresenter.swift */; };
+		015903431EBA9ABA00541F52 /* JogsPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159033A1EBA9ABA00541F52 /* JogsPresenterProtocols.swift */; };
+		015903441EBA9ABA00541F52 /* JogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159033B1EBA9ABA00541F52 /* JogsView.swift */; };
+		015903451EBA9ABA00541F52 /* JogsViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159033C1EBA9ABA00541F52 /* JogsViewProtocols.swift */; };
+		015903461EBA9ABA00541F52 /* JogsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159033D1EBA9ABA00541F52 /* JogsWireframe.swift */; };
+		015903471EBA9ABA00541F52 /* JogsWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159033E1EBA9ABA00541F52 /* JogsWireframeProtocols.swift */; };
+		015903541EBA9ACE00541F52 /* JogsDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903481EBA9ACE00541F52 /* JogsDelegateMock.swift */; };
+		015903551EBA9ACE00541F52 /* JogsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903491EBA9ACE00541F52 /* JogsInteractorTests.swift */; };
+		015903561EBA9ACE00541F52 /* JogsInteractorToPresenterInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159034A1EBA9ACE00541F52 /* JogsInteractorToPresenterInterfaceMock.swift */; };
+		015903571EBA9ACE00541F52 /* JogsNavigationInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159034B1EBA9ACE00541F52 /* JogsNavigationInterfaceMock.swift */; };
+		015903581EBA9ACE00541F52 /* JogsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159034C1EBA9ACE00541F52 /* JogsPresenterTests.swift */; };
+		015903591EBA9ACE00541F52 /* JogsPresenterToInteractorInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159034D1EBA9ACE00541F52 /* JogsPresenterToInteractorInterfaceMock.swift */; };
+		0159035A1EBA9ACE00541F52 /* JogsPresenterToViewInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159034E1EBA9ACE00541F52 /* JogsPresenterToViewInterfaceMock.swift */; };
+		0159035B1EBA9ACE00541F52 /* JogsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159034F1EBA9ACE00541F52 /* JogsViewTests.swift */; };
+		0159035C1EBA9ACE00541F52 /* JogsViewToPresenterInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903501EBA9ACE00541F52 /* JogsViewToPresenterInterfaceMock.swift */; };
+		0159035D1EBA9ACE00541F52 /* JogsWireframeInterfacesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903511EBA9ACE00541F52 /* JogsWireframeInterfacesMock.swift */; };
+		0159035E1EBA9ACE00541F52 /* JogsWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903521EBA9ACE00541F52 /* JogsWireframeTests.swift */; };
+		0159035F1EBA9ACE00541F52 /* JogsWireframeToPresenterInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903531EBA9ACE00541F52 /* JogsWireframeToPresenterInterfaceMock.swift */; };
 		0190DD971BE541AF008A322C /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD941BE541AF008A322C /* LoginInteractor.swift */; };
 		0190DD981BE541AF008A322C /* LoginInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD951BE541AF008A322C /* LoginInteractorProtocols.swift */; };
 		0190DDA01BE541B8008A322C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9A1BE541B8008A322C /* LoginPresenter.swift */; };
@@ -55,35 +69,17 @@
 		0190DDC31BE5421B008A322C /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9C1BE541B8008A322C /* LoginPresenterTests.swift */; };
 		0190DDC41BE5421B008A322C /* LoginWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD9F1BE541B8008A322C /* LoginWireframeTests.swift */; };
 		0190DDC51BE5421B008A322C /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DDA81BE541BF008A322C /* LoginViewTests.swift */; };
-		0190DDC61BE5421B008A322C /* JogsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */; };
-		0190DDC71BE5421B008A322C /* JogsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD841BE5419C008A322C /* JogsPresenterTests.swift */; };
-		0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD871BE5419C008A322C /* JogsWireframeTests.swift */; };
-		0190DDC91BE5421B008A322C /* JogsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190DD901BE541A5008A322C /* JogsViewTests.swift */; };
 		0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0190DDCC1BE543D2008A322C /* Login.storyboard */; };
-		0196A2741DB6BA9600438F30 /* TestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26C1DB6BA9600438F30 /* TestInteractor.swift */; };
-		0196A2751DB6BA9600438F30 /* TestInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26D1DB6BA9600438F30 /* TestInteractorProtocols.swift */; };
-		0196A2761DB6BA9600438F30 /* TestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26E1DB6BA9600438F30 /* TestPresenter.swift */; };
-		0196A2771DB6BA9600438F30 /* TestPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A26F1DB6BA9600438F30 /* TestPresenterProtocols.swift */; };
-		0196A2781DB6BA9600438F30 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2701DB6BA9600438F30 /* TestView.swift */; };
-		0196A2791DB6BA9600438F30 /* TestViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2711DB6BA9600438F30 /* TestViewProtocols.swift */; };
-		0196A27A1DB6BA9600438F30 /* TestWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2721DB6BA9600438F30 /* TestWireframe.swift */; };
-		0196A27B1DB6BA9600438F30 /* TestWireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A2731DB6BA9600438F30 /* TestWireframeProtocols.swift */; };
-		0196A2801DB6BAEA00438F30 /* TestInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27C1DB6BAEA00438F30 /* TestInteractorTests.swift */; };
-		0196A2811DB6BAEA00438F30 /* TestPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27D1DB6BAEA00438F30 /* TestPresenterTests.swift */; };
-		0196A2821DB6BAEA00438F30 /* TestViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27E1DB6BAEA00438F30 /* TestViewTests.swift */; };
-		0196A2831DB6BAEA00438F30 /* TestWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0196A27F1DB6BAEA00438F30 /* TestWireframeTests.swift */; };
 		0196F9921BE583AD003A95C3 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		0196F9951BE583AD003A95C3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
 		01C6391F1DA2E81500137219 /* AddJog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C6391E1DA2E81500137219 /* AddJog.storyboard */; };
-		01C639241DA2E82900137219 /* JogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C639201DA2E82900137219 /* JogCell.swift */; };
-		01C639251DA2E82900137219 /* Jogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639211DA2E82900137219 /* Jogs.storyboard */; };
 		01C639261DA2E82900137219 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C639221DA2E82900137219 /* LaunchScreen.xib */; };
 		01C639271DA2E82900137219 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C639231DA2E82900137219 /* Register.storyboard */; };
-		01F240C41DA4621900245683 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F240C21DA4621900245683 /* Bolts.framework */; };
-		01F240C51DA4621900245683 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F240C31DA4621900245683 /* Parse.framework */; };
-		204CD5F650E43C872B6A47F4 /* Pods_HermesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E55C9C50B711A9B72AE8E2D2 /* Pods_HermesTests.framework */; };
+		01C721971EBBDEA800C0D2ED /* JogsWireframeTests 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015903141EBA9A8400541F52 /* JogsWireframeTests 2.swift */; };
+		01C721991EBBDECC00C0D2ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C721981EBBDECC00C0D2ED /* User.swift */; };
+		4847DA944682729DC07DA2D2 /* libPods-HermesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0777998A3E133A5AD5B8B45 /* libPods-HermesTests.a */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
@@ -115,7 +111,6 @@
 		0121E7851BE6B80A00C9BED5 /* AddJogPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogPresenterTests.swift; path = Hermes/AddJogPresenterTests.swift; sourceTree = "<group>"; };
 		0121E7861BE6B80A00C9BED5 /* AddJogViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogViewTests.swift; path = Hermes/AddJogViewTests.swift; sourceTree = "<group>"; };
 		0121E7871BE6B80A00C9BED5 /* AddJogWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddJogWireframeTests.swift; path = Hermes/AddJogWireframeTests.swift; sourceTree = "<group>"; };
-		0121E7931BE6BB2200C9BED5 /* Jog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jog.swift; path = Hermes/Jog.swift; sourceTree = "<group>"; };
 		0121E7951BE6BB6400C9BED5 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = ../BridgingHeader.h; sourceTree = "<group>"; };
 		0124D1651BE54FD300E10F48 /* RegisterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractor.swift; path = Hermes/RegisterInteractor.swift; sourceTree = "<group>"; };
 		0124D1661BE54FD300E10F48 /* RegisterInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterInteractorProtocols.swift; path = Hermes/RegisterInteractorProtocols.swift; sourceTree = "<group>"; };
@@ -131,18 +126,30 @@
 		0124D1781BE54FE100E10F48 /* RegisterWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterWireframeTests.swift; path = Hermes/RegisterWireframeTests.swift; sourceTree = "<group>"; };
 		012D77B51BE0728B004F7A2C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Hermes/AppDelegate.swift; sourceTree = "<group>"; };
 		014A56431DA5A4D6007F487A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0190DD7C1BE5418D008A322C /* JogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractor.swift; path = Hermes/JogsInteractor.swift; sourceTree = "<group>"; };
-		0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorProtocols.swift; path = Hermes/JogsInteractorProtocols.swift; sourceTree = "<group>"; };
-		0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorTests.swift; path = Hermes/JogsInteractorTests.swift; sourceTree = "<group>"; };
-		0190DD821BE5419C008A322C /* JogsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenter.swift; path = Hermes/JogsPresenter.swift; sourceTree = "<group>"; };
-		0190DD831BE5419C008A322C /* JogsPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterProtocols.swift; path = Hermes/JogsPresenterProtocols.swift; sourceTree = "<group>"; };
-		0190DD841BE5419C008A322C /* JogsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterTests.swift; path = Hermes/JogsPresenterTests.swift; sourceTree = "<group>"; };
-		0190DD851BE5419C008A322C /* JogsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframe.swift; path = Hermes/JogsWireframe.swift; sourceTree = "<group>"; };
-		0190DD861BE5419C008A322C /* JogsWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeProtocols.swift; path = Hermes/JogsWireframeProtocols.swift; sourceTree = "<group>"; };
-		0190DD871BE5419C008A322C /* JogsWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeTests.swift; path = Hermes/JogsWireframeTests.swift; sourceTree = "<group>"; };
-		0190DD8E1BE541A5008A322C /* JogsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsView.swift; path = Hermes/JogsView.swift; sourceTree = "<group>"; };
-		0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewProtocols.swift; path = Hermes/JogsViewProtocols.swift; sourceTree = "<group>"; };
-		0190DD901BE541A5008A322C /* JogsViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewTests.swift; path = Hermes/JogsViewTests.swift; sourceTree = "<group>"; };
+		015903061EBA9A8400541F52 /* Jog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Jog.swift; path = Hermes/Jog.swift; sourceTree = "<group>"; };
+		015903071EBA9A8400541F52 /* JogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogCell.swift; path = Hermes/JogCell.swift; sourceTree = "<group>"; };
+		015903081EBA9A8400541F52 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Jogs.storyboard; path = Hermes/Jogs.storyboard; sourceTree = "<group>"; };
+		015903141EBA9A8400541F52 /* JogsWireframeTests 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JogsWireframeTests 2.swift"; path = "Hermes/JogsWireframeTests 2.swift"; sourceTree = "<group>"; };
+		015903371EBA9ABA00541F52 /* JogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractor.swift; path = Hermes/JogsInteractor.swift; sourceTree = "<group>"; };
+		015903381EBA9ABA00541F52 /* JogsInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorProtocols.swift; path = Hermes/JogsInteractorProtocols.swift; sourceTree = "<group>"; };
+		015903391EBA9ABA00541F52 /* JogsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenter.swift; path = Hermes/JogsPresenter.swift; sourceTree = "<group>"; };
+		0159033A1EBA9ABA00541F52 /* JogsPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterProtocols.swift; path = Hermes/JogsPresenterProtocols.swift; sourceTree = "<group>"; };
+		0159033B1EBA9ABA00541F52 /* JogsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsView.swift; path = Hermes/JogsView.swift; sourceTree = "<group>"; };
+		0159033C1EBA9ABA00541F52 /* JogsViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewProtocols.swift; path = Hermes/JogsViewProtocols.swift; sourceTree = "<group>"; };
+		0159033D1EBA9ABA00541F52 /* JogsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframe.swift; path = Hermes/JogsWireframe.swift; sourceTree = "<group>"; };
+		0159033E1EBA9ABA00541F52 /* JogsWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeProtocols.swift; path = Hermes/JogsWireframeProtocols.swift; sourceTree = "<group>"; };
+		015903481EBA9ACE00541F52 /* JogsDelegateMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsDelegateMock.swift; path = Hermes/JogsDelegateMock.swift; sourceTree = "<group>"; };
+		015903491EBA9ACE00541F52 /* JogsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorTests.swift; path = Hermes/JogsInteractorTests.swift; sourceTree = "<group>"; };
+		0159034A1EBA9ACE00541F52 /* JogsInteractorToPresenterInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsInteractorToPresenterInterfaceMock.swift; path = Hermes/JogsInteractorToPresenterInterfaceMock.swift; sourceTree = "<group>"; };
+		0159034B1EBA9ACE00541F52 /* JogsNavigationInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsNavigationInterfaceMock.swift; path = Hermes/JogsNavigationInterfaceMock.swift; sourceTree = "<group>"; };
+		0159034C1EBA9ACE00541F52 /* JogsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterTests.swift; path = Hermes/JogsPresenterTests.swift; sourceTree = "<group>"; };
+		0159034D1EBA9ACE00541F52 /* JogsPresenterToInteractorInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterToInteractorInterfaceMock.swift; path = Hermes/JogsPresenterToInteractorInterfaceMock.swift; sourceTree = "<group>"; };
+		0159034E1EBA9ACE00541F52 /* JogsPresenterToViewInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsPresenterToViewInterfaceMock.swift; path = Hermes/JogsPresenterToViewInterfaceMock.swift; sourceTree = "<group>"; };
+		0159034F1EBA9ACE00541F52 /* JogsViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewTests.swift; path = Hermes/JogsViewTests.swift; sourceTree = "<group>"; };
+		015903501EBA9ACE00541F52 /* JogsViewToPresenterInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsViewToPresenterInterfaceMock.swift; path = Hermes/JogsViewToPresenterInterfaceMock.swift; sourceTree = "<group>"; };
+		015903511EBA9ACE00541F52 /* JogsWireframeInterfacesMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeInterfacesMock.swift; path = Hermes/JogsWireframeInterfacesMock.swift; sourceTree = "<group>"; };
+		015903521EBA9ACE00541F52 /* JogsWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeTests.swift; path = Hermes/JogsWireframeTests.swift; sourceTree = "<group>"; };
+		015903531EBA9ACE00541F52 /* JogsWireframeToPresenterInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogsWireframeToPresenterInterfaceMock.swift; path = Hermes/JogsWireframeToPresenterInterfaceMock.swift; sourceTree = "<group>"; };
 		0190DD941BE541AF008A322C /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Hermes/LoginInteractor.swift; sourceTree = "<group>"; };
 		0190DD951BE541AF008A322C /* LoginInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractorProtocols.swift; path = Hermes/LoginInteractorProtocols.swift; sourceTree = "<group>"; };
 		0190DD961BE541AF008A322C /* LoginInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractorTests.swift; path = Hermes/LoginInteractorTests.swift; sourceTree = "<group>"; };
@@ -159,25 +166,10 @@
 		0190DDB21BE54217008A322C /* HermesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesTests.swift; sourceTree = "<group>"; };
 		0190DDB41BE54217008A322C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0190DDCC1BE543D2008A322C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Hermes/Login.storyboard; sourceTree = "<group>"; };
-		0196A26C1DB6BA9600438F30 /* TestInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInteractor.swift; sourceTree = "<group>"; };
-		0196A26D1DB6BA9600438F30 /* TestInteractorProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInteractorProtocols.swift; sourceTree = "<group>"; };
-		0196A26E1DB6BA9600438F30 /* TestPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPresenter.swift; sourceTree = "<group>"; };
-		0196A26F1DB6BA9600438F30 /* TestPresenterProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPresenterProtocols.swift; sourceTree = "<group>"; };
-		0196A2701DB6BA9600438F30 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		0196A2711DB6BA9600438F30 /* TestViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewProtocols.swift; sourceTree = "<group>"; };
-		0196A2721DB6BA9600438F30 /* TestWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWireframe.swift; sourceTree = "<group>"; };
-		0196A2731DB6BA9600438F30 /* TestWireframeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWireframeProtocols.swift; sourceTree = "<group>"; };
-		0196A27C1DB6BAEA00438F30 /* TestInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestInteractorTests.swift; sourceTree = "<group>"; };
-		0196A27D1DB6BAEA00438F30 /* TestPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPresenterTests.swift; sourceTree = "<group>"; };
-		0196A27E1DB6BAEA00438F30 /* TestViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewTests.swift; sourceTree = "<group>"; };
-		0196A27F1DB6BAEA00438F30 /* TestWireframeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWireframeTests.swift; sourceTree = "<group>"; };
 		01C6391E1DA2E81500137219 /* AddJog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AddJog.storyboard; path = Hermes/AddJog.storyboard; sourceTree = "<group>"; };
-		01C639201DA2E82900137219 /* JogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JogCell.swift; path = Hermes/JogCell.swift; sourceTree = "<group>"; };
-		01C639211DA2E82900137219 /* Jogs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Jogs.storyboard; path = Hermes/Jogs.storyboard; sourceTree = "<group>"; };
 		01C639221DA2E82900137219 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Hermes/LaunchScreen.xib; sourceTree = "<group>"; };
 		01C639231DA2E82900137219 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = Hermes/Register.storyboard; sourceTree = "<group>"; };
-		01F240C21DA4621900245683 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		01F240C31DA4621900245683 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		01C721981EBBDECC00C0D2ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Hermes/User.swift; sourceTree = "<group>"; };
 		0A26459D2B9E230517C6286A /* Pods-Hermes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hermes/Pods-Hermes.release.xcconfig"; sourceTree = "<group>"; };
 		37F0B3BB0F90207F8924CAC6 /* Pods-Hermes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hermes/Pods-Hermes.debug.xcconfig"; sourceTree = "<group>"; };
 		5F873A26850638DE1026E7C4 /* Pods-HermesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HermesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HermesTests/Pods-HermesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,8 +181,8 @@
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		97ECB5A9DC93DCF33AACE236 /* Pods_Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0777998A3E133A5AD5B8B45 /* libPods-HermesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HermesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE73F0FFEC4B957D20DF3DF1 /* Pods-HermesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HermesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HermesTests/Pods-HermesTests.release.xcconfig"; sourceTree = "<group>"; };
-		E55C9C50B711A9B72AE8E2D2 /* Pods_HermesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HermesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +194,7 @@
 				0196F9931BE583AD003A95C3 /* SystemConfiguration.framework in Frameworks */,
 				0196F9941BE583AD003A95C3 /* AudioToolbox.framework in Frameworks */,
 				0196F9951BE583AD003A95C3 /* libsqlite3.dylib in Frameworks */,
-				204CD5F650E43C872B6A47F4 /* Pods_HermesTests.framework in Frameworks */,
+				4847DA944682729DC07DA2D2 /* libPods-HermesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,11 +202,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F240C41DA4621900245683 /* Bolts.framework in Frameworks */,
 				81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */,
 				81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
-				01F240C51DA4621900245683 /* Parse.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
 				D7DAB2A4B9ECB1358E2D223C /* Pods_Hermes.framework in Frameworks */,
 			);
@@ -305,22 +295,47 @@
 			children = (
 				012D77B51BE0728B004F7A2C /* AppDelegate.swift */,
 				01C639221DA2E82900137219 /* LaunchScreen.xib */,
+				01C7219A1EBBDED000C0D2ED /* Entities */,
 				0190DD6B1BE53C3B008A322C /* Jogs */,
 				0190DD571BE53C0B008A322C /* Login */,
-				0196A26C1DB6BA9600438F30 /* TestInteractor.swift */,
-				0196A27C1DB6BAEA00438F30 /* TestInteractorTests.swift */,
-				0196A27D1DB6BAEA00438F30 /* TestPresenterTests.swift */,
-				0196A27E1DB6BAEA00438F30 /* TestViewTests.swift */,
-				0196A27F1DB6BAEA00438F30 /* TestWireframeTests.swift */,
-				0196A26D1DB6BA9600438F30 /* TestInteractorProtocols.swift */,
-				0196A26E1DB6BA9600438F30 /* TestPresenter.swift */,
-				0196A26F1DB6BA9600438F30 /* TestPresenterProtocols.swift */,
-				0196A2701DB6BA9600438F30 /* TestView.swift */,
-				0196A2711DB6BA9600438F30 /* TestViewProtocols.swift */,
-				0196A2721DB6BA9600438F30 /* TestWireframe.swift */,
-				0196A2731DB6BA9600438F30 /* TestWireframeProtocols.swift */,
 			);
 			name = Hermes;
+			sourceTree = "<group>";
+		};
+		015903601EBA9B1200541F52 /* Interactor Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0159034A1EBA9ACE00541F52 /* JogsInteractorToPresenterInterfaceMock.swift */,
+			);
+			name = "Interactor Mocks";
+			sourceTree = "<group>";
+		};
+		015903611EBA9B2400541F52 /* Presenter Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				015903481EBA9ACE00541F52 /* JogsDelegateMock.swift */,
+				0159034D1EBA9ACE00541F52 /* JogsPresenterToInteractorInterfaceMock.swift */,
+				0159034E1EBA9ACE00541F52 /* JogsPresenterToViewInterfaceMock.swift */,
+			);
+			name = "Presenter Mocks";
+			sourceTree = "<group>";
+		};
+		015903621EBA9B2D00541F52 /* Wireframe Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				015903511EBA9ACE00541F52 /* JogsWireframeInterfacesMock.swift */,
+				015903531EBA9ACE00541F52 /* JogsWireframeToPresenterInterfaceMock.swift */,
+			);
+			name = "Wireframe Mocks";
+			sourceTree = "<group>";
+		};
+		015903631EBA9B4200541F52 /* View Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0159034B1EBA9ACE00541F52 /* JogsNavigationInterfaceMock.swift */,
+				015903501EBA9ACE00541F52 /* JogsViewToPresenterInterfaceMock.swift */,
+			);
+			name = "View Mocks";
 			sourceTree = "<group>";
 		};
 		0190DD541BE53BF8008A322C /* Routing */ = {
@@ -371,10 +386,10 @@
 		0190DD681BE53C20008A322C /* Data Logic */ = {
 			isa = PBXGroup;
 			children = (
-				0190DD7C1BE5418D008A322C /* JogsInteractor.swift */,
-				0190DD7E1BE5418D008A322C /* JogsInteractorTests.swift */,
-				0190DD7D1BE5418D008A322C /* JogsInteractorProtocols.swift */,
-				0121E7931BE6BB2200C9BED5 /* Jog.swift */,
+				015903371EBA9ABA00541F52 /* JogsInteractor.swift */,
+				015903491EBA9ACE00541F52 /* JogsInteractorTests.swift */,
+				015903381EBA9ABA00541F52 /* JogsInteractorProtocols.swift */,
+				015903601EBA9B1200541F52 /* Interactor Mocks */,
 			);
 			name = "Data Logic";
 			sourceTree = "<group>";
@@ -382,12 +397,14 @@
 		0190DD691BE53C2A008A322C /* Routing */ = {
 			isa = PBXGroup;
 			children = (
-				0190DD821BE5419C008A322C /* JogsPresenter.swift */,
-				0190DD841BE5419C008A322C /* JogsPresenterTests.swift */,
-				0190DD831BE5419C008A322C /* JogsPresenterProtocols.swift */,
-				0190DD851BE5419C008A322C /* JogsWireframe.swift */,
-				0190DD871BE5419C008A322C /* JogsWireframeTests.swift */,
-				0190DD861BE5419C008A322C /* JogsWireframeProtocols.swift */,
+				015903391EBA9ABA00541F52 /* JogsPresenter.swift */,
+				0159034C1EBA9ACE00541F52 /* JogsPresenterTests.swift */,
+				0159033A1EBA9ABA00541F52 /* JogsPresenterProtocols.swift */,
+				015903611EBA9B2400541F52 /* Presenter Mocks */,
+				0159033D1EBA9ABA00541F52 /* JogsWireframe.swift */,
+				015903521EBA9ACE00541F52 /* JogsWireframeTests.swift */,
+				0159033E1EBA9ABA00541F52 /* JogsWireframeProtocols.swift */,
+				015903621EBA9B2D00541F52 /* Wireframe Mocks */,
 			);
 			name = Routing;
 			sourceTree = "<group>";
@@ -395,10 +412,13 @@
 		0190DD6A1BE53C2E008A322C /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				0190DD8E1BE541A5008A322C /* JogsView.swift */,
-				0190DD901BE541A5008A322C /* JogsViewTests.swift */,
-				0190DD8F1BE541A5008A322C /* JogsViewProtocols.swift */,
-				01C639201DA2E82900137219 /* JogCell.swift */,
+				0159033B1EBA9ABA00541F52 /* JogsView.swift */,
+				0159034F1EBA9ACE00541F52 /* JogsViewTests.swift */,
+				0159033C1EBA9ABA00541F52 /* JogsViewProtocols.swift */,
+				015903631EBA9B4200541F52 /* View Mocks */,
+				015903081EBA9A8400541F52 /* Jogs.storyboard */,
+				015903061EBA9A8400541F52 /* Jog.swift */,
+				015903071EBA9A8400541F52 /* JogCell.swift */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -406,7 +426,7 @@
 		0190DD6B1BE53C3B008A322C /* Jogs */ = {
 			isa = PBXGroup;
 			children = (
-				01C639211DA2E82900137219 /* Jogs.storyboard */,
+				015903141EBA9A8400541F52 /* JogsWireframeTests 2.swift */,
 				0190DD681BE53C20008A322C /* Data Logic */,
 				0190DD691BE53C2A008A322C /* Routing */,
 				0190DD6A1BE53C2E008A322C /* User Interface */,
@@ -434,6 +454,14 @@
 				0121E78D1BE6B82000C9BED5 /* User Interface */,
 			);
 			name = "Add Jog";
+			sourceTree = "<group>";
+		};
+		01C7219A1EBBDED000C0D2ED /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				01C721981EBBDECC00C0D2ED /* User.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		814C3AC51B69877600E307BB /* Resources */ = {
@@ -472,11 +500,9 @@
 		81BA816A1A49DB5600E65899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				01F240C21DA4621900245683 /* Bolts.framework */,
-				01F240C31DA4621900245683 /* Parse.framework */,
 				81BA81751A49E0C500E65899 /* System Frameworks */,
 				97ECB5A9DC93DCF33AACE236 /* Pods_Hermes.framework */,
-				E55C9C50B711A9B72AE8E2D2 /* Pods_HermesTests.framework */,
+				A0777998A3E133A5AD5B8B45 /* libPods-HermesTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -605,8 +631,8 @@
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				0190DDCD1BE543D2008A322C /* Login.storyboard in Resources */,
 				01C639261DA2E82900137219 /* LaunchScreen.xib in Resources */,
-				01C639251DA2E82900137219 /* Jogs.storyboard in Resources */,
 				01C6391F1DA2E81500137219 /* AddJog.storyboard in Resources */,
+				015903171EBA9A8500541F52 /* Jogs.storyboard in Resources */,
 				01C639271DA2E82900137219 /* Register.storyboard in Resources */,
 				014A56441DA5A4D6007F487A /* GoogleService-Info.plist in Resources */,
 			);
@@ -655,7 +681,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		507C9D53F5169D502B8B571A /* [CP] Copy Pods Resources */ = {
@@ -685,7 +711,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		803692515D17AA961285C1D6 /* [CP] Embed Pods Frameworks */ = {
@@ -740,26 +766,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				0124D17C1BE54FE100E10F48 /* RegisterWireframeTests.swift in Sources */,
+				015903551EBA9ACE00541F52 /* JogsInteractorTests.swift in Sources */,
 				0190DDC21BE5421B008A322C /* LoginInteractorTests.swift in Sources */,
+				0159035E1EBA9ACE00541F52 /* JogsWireframeTests.swift in Sources */,
 				0124D17B1BE54FE100E10F48 /* RegisterViewTests.swift in Sources */,
+				01C721971EBBDEA800C0D2ED /* JogsWireframeTests 2.swift in Sources */,
+				015903541EBA9ACE00541F52 /* JogsDelegateMock.swift in Sources */,
+				0159035A1EBA9ACE00541F52 /* JogsPresenterToViewInterfaceMock.swift in Sources */,
 				0124D1791BE54FE100E10F48 /* RegisterInteractorTests.swift in Sources */,
-				0190DDC61BE5421B008A322C /* JogsInteractorTests.swift in Sources */,
+				0159035F1EBA9ACE00541F52 /* JogsWireframeToPresenterInterfaceMock.swift in Sources */,
+				0159035D1EBA9ACE00541F52 /* JogsWireframeInterfacesMock.swift in Sources */,
 				0121E7881BE6B80A00C9BED5 /* AddJogInteractorTests.swift in Sources */,
 				0190DDC51BE5421B008A322C /* LoginViewTests.swift in Sources */,
-				0196A2811DB6BAEA00438F30 /* TestPresenterTests.swift in Sources */,
-				0196A2821DB6BAEA00438F30 /* TestViewTests.swift in Sources */,
 				0121E78A1BE6B80A00C9BED5 /* AddJogViewTests.swift in Sources */,
 				0121E7891BE6B80A00C9BED5 /* AddJogPresenterTests.swift in Sources */,
-				0196A2831DB6BAEA00438F30 /* TestWireframeTests.swift in Sources */,
-				0190DDC81BE5421B008A322C /* JogsWireframeTests.swift in Sources */,
+				0159035B1EBA9ACE00541F52 /* JogsViewTests.swift in Sources */,
 				0190DDC31BE5421B008A322C /* LoginPresenterTests.swift in Sources */,
+				015903591EBA9ACE00541F52 /* JogsPresenterToInteractorInterfaceMock.swift in Sources */,
+				015903581EBA9ACE00541F52 /* JogsPresenterTests.swift in Sources */,
+				015903561EBA9ACE00541F52 /* JogsInteractorToPresenterInterfaceMock.swift in Sources */,
 				0121E78B1BE6B80A00C9BED5 /* AddJogWireframeTests.swift in Sources */,
-				0190DDC91BE5421B008A322C /* JogsViewTests.swift in Sources */,
 				0190DDC41BE5421B008A322C /* LoginWireframeTests.swift in Sources */,
+				015903571EBA9ACE00541F52 /* JogsNavigationInterfaceMock.swift in Sources */,
+				0159035C1EBA9ACE00541F52 /* JogsViewToPresenterInterfaceMock.swift in Sources */,
 				0190DDB31BE54217008A322C /* HermesTests.swift in Sources */,
 				0124D17A1BE54FE100E10F48 /* RegisterPresenterTests.swift in Sources */,
-				0196A2801DB6BAEA00438F30 /* TestInteractorTests.swift in Sources */,
-				0190DDC71BE5421B008A322C /* JogsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,49 +798,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015903431EBA9ABA00541F52 /* JogsPresenterProtocols.swift in Sources */,
 				0190DDA01BE541B8008A322C /* LoginPresenter.swift in Sources */,
 				0124D1731BE54FD300E10F48 /* RegisterWireframe.swift in Sources */,
-				0196A2751DB6BA9600438F30 /* TestInteractorProtocols.swift in Sources */,
-				0190DD911BE541A5008A322C /* JogsView.swift in Sources */,
-				0190DD8B1BE5419C008A322C /* JogsWireframe.swift in Sources */,
-				0190DD891BE5419C008A322C /* JogsPresenterProtocols.swift in Sources */,
+				015903421EBA9ABA00541F52 /* JogsPresenter.swift in Sources */,
+				015903401EBA9ABA00541F52 /* JogsInteractor.swift in Sources */,
 				0190DDAA1BE541BF008A322C /* LoginViewProtocols.swift in Sources */,
-				0190DD881BE5419C008A322C /* JogsPresenter.swift in Sources */,
 				0190DDA11BE541B8008A322C /* LoginPresenterProtocols.swift in Sources */,
 				0190DDA41BE541B8008A322C /* LoginWireframeProtocols.swift in Sources */,
 				0190DD981BE541AF008A322C /* LoginInteractorProtocols.swift in Sources */,
 				0124D16D1BE54FD300E10F48 /* RegisterInteractor.swift in Sources */,
 				0124D1741BE54FD300E10F48 /* RegisterWireframeProtocols.swift in Sources */,
-				0196A2771DB6BA9600438F30 /* TestPresenterProtocols.swift in Sources */,
-				0190DD921BE541A5008A322C /* JogsViewProtocols.swift in Sources */,
 				0124D1711BE54FD300E10F48 /* RegisterView.swift in Sources */,
 				0121E77F1BE6B7FE00C9BED5 /* AddJogPresenterProtocols.swift in Sources */,
+				015903471EBA9ABA00541F52 /* JogsWireframeProtocols.swift in Sources */,
 				0121E7811BE6B7FE00C9BED5 /* AddJogViewProtocols.swift in Sources */,
 				0190DDA31BE541B8008A322C /* LoginWireframe.swift in Sources */,
-				0196A27B1DB6BA9600438F30 /* TestWireframeProtocols.swift in Sources */,
 				0190DD971BE541AF008A322C /* LoginInteractor.swift in Sources */,
-				0196A2791DB6BA9600438F30 /* TestViewProtocols.swift in Sources */,
-				0190DD7F1BE5418D008A322C /* JogsInteractor.swift in Sources */,
 				0121E77E1BE6B7FE00C9BED5 /* AddJogPresenter.swift in Sources */,
-				01C639241DA2E82900137219 /* JogCell.swift in Sources */,
 				0121E7801BE6B7FE00C9BED5 /* AddJogView.swift in Sources */,
 				0190DDA91BE541BF008A322C /* LoginView.swift in Sources */,
+				015903451EBA9ABA00541F52 /* JogsViewProtocols.swift in Sources */,
 				0124D1701BE54FD300E10F48 /* RegisterPresenterProtocols.swift in Sources */,
+				015903411EBA9ABA00541F52 /* JogsInteractorProtocols.swift in Sources */,
 				0124D1721BE54FD300E10F48 /* RegisterViewProtocols.swift in Sources */,
-				0196A2761DB6BA9600438F30 /* TestPresenter.swift in Sources */,
 				0124D16F1BE54FD300E10F48 /* RegisterPresenter.swift in Sources */,
 				0121E7831BE6B7FE00C9BED5 /* AddJogWireframeProtocols.swift in Sources */,
 				0121E77D1BE6B7FE00C9BED5 /* AddJogInteractorProtocols.swift in Sources */,
+				015903161EBA9A8500541F52 /* JogCell.swift in Sources */,
+				015903441EBA9ABA00541F52 /* JogsView.swift in Sources */,
+				015903151EBA9A8500541F52 /* Jog.swift in Sources */,
 				0124D16E1BE54FD300E10F48 /* RegisterInteractorProtocols.swift in Sources */,
+				015903461EBA9ABA00541F52 /* JogsWireframe.swift in Sources */,
+				01C721991EBBDECC00C0D2ED /* User.swift in Sources */,
 				0121E7821BE6B7FE00C9BED5 /* AddJogWireframe.swift in Sources */,
-				0196A27A1DB6BA9600438F30 /* TestWireframe.swift in Sources */,
-				0190DD8C1BE5419C008A322C /* JogsWireframeProtocols.swift in Sources */,
-				0121E7941BE6BB2200C9BED5 /* Jog.swift in Sources */,
 				0121E77C1BE6B7FE00C9BED5 /* AddJogInteractor.swift in Sources */,
-				0196A2781DB6BA9600438F30 /* TestView.swift in Sources */,
 				012D77B71BE0728B004F7A2C /* AppDelegate.swift in Sources */,
-				0196A2741DB6BA9600438F30 /* TestInteractor.swift in Sources */,
-				0190DD801BE5418D008A322C /* JogsInteractorProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

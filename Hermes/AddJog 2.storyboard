@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Jog-->
+        <scene sceneID="Kmk-rf-cxN">
+            <objects>
+                <viewController storyboardIdentifier="AddJogView" title="New Jog" id="13a-lW-bsO" customClass="AddJogView" customModule="Hermes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Oe-t1-DUE"/>
+                        <viewControllerLayoutGuide type="bottom" id="HXG-sG-el6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t02-ua-Jvb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qxD-fd-DI9">
+                                <frame key="frameInset" minX="20" minY="72" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-81-hii">
+                                <frame key="frameInset" minY="102" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="468107181.61386102">
+                                    <!--2015-11-01 21:46:21 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrZ-eE-LQH">
+                                <frame key="frameInset" minY="278" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="-978281999.67134309">
+                                    <!--1970-01-01 07:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jNh-81-hii" secondAttribute="trailing" constant="-20" id="1CJ-Ok-c7i"/>
+                            <constraint firstItem="WrZ-eE-LQH" firstAttribute="leading" secondItem="t02-ua-Jvb" secondAttribute="leadingMargin" constant="-20" id="AR8-bA-G6Y"/>
+                            <constraint firstItem="qxD-fd-DI9" firstAttribute="leading" secondItem="t02-ua-Jvb" secondAttribute="leadingMargin" id="FaO-Wd-5NM"/>
+                            <constraint firstItem="qxD-fd-DI9" firstAttribute="top" secondItem="3Oe-t1-DUE" secondAttribute="bottom" constant="8" id="JEI-QU-aYH"/>
+                            <constraint firstItem="HXG-sG-el6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WrZ-eE-LQH" secondAttribute="bottom" constant="10" id="TbX-7H-djz"/>
+                            <constraint firstItem="jNh-81-hii" firstAttribute="top" secondItem="qxD-fd-DI9" secondAttribute="bottom" id="Uui-Rs-eI2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WrZ-eE-LQH" secondAttribute="trailing" constant="-20" id="cgF-Sa-6HN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qxD-fd-DI9" secondAttribute="trailing" id="h4e-XB-qfn"/>
+                            <constraint firstItem="jNh-81-hii" firstAttribute="leading" secondItem="t02-ua-Jvb" secondAttribute="leadingMargin" constant="-20" id="n3s-RE-Y5a"/>
+                            <constraint firstItem="WrZ-eE-LQH" firstAttribute="top" secondItem="jNh-81-hii" secondAttribute="bottom" constant="-40" id="qmA-IZ-JGB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Jog" id="cwL-6l-ANl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FH4-wp-AHk">
+                            <connections>
+                                <action selector="cancelTapped:" destination="13a-lW-bsO" id="OVT-zy-Ydn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fYf-UT-eEg">
+                            <connections>
+                                <action selector="saveTapped:" destination="13a-lW-bsO" id="wCn-gl-AZX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="jNh-81-hii" id="Pb0-bN-NpX"/>
+                        <outlet property="distanceField" destination="qxD-fd-DI9" id="hTN-NH-eVC"/>
+                        <outlet property="timePicker" destination="WrZ-eE-LQH" id="9Zw-7U-GMA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJZ-M3-AQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1283" y="474"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PYF-8A-XB7">
+            <objects>
+                <navigationController storyboardIdentifier="AddJogNavigationController" id="j2X-pF-38k" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gCn-8U-OQH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="13a-lW-bsO" kind="relationship" relationship="rootViewController" id="IVi-z6-xpG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGv-Jl-Qqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568" y="467"/>
+        </scene>
+    </scenes>
+</document>

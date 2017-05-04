@@ -1,86 +1,86 @@
-//
-//  JogsPresenter.swift
-//  Hermes
-//
-//  Created by Ryan Bush on 10/31/15.
-//  Copyright © 2015 Cold and Logical. All rights reserved.
-//
-
 import Foundation
-import Parse
 
-class JogsPresenter : NSObject
-        , JogsInteractorToPresenterInterface
-        , JogsViewToPresenterInterface
-        , JogsWireframeToPresenterInterface
-        {
+class JogsPresenter {
         // MARK: - VIPER Stack
-        weak var interactor : JogsPresenterToInteractorInterface!
-        weak var view : JogsPresenterToViewInterface!
-        weak var wireframe : JogsPresenterToWireframeInterface!
-        
+        weak var interactor: JogsPresenterToInteractorInterface!
+        weak var view: JogsPresenterToViewInterface!
+        weak var wireframe: JogsPresenterToWireframeInterface!
+
         // MARK: - Instance Variables
-        var currentUser: PFUser?
+        var currentUser: User?
         var currentUserIsAdmin: Bool = false
-        
-        // MARK: - Operational
-        func fetchJogsBasedOnAdminStatus() {
-                if currentUser != nil {
-                        if currentUserIsAdmin {
-                                self.interactor.fetchJogs(nil)
-                        } else {
-                                self.interactor.fetchJogs(currentUser)
-                        }
+        weak var delegate: JogsDelegate?
+
+        // MARK: - Computed Variables
+        var moduleWireframe: Jogs {
+                get {
+                        let mw = (self.wireframe as? Jogs)!
+                        return mw
                 }
         }
-        
-        // MARK: - Interactor Output
+
+        // MARK: - Operational
+        func fetchJogsBasedOnAdminStatus() {
+                interactor.fetchJogs(forUser: currentUser)
+        }
+}
+
+// MARK: - Interactor to Presenter Interface
+extension JogsPresenter: JogsInteractorToPresenterInterface {
         func deletedJog() {
                 fetchJogsBasedOnAdminStatus()
         }
-        
+
         func failedDeletingJog() {
                 view.showDeleteJogFailed()
         }
-        
+
         func failedFetchingCurrentUser() {
                 wireframe.presentLogin()
         }
-        
+
         func failedFetchingJogs() {
                 view.showFetchingJogsFailed()
         }
-        
-        func fetchedCurrentUser(_ currentUser: PFUser, isAdmin: Bool) {
-                self.currentUser = currentUser
+
+        func fetched(jogs: [Jog]) {
+                view.show(jogs: jogs)
+        }
+
+        func fetched(user newUser: User, isAdmin: Bool) {
+                currentUser = newUser
                 currentUserIsAdmin = isAdmin
                 fetchJogsBasedOnAdminStatus()
         }
-        
-        func fetchedJogs(_ jogs: [Jog]) {
-                view.showJogs(jogs)
-        }
-        
-        // MARK: - Presenter Interface
+}
+
+// MARK: - View to Presenter Interface
+extension JogsPresenter: JogsViewToPresenterInterface {
         func userTappedAdd() {
-                wireframe.presentAddJog(nil)
+                wireframe.presentAdd(withJog: nil)
         }
-        
-        func userTappedDelete(_ jog: Jog) {
-                interactor.deleteJog(jog)
+
+        func userTappedDelete(onJog jog: Jog) {
+                interactor.delete(jog: jog)
         }
-        
-        func userTappedJog(_ jog: Jog) {
-                wireframe.presentAddJog(jog)
+
+        func userTapped(onJog jog: Jog) {
+                wireframe.presentAdd(withJog: jog)
         }
-        
+
         func userTappedLogout() {
                 interactor.logout()
                 wireframe.presentLogin()
         }
-        
-        // MARK: - WireframeToPresenterInterface
+}
+
+// MARK: - Wireframe to Presenter Interface
+extension JogsPresenter: JogsWireframeToPresenterInterface {
+        func set(delegate newDelegate: JogsDelegate?) {
+                delegate = newDelegate
+        }
+
         func presentingJogs() {
-                interactor.fetchCurrentUser()
+                interactor.fetchUser()
         }
 }

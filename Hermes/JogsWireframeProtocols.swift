@@ -1,30 +1,18 @@
-//
-//  JogsWireframeProtocols.swift
-//  Hermes
-//
-//  Created by Ryan Bush on 10/31/15.
-//  Copyright © 2015 Cold and Logical. All rights reserved.
-//
-
-import UIKit
-
 // VIPER Module Constants
-let kJogsNavigationControllerIdentifier = "JogsNavigationController"
-let kJogsStoryboardIdentifier = "Jogs"
-let kJogsViewIdentifier = "JogsView"
-
-// VIPER Interface to the Module
-protocol JogsDelegate : class {
-        
+struct JogsConstants {
+        static let navigationControllerIdentifier = "JogsNavigationController"
+        static let storyboardIdentifier = "Jogs"
+        static let viewIdentifier = "JogsView"
 }
 
 // Interface Abstraction for working with the VIPER Module
-protocol JogsModuleInterface : class {
+protocol Jogs: class {
+        var delegate: JogsDelegate? { get set }
         func presentJogs()
 }
 
 // VIPER Interface for communication from Presenter -> Wireframe
-protocol JogsPresenterToWireframeInterface : class {
-        func presentAddJog(_ jog: Jog?)
+protocol JogsPresenterToWireframeInterface: class {
+        func presentAdd(withJog jog: Jog?)
         func presentLogin()
 }

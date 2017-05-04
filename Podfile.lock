@@ -1,59 +1,41 @@
 PODS:
-  - Alamofire (4.0.1)
-  - AlamofireImage (3.1.0):
-    - Alamofire (~> 4.0)
-  - EVReflection (3.1.2)
-  - Firebase (3.7.1):
-    - Firebase/Core (= 3.7.1)
-  - Firebase/Core (3.7.1):
-    - FirebaseAnalytics (= 3.4.4)
-    - FirebaseCore (= 3.4.3)
-  - FirebaseAnalytics (3.4.4):
-    - FirebaseCore (~> 3.4)
+  - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - Firebase (3.17.0):
+    - Firebase/Core (= 3.17.0)
+  - Firebase/Core (3.17.0):
+    - FirebaseAnalytics (= 3.9.0)
+    - FirebaseCore (= 3.6.0)
+  - FirebaseAnalytics (3.9.0):
+    - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-  - FirebaseCore (3.4.3):
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleUtilities (~> 1.2)
-  - FirebaseInstanceID (1.0.8)
-  - GoogleInterchangeUtilities (1.2.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleSymbolUtilities (1.1.2)
-  - GoogleUtilities (1.3.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - SwiftyJSON (3.0.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.6.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.10):
+    - FirebaseCore (~> 3.6)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
-  - AlamofireImage (~> 3.0)
-  - EVReflection (from `https://github.com/evermeer/EVReflection`, branch `Swift3`)
+  - Alamofire (~> 4.4)
+  - AlamofireImage (~> 3.1)
   - Firebase
-  - SwiftyJSON (= 3.0.0)
-
-EXTERNAL SOURCES:
-  EVReflection:
-    :branch: Swift3
-    :git: https://github.com/evermeer/EVReflection
-
-CHECKOUT OPTIONS:
-  EVReflection:
-    :commit: a1c0d785d3df90de27a52135d8071ea1bb7defc7
-    :git: https://github.com/evermeer/EVReflection
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
-  EVReflection: 102d8ca777db55200f48b80d9628c8d50fb4109d
-  Firebase: be473484f0d515e72ffd04acf22f981773c23e58
-  FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
-  FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
-  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
-  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
-  SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
+  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
+  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
+  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: a26670e3a3b648a7e04625c2345c0832d9ad81c7
+PODFILE CHECKSUM: 92ec83b89e23e81296b5991c429e2ad7bfbaf363
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.2.1

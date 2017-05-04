@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="hsM-We-hIs">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNavigationController" id="e1o-gY-n2o" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vPT-QE-dXz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ltP-Pk-DPr" kind="relationship" relationship="rootViewController" id="Lgn-Hq-Y3N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYe-Zs-NbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366" y="579"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="kEf-yG-RiQ">
+            <objects>
+                <viewController storyboardIdentifier="LoginView" title="Login" id="ltP-Pk-DPr" customClass="LoginView" customModule="Hermes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xyh-np-YCE"/>
+                        <viewControllerLayoutGuide type="bottom" id="xK6-62-ZJq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qxV-rc-ewn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLp-Ka-PeG">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="VJP-Ye-5Vy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JY0-GV-4Ta">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtO-Gp-alx">
+                                <color key="backgroundColor" red="0.014522708270340523" green="0.6704264037090979" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginTapped:" destination="ltP-Pk-DPr" eventType="touchUpInside" id="8br-gR-Hpc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olo-pK-e2I">
+                                <color key="backgroundColor" red="0.0" green="0.87013203202969303" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerTapped:" destination="ltP-Pk-DPr" eventType="touchUpInside" id="iMw-jP-ViA"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mam-ix-vKz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gLp-Ka-PeG" firstAttribute="centerX" secondItem="qxV-rc-ewn" secondAttribute="centerX" id="3WB-gT-Q0b"/>
+                            <constraint firstItem="JY0-GV-4Ta" firstAttribute="width" secondItem="gLp-Ka-PeG" secondAttribute="width" id="3cM-Nm-Ccp"/>
+                            <constraint firstItem="gtO-Gp-alx" firstAttribute="centerX" secondItem="JY0-GV-4Ta" secondAttribute="centerX" id="6PI-m7-jow"/>
+                            <constraint firstItem="Mam-ix-vKz" firstAttribute="top" secondItem="olo-pK-e2I" secondAttribute="bottom" constant="8" id="BV9-LZ-cXe"/>
+                            <constraint firstItem="olo-pK-e2I" firstAttribute="top" secondItem="gtO-Gp-alx" secondAttribute="bottom" constant="8" id="Cuj-5A-Ch9"/>
+                            <constraint firstItem="Mam-ix-vKz" firstAttribute="centerX" secondItem="olo-pK-e2I" secondAttribute="centerX" id="NMW-Oq-gw4"/>
+                            <constraint firstItem="JY0-GV-4Ta" firstAttribute="centerX" secondItem="gLp-Ka-PeG" secondAttribute="centerX" id="V1L-bW-QnW"/>
+                            <constraint firstItem="JY0-GV-4Ta" firstAttribute="top" secondItem="gLp-Ka-PeG" secondAttribute="bottom" constant="8" id="V5L-3u-fk7"/>
+                            <constraint firstItem="gtO-Gp-alx" firstAttribute="width" secondItem="JY0-GV-4Ta" secondAttribute="width" id="ZNd-kJ-zp0"/>
+                            <constraint firstItem="Mam-ix-vKz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qxV-rc-ewn" secondAttribute="leadingMargin" id="dci-Vc-TFf"/>
+                            <constraint firstItem="olo-pK-e2I" firstAttribute="width" secondItem="gtO-Gp-alx" secondAttribute="width" id="p0e-3d-4he"/>
+                            <constraint firstItem="gLp-Ka-PeG" firstAttribute="top" secondItem="xyh-np-YCE" secondAttribute="bottom" constant="94" id="pJ0-4Q-u7m"/>
+                            <constraint firstItem="olo-pK-e2I" firstAttribute="centerX" secondItem="gtO-Gp-alx" secondAttribute="centerX" id="s9w-vA-gf4"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Mam-ix-vKz" secondAttribute="trailing" id="tqV-IV-XJO"/>
+                            <constraint firstItem="gtO-Gp-alx" firstAttribute="top" secondItem="JY0-GV-4Ta" secondAttribute="bottom" constant="8" id="zbj-8t-Yhw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="mYd-zz-QAI"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="Mam-ix-vKz" id="shR-dJ-1t2"/>
+                        <outlet property="passwordField" destination="JY0-GV-4Ta" id="kA3-5A-gPj"/>
+                        <outlet property="usernameField" destination="gLp-Ka-PeG" id="o6I-p9-ctz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRF-h4-1Qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1337" y="579"/>
+        </scene>
+    </scenes>
+</document>

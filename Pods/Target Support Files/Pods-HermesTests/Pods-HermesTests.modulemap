@@ -1,6 +1,0 @@
-framework module Pods_HermesTests {
-  umbrella header "Pods-HermesTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

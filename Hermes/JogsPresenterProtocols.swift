@@ -1,32 +1,30 @@
-//
-//  JogsPresenterProtocols.swift
-//  Hermes
-//
-//  Created by Ryan Bush on 10/31/15.
-//  Copyright © 2015 Cold and Logical. All rights reserved.
-//
+// VIPER Interface to the Module
+protocol JogsDelegate: class {
 
-import Parse
+}
 
 // VIPER Interface for communication from Interactor -> Presenter
-protocol JogsInteractorToPresenterInterface : class {
+protocol JogsInteractorToPresenterInterface: class {
         func failedDeletingJog()
         func failedFetchingCurrentUser()
         func failedFetchingJogs()
         func deletedJog()
-        func fetchedCurrentUser(_ currentUser: PFUser, isAdmin: Bool)
-        func fetchedJogs(_ jogs: [Jog])
+        func fetched(user newUser: User, isAdmin: Bool)
+        func fetched(jogs: [Jog])
 }
 
 // VIPER Interface for communication from View -> Presenter
-protocol JogsViewToPresenterInterface : class {
+protocol JogsViewToPresenterInterface: class {
         func userTappedAdd()
-        func userTappedDelete(_ jog: Jog)
-        func userTappedJog(_ jog: Jog)
+        func userTappedDelete(onJog jog: Jog)
+        func userTapped(onJog jog: Jog)
         func userTappedLogout()
 }
 
 // VIPER Interface for communication from Wireframe -> Presenter
-protocol JogsWireframeToPresenterInterface : class {
+protocol JogsWireframeToPresenterInterface: class {
+        weak var delegate: JogsDelegate? { get }
+        func set(delegate newDelegate: JogsDelegate?)
+
         func presentingJogs()
 }

@@ -8,33 +8,33 @@
 
 import Foundation
 
-class RegisterPresenter : NSObject, RegisterInteractorToPresenterInterface, RegisterViewToPresenterInterface, RegisterWireframeToPresenterInterface {
+class RegisterPresenter: RegisterInteractorToPresenterInterface, RegisterViewToPresenterInterface, RegisterWireframeToPresenterInterface {
         // MARK: - VIPER Stack
-        lazy var interactor : RegisterPresenterToInteractorInterface = RegisterInteractor()
-        lazy var view : RegisterPresenterToViewInterface = RegisterView()
-        lazy var wireframe : RegisterPresenterToWireframeInterface = RegisterWireframe()
-        
+        lazy var interactor: RegisterPresenterToInteractorInterface = RegisterInteractor()
+        lazy var view: RegisterPresenterToViewInterface = RegisterView()
+        lazy var wireframe: RegisterPresenterToWireframeInterface = RegisterWireframe()
+
         // MARK: - Instance Variables
-        
+
         // MARK: - Operational
-        
+
         // MARK: - Interactor Output
-        func signUpFailure(_ error: NSError?) {
-                view.showMessage("Failed to register... Try again please")
+        func signUpFailure(withError error: Error) {
+                view.show(message: "Failed to register... Try again please")
         }
-        
+
         func signUpSuccess() {
                 wireframe.registrationFinished()
         }
-        
+
         // MARK: - Presenter Interface
-        func userTappedRegister(_ username: String, password: String) {
-                view.showMessage("Registering...")
-                interactor.registerUser(username, password: password)
+        func userTappedRegister(withUsername username: String, andPassword password: String) {
+                view.show(message: "Registering...")
+                interactor.register(withUsername: username, andPassword: password)
         }
-        
+
         // MARK: - WireframeToPresenterInterface
         func presenting() {
-                view.showMessage("")
+                view.show(message: "")
         }
 }

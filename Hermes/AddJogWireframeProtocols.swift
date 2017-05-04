@@ -15,14 +15,14 @@ let kAddJogViewIdentifier = "AddJogView"
 
 // VIPER Interface to the Module
 protocol AddJogDelegate : class {
-        func addJogComplete(_ addJogModule: AddJogModuleInterface)
-        func addJogCancelled(_ addJogModule: AddJogModuleInterface)
+        func cancelled(addJog: AddJog)
+        func finished(addJog: AddJog)
 }
 
 // Interface Abstraction for working with the VIPER Module
-protocol AddJogModuleInterface : class {
+protocol AddJog: class {
         func dismiss()
-        func presentModallyOnViewController(_ viewController: AddJogModalViewController, jog: Jog?)
+        func presentModally(onViewController viewController: UIViewController, withJog jog: Jog?)
 }
 
 // VIPER Interface for manipulating the navigation
@@ -34,8 +34,4 @@ protocol AddJogNavigation: class {
 protocol AddJogPresenterToWireframeInterface : class {
         func addJogFinished()
         func cancelAddJog()
-}
-
-protocol AddJogModalViewController : class {
-        func presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
 }

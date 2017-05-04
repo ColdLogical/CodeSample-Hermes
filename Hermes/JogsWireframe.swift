@@ -1,114 +1,122 @@
-//
-//  JogsWireframe.swift
-//  Hermes
-//
-//  Created by Ryan Bush on 10/31/15.
-//  Copyright © 2015 Cold and Logical. All rights reserved.
-//
-
 import UIKit
 
-extension UINavigationController : LoginModalViewController { }
-extension UINavigationController : AddJogModalViewController { }
-
-class JogsWireframe: NSObject, JogsPresenterToWireframeInterface, LoginDelegate, AddJogDelegate {
+class JogsWireframe {
         // MARK: - VIPER Stack
         lazy var moduleInteractor = JogsInteractor()
         lazy var moduleNavigationController: UINavigationController = {
                 let sb = JogsWireframe.storyboard()
-                let v = sb.instantiateViewController(withIdentifier: kJogsNavigationControllerIdentifier) as! UINavigationController
-                return v
+                let nc = (sb.instantiateViewController(withIdentifier: JogsConstants.navigationControllerIdentifier) as? UINavigationController)!
+                return nc
         }()
         lazy var modulePresenter = JogsPresenter()
         lazy var moduleView: JogsView = {
-                return self.moduleNavigationController.viewControllers[0] as! JogsView
+                let vc = (self.moduleNavigationController.viewControllers[0] as? JogsView)!
+                _ = vc.view
+                return vc
         }()
-        lazy var presenter : JogsWireframeToPresenterInterface = self.modulePresenter
+
+        // MARK: - Computed VIPER Variables
+        lazy var presenter: JogsWireframeToPresenterInterface = self.modulePresenter
+        lazy var view: JogsNavigationInterface = self.moduleView
 
         // MARK: - Instance Variables
-        var delegate: JogsDelegate?
-        
-        var _addJogModule : AddJogModuleInterface?
-        var addJogModule: AddJogModuleInterface {
+        var privateAddJog: AddJog?
+        var addJog: AddJog {
                 get {
-                        if _addJogModule == nil {
+                        if privateAddJog == nil {
                                 let temp = AddJogWireframe()
                                 temp.delegate = self
-                                
-                                _addJogModule = temp
+
+                                privateAddJog = temp
                         }
-                        
-                        return _addJogModule!
+
+                        return privateAddJog!
                 }
         }
-        
-        var _loginModule : LoginModuleInterface?
-        var loginModule : LoginModuleInterface {
+
+        var privateLogin: Login?
+        var login: Login {
                 get {
-                        if _loginModule == nil {
+                        if privateLogin == nil {
                                 let l = LoginWireframe()
                                 l.delegate = self
-                                
-                                _loginModule = l
+
+                                privateLogin = l
                         }
-                        return _loginModule!
+                        return privateLogin!
                 }
         }
-        
+
         // MARK: - Initialization
-        override init() {
-                super.init()
-                
+        init() {
                 let i = moduleInteractor
                 let p = modulePresenter
                 let v = moduleView
-                
+
                 i.presenter = p
-                
+
                 p.interactor = i
                 p.view = v
                 p.wireframe = self
-                
+
                 v.presenter = p
-                
-                presenter = p
         }
 
-	class func storyboard() -> UIStoryboard {
-                return UIStoryboard(name: kJogsStoryboardIdentifier, bundle: Bundle(for: JogsWireframe.self))
-	}
-        
+    	class func storyboard() -> UIStoryboard {
+                return UIStoryboard(name: JogsConstants.storyboardIdentifier,
+                                    bundle: Bundle(for: JogsWireframe.self))
+    	}
+
         // MARK: - Operational
+
+}
+
+// MARK: - Module Interface
+extension JogsWireframe: Jogs {
+        var delegate: JogsDelegate? {
+                get {
+                        return presenter.delegate
+                }
+                set {
+                        presenter.set(delegate: newValue)
+                }
+        }
+
         func presentJogs() {
                 presenter.presentingJogs()
         }
-        
-        // MARK: - Wireframe Interface
-        func presentAddJog(_ jog: Jog?) {
-                addJogModule.presentModallyOnViewController(moduleNavigationController, jog: jog)
+}
+
+// MARK: - Presenter to Wireframe Interface
+extension JogsWireframe: JogsPresenterToWireframeInterface {
+        func presentAdd(withJog jog: Jog?) {
+                addJog.presentModally(onViewController: moduleNavigationController, withJog: jog)
         }
-        
+
         func presentLogin() {
-                loginModule.presentModallyOnViewController(moduleNavigationController)
+                login.presentModally(onViewController: moduleNavigationController)
         }
-        
-        // MARK: - Login Delegate
-        func loginCompleted(_ loginModule: LoginModuleInterface) {
-                moduleView.dismiss(animated: true, completion: nil)
-                _loginModule = nil
-                
+}
+
+// MARK: - Add Jog Delegate
+extension JogsWireframe: AddJogDelegate {
+        func cancelled(addJog: AddJog) {
+                addJog.dismiss()
+                privateAddJog = nil
+        }
+
+        func finished(addJog: AddJog) {
+                addJog.dismiss()
+                privateAddJog = nil
                 presenter.presentingJogs()
         }
-        
-        // MARK: - Add Jog Delegate
-        func addJogCancelled(_ addJogModule: AddJogModuleInterface) {
-                moduleView.dismiss(animated: true, completion: nil)
-                _addJogModule = nil
-        }
-        
-        func addJogComplete(_ addJogModule: AddJogModuleInterface) {
-                addJogModule.dismiss()
-                _addJogModule = nil
+}
+
+// MARK: - Login Delegate
+extension JogsWireframe: LoginDelegate {
+        func completed(login: Login) {
+                login.dismiss()
+                privateLogin = nil
                 presenter.presentingJogs()
         }
 }

@@ -77,10 +77,9 @@ extension DataRequest {
     ///
     /// - returns: An image response serializer.
     public class func imageResponseSerializer(
-        _ imageScale: CGFloat = DataRequest.imageScale,
+        imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true)
-        -> DataResponseSerializer<Image>
-    {
+        -> DataResponseSerializer<Image> {
         return DataResponseSerializer { request, response, data, error in
             let result = serializeResponseData(response: response, data: data, error: error)
 
@@ -120,11 +119,10 @@ extension DataRequest {
     /// - returns: The request.
     @discardableResult
     public func responseImage(
-        _ imageScale: CGFloat = DataRequest.imageScale,
+        imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true,
         completionHandler: @escaping (DataResponse<Image>) -> Void)
-        -> Self
-    {
+        -> Self {
         return response(
             responseSerializer: DataRequest.imageResponseSerializer(
                 imageScale: imageScale,
@@ -134,7 +132,7 @@ extension DataRequest {
         )
     }
 
-    /// Sets a closure to be called periodically during the lifecycle of the request as data is read from the server 
+    /// Sets a closure to be called periodically during the lifecycle of the request as data is read from the server
     /// and converted into images.
     ///
     /// - parameter imageScale:           The scale factor used when interpreting the image data to construct
@@ -154,11 +152,10 @@ extension DataRequest {
     /// - returns: The request.
     @discardableResult
     public func streamImage(
-        _ imageScale: CGFloat = DataRequest.imageScale,
+        imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true,
         completionHandler: @escaping (Image) -> Void)
-        -> Self
-    {
+        -> Self {
         var imageData = Data()
 
         return stream { chunkData in
@@ -174,12 +171,11 @@ extension DataRequest {
         }
     }
 
-    fileprivate class func serializeImage(
+    private class func serializeImage(
         from data: Data,
         imageScale: CGFloat = DataRequest.imageScale,
         inflateResponseImage: Bool = true)
-        -> UIImage?
-    {
+        -> UIImage? {
         guard data.count > 0 else { return nil }
 
         do {
@@ -192,7 +188,7 @@ extension DataRequest {
         }
     }
 
-    fileprivate class func image(from data: Data, withImageScale imageScale: CGFloat) throws -> UIImage {
+    private class func image(from data: Data, withImageScale imageScale: CGFloat) throws -> UIImage {
         if let image = UIImage.af_threadSafeImage(with: data, scale: imageScale) {
             return image
         }
@@ -200,7 +196,7 @@ extension DataRequest {
         throw AFIError.imageSerializationFailed
     }
 
-    fileprivate class var imageScale: CGFloat {
+    private class var imageScale: CGFloat {
         #if os(iOS) || os(tvOS)
             return UIScreen.main.scale
         #elseif os(watchOS)
@@ -290,9 +286,15 @@ extension DataRequest {
 
 #endif
 
-    // MARK: - Private - Shared Helper Methods
+    // MARK: - Content Type Validation
 
-    fileprivate class func validateContentType(for request: URLRequest?, response: HTTPURLResponse?) throws {
+    /// Returns whether the content type of the response matches one of the acceptable content types.
+    ///
+    /// - parameter request: The request.
+    /// - parameter response: The server response.
+    ///
+    /// - throws: An `AFError` response validation failure when an error is encountered.
+    public class func validateContentType(for request: URLRequest?, response: HTTPURLResponse?) throws {
         if let url = request?.url, url.isFileURL { return }
 
         guard let mimeType = response?.mimeType else {

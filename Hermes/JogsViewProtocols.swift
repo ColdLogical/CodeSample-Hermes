@@ -1,14 +1,11 @@
-//
-//  JogsViewProtocols.swift
-//  Hermes
-//
-//  Created by Ryan Bush on 10/31/15.
-//  Copyright © 2015 Cold and Logical. All rights reserved.
-//
+// VIPER Interface for manipulating the navigation of the view
+protocol JogsNavigationInterface: class {
+
+}
 
 // VIPER Interface for communication from Presenter -> View
-protocol JogsPresenterToViewInterface : class {
+protocol JogsPresenterToViewInterface: class {
         func showDeleteJogFailed()
         func showFetchingJogsFailed()
-        func showJogs(_ jogs: [Jog])
+        func show(jogs newJogs: [Jog])
 }

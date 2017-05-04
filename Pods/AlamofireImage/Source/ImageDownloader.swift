@@ -48,6 +48,8 @@ open class RequestReceipt {
     }
 }
 
+// MARK: -
+
 /// The `ImageDownloader` class is responsible for downloading images in parallel on a prioritized queue. Incoming
 /// downloads are added to the front or back of the queue depending on the download prioritization. Each downloaded
 /// image is cached in the underlying `NSURLCache` as well as the in-memory image cache that supports image filters.
@@ -60,6 +62,8 @@ open class ImageDownloader {
 
     /// The progress handler closure called periodically during an image download.
     public typealias ProgressHandler = DataRequest.ProgressHandler
+
+    // MARK: Helper Types
 
     /// Defines the order prioritization of incoming download requests being inserted into the queue.
     ///
@@ -80,8 +84,7 @@ open class ImageDownloader {
             handlerID: String,
             receiptID: String,
             filter: ImageFilter?,
-            completion: CompletionHandler?)
-        {
+            completion: CompletionHandler?) {
             self.request = request
             self.urlID = ImageDownloader.urlIdentifier(for: request.request!)
             self.handlerID = handlerID
@@ -89,13 +92,16 @@ open class ImageDownloader {
         }
     }
 
-    // MARK: - Properties
+    // MARK: Properties
 
     /// The image cache used to store all downloaded images in.
     open let imageCache: ImageRequestCache?
 
     /// The credential used for authenticating each download request.
-    open fileprivate(set) var credential: URLCredential?
+    open private(set) var credential: URLCredential?
+
+    /// Response serializer used to convert the image data to UIImage.
+    public var imageResponseSerializer = DataRequest.imageResponseSerializer()
 
     /// The underlying Alamofire `Manager` instance used to handle all download requests.
     open let sessionManager: SessionManager
@@ -107,17 +113,17 @@ open class ImageDownloader {
     var queuedRequests: [Request] = []
     var responseHandlers: [String: ResponseHandler] = [:]
 
-    fileprivate let synchronizationQueue: DispatchQueue = {
+    private let synchronizationQueue: DispatchQueue = {
         let name = String(format: "org.alamofire.imagedownloader.synchronizationqueue-%08x%08x", arc4random(), arc4random())
         return DispatchQueue(label: name)
     }()
 
-    fileprivate let responseQueue: DispatchQueue = {
+    private let responseQueue: DispatchQueue = {
         let name = String(format: "org.alamofire.imagedownloader.responsequeue-%08x%08x", arc4random(), arc4random())
         return DispatchQueue(label: name, attributes: .concurrent)
     }()
 
-    // MARK: - Initialization
+    // MARK: Initialization
 
     /// The default instance of `ImageDownloader` initialized with default values.
     open static let `default` = ImageDownloader()
@@ -144,7 +150,7 @@ open class ImageDownloader {
     /// Creates a default `URLCache` with common usage parameter values.
     ///
     /// - returns: The default `URLCache` instance.
-    public class func defaultURLCache() -> URLCache {
+    open class func defaultURLCache() -> URLCache {
         return URLCache(
             memoryCapacity: 20 * 1024 * 1024, // 20 MB
             diskCapacity: 150 * 1024 * 1024,  // 150 MB
@@ -166,8 +172,7 @@ open class ImageDownloader {
         configuration: URLSessionConfiguration = ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: DownloadPrioritization = .fifo,
         maximumActiveDownloads: Int = 4,
-        imageCache: ImageRequestCache? = AutoPurgingImageCache())
-    {
+        imageCache: ImageRequestCache? = AutoPurgingImageCache()) {
         self.sessionManager = SessionManager(configuration: configuration)
         self.sessionManager.startRequestsImmediately = false
 
@@ -189,8 +194,7 @@ open class ImageDownloader {
         sessionManager: SessionManager,
         downloadPrioritization: DownloadPrioritization = .fifo,
         maximumActiveDownloads: Int = 4,
-        imageCache: ImageRequestCache? = AutoPurgingImageCache())
-    {
+        imageCache: ImageRequestCache? = AutoPurgingImageCache()) {
         self.sessionManager = sessionManager
         self.sessionManager.startRequestsImmediately = false
 
@@ -199,18 +203,17 @@ open class ImageDownloader {
         self.imageCache = imageCache
     }
 
-    // MARK: - Authentication
+    // MARK: Authentication
 
     /// Associates an HTTP Basic Auth credential with all future download requests.
     ///
     /// - parameter user:        The user.
     /// - parameter password:    The password.
     /// - parameter persistence: The URL credential persistence. `.forSession` by default.
-    public func addAuthentication(
+    open func addAuthentication(
         user: String,
         password: String,
-        persistence: URLCredential.Persistence = .forSession)
-    {
+        persistence: URLCredential.Persistence = .forSession) {
         let credential = URLCredential(user: user, password: password, persistence: persistence)
         addAuthentication(usingCredential: credential)
     }
@@ -218,13 +221,13 @@ open class ImageDownloader {
     /// Associates the specified credential with all future download requests.
     ///
     /// - parameter credential: The credential.
-    public func addAuthentication(usingCredential credential: URLCredential) {
+    open func addAuthentication(usingCredential credential: URLCredential) {
         synchronizationQueue.sync {
             self.credential = credential
         }
     }
 
-    // MARK: - Download
+    // MARK: Download
 
     /// Creates a download request using the internal Alamofire `SessionManager` instance for the specified URL request.
     ///
@@ -252,15 +255,14 @@ open class ImageDownloader {
     /// - returns: The request receipt for the download request if available. `nil` if the image is stored in the image
     ///            cache and the URL request cache policy allows the cache to be used.
     @discardableResult
-    public func download(
+    open func download(
         _ urlRequest: URLRequestConvertible,
         receiptID: String = UUID().uuidString,
         filter: ImageFilter? = nil,
         progress: ProgressHandler? = nil,
         progressQueue: DispatchQueue = DispatchQueue.main,
         completion: CompletionHandler?)
-        -> RequestReceipt?
-    {
+        -> RequestReceipt? {
         var request: DataRequest!
 
         synchronizationQueue.sync {
@@ -314,7 +316,7 @@ open class ImageDownloader {
 
             request.response(
                 queue: self.responseQueue,
-                responseSerializer: DataRequest.imageResponseSerializer(),
+                responseSerializer: imageResponseSerializer,
                 completionHandler: { [weak self] response in
                     guard let strongSelf = self, let request = response.request else { return }
 
@@ -421,14 +423,13 @@ open class ImageDownloader {
     ///            cache and the URL request cache policy allows the cache to be used, a receipt will not be returned
     ///            for that request.
     @discardableResult
-    public func download(
+    open func download(
         _ urlRequests: [URLRequestConvertible],
         filter: ImageFilter? = nil,
         progress: ProgressHandler? = nil,
         progressQueue: DispatchQueue = DispatchQueue.main,
         completion: CompletionHandler? = nil)
-        -> [RequestReceipt]
-    {
+        -> [RequestReceipt] {
         return urlRequests.flatMap {
             download($0, filter: filter, progress: progress, progressQueue: progressQueue, completion: completion)
         }
@@ -441,7 +442,7 @@ open class ImageDownloader {
     /// will not be called.
     ///
     /// - parameter requestReceipt: The request receipt to cancel.
-    public func cancelRequest(with requestReceipt: RequestReceipt) {
+    open func cancelRequest(with requestReceipt: RequestReceipt) {
         synchronizationQueue.sync {
             let urlID = ImageDownloader.urlIdentifier(for: requestReceipt.request.request!)
             guard let responseHandler = self.responseHandlers[urlID] else { return }
@@ -450,7 +451,7 @@ open class ImageDownloader {
                 let operation = responseHandler.operations.remove(at: index)
 
                 let response: DataResponse<Image> = {
-                    let urlRequest = requestReceipt.request.request!
+                    let urlRequest = requestReceipt.request.request
                     let error = AFIError.requestCancelled
 
                     return DataResponse(request: urlRequest, response: nil, data: nil, result: .failure(error))
@@ -466,7 +467,7 @@ open class ImageDownloader {
         }
     }
 
-    // MARK: - Internal - Thread-Safe Request Methods
+    // MARK: Internal - Thread-Safe Request Methods
 
     func safelyFetchResponseHandler(withURLIdentifier urlIdentifier: String) -> ResponseHandler? {
         var responseHandler: ResponseHandler?
@@ -509,7 +510,7 @@ open class ImageDownloader {
         }
     }
 
-    // MARK: - Internal - Non Thread-Safe Request Methods
+    // MARK: Internal - Non Thread-Safe Request Methods
 
     func start(_ request: Request) {
         request.resume()

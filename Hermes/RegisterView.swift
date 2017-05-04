@@ -8,40 +8,37 @@
 
 import UIKit
 
-class RegisterView : UIViewController, RegisterPresenterToViewInterface {
+class RegisterView: UIViewController, RegisterPresenterToViewInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : RegisterViewToPresenterInterface = RegisterPresenter()
-        
+        lazy var presenter: RegisterViewToPresenterInterface = RegisterPresenter()
+
         // MARK: - Instance Variables
-        
+
         // MARK: - Outlets
         @IBOutlet var messageLabel: UILabel?
         @IBOutlet var passwordField: UITextField?
         @IBOutlet var usernameField: UITextField?
-        
+
         // MARK: - Operational
         @IBAction func registerTapped(_ sender: AnyObject?) {
-                let username = usernameField!.text
-                let password = passwordField!.text
-                
-                if username == "" || password == "" {
-                        if password == "" {
-                                showMessage("Please enter a password")
-                        }
-                        
-                        if username == "" {
-                                showMessage("Please enter a username")
-                        }
-                } else {
-                        presenter.userTappedRegister(username!, password: password!)
+                guard let username = usernameField?.text,
+                        username != "" else {
+                                show(message: "Please enter a username")
+                                return
                 }
+
+                guard let password = passwordField?.text,
+                        password != "" else {
+                                show(message: "Please enter a password")
+                                return
+                }
+
+                presenter.userTappedRegister(withUsername: username, andPassword: password)
         }
-        
+
         // MARK: - View Interface
-        func showMessage(_ message: String) {
-                if let ml = self.messageLabel {
-                        ml.isHidden = false
-                        ml.text = message
-                }
+        func show(message: String) {
+                messageLabel?.isHidden = false
+                messageLabel?.text = message
         }
 }

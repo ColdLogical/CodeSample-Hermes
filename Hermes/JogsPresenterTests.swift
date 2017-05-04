@@ -1,133 +1,91 @@
-//
-//  JogsPresenterTests.swift
-//  Hermes
-//
-//  Created by Ryan Bush on 10/31/15.
-//  Copyright © 2015 Cold and Logical. All rights reserved.
-//
-
 import Foundation
-import Parse
 import XCTest
 
 @testable import Hermes
 
-class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPresenterToViewInterface, JogsPresenterToWireframeInterface {
-        var presenter = JogsPresenter()
-        
+class JogsPresenterTests: XCTestCase {
+        var presenter: JogsPresenter!
+
         // MARK: - Test Objects
-        var expectation: XCTestExpectation?
-        
+        var delegateMock: JogsDelegateMock!
+        var interactorMock: JogsPresenterToInteractorInterfaceMock!
+        var viewMock: JogsPresenterToViewInterfaceMock!
+        var wireframeMock: JogsWireframeInterfacesMock!
+
         override func setUp() {
                 super.setUp()
+
                 presenter = JogsPresenter()
-                presenter.interactor = self
-                presenter.view = self
-                presenter.wireframe = self
-        }
-        
-        override func tearDown() {
-                super.tearDown()
-		presenter = JogsPresenter()
-                expectation = nil;
-        }
-        
-        // MARK: - Operational
-        func testFailedDeletingJogWithAnythingShouldTellViewToShowDeleteJogFailed() {
-                expectation = expectation(description: "View show delete jog failed from failed deleting jog")
-                
-                presenter.failedDeletingJog()
-                
-                waitForExpectations(timeout: 5) {
-                        (error: Error?) -> Void in
-                        if error != nil {
-                                XCTFail("View never told to show delete jog failed message")
-                        }
-                }
-        }
-        
-        func testFailedFetchingJogsWithAnythingShouldTellViewToShowFetchingJogsFailed() {
-                expectation = expectation(description: "View show fetching jog failed from failed fetching jogs")
-                
-                presenter.failedFetchingJogs()
-                
-                waitForExpectations(timeout: 5) {
-                        (error: Error?) -> Void in
-                        if error != nil {
-                                XCTFail("View never told to show fetching jogs failed message")
-                        }
-                }
-        }
-        
-        func testPresentingJogsWithAnythinyShouldTellInteractorToFetchCurrentUser() {
-                expectation = expectation(description: "Interactor fetch current user from presenter presenting jogs")
-                
-                presenter.presentingJogs()
-                
-                waitForExpectations(timeout: 5) {
-                        (error: Error?) -> Void in
-                        if error != nil {
-                                XCTFail("Interactor never told to fetch current user")
-                        }
-                }
+                delegateMock = JogsDelegateMock()
+                interactorMock = JogsPresenterToInteractorInterfaceMock()
+                viewMock = JogsPresenterToViewInterfaceMock()
+                wireframeMock = JogsWireframeInterfacesMock()
+
+                presenter.delegate = delegateMock
+                presenter.interactor = interactorMock
+                presenter.view = viewMock
+                presenter.wireframe = wireframeMock
         }
 
-        // MARK: - Interactor Output
-        func testDeletedJogWithCurrentUserShouldTellInteractorToFetchJogs() {
-                expectation = expectation(description: "Interactor fetch jogs from deleted jog")
-                
+        // MARK: - Operational
+        func testModuleWireframeComputedVariableWithConnectedWireframeReturnsTheWireframeAsAJogsObject() {
+                // Arrange
+
+                // Act
+                let moduleWireframe = presenter.moduleWireframe
+
+                // Assert
+                XCTAssert(moduleWireframe === wireframeMock)
+        }
+}
+
+// MARK: - Interactor to Presenter Interface
+extension JogsPresenterTests {
+        func testDeletedJogWithUserShouldTellInteractorToFetchJogs() {
+                // Arrange
                 let user = PFUser()
                 user.username = "Sarah Kerrigan"
                 presenter.currentUser = user
-                
+
+                // Act
                 presenter.deletedJog()
-                
-                waitForExpectations(timeout: 5) {
-                        (error: Error?) -> Void in
-                        if error != nil {
-                                XCTFail("Interactor never told to fetch jogs")
-                        }
-                }
+
+                // Assert
+                expect(interactorMock.functionsCalled.contains("fetchJogs()"))
         }
-        
-        func testFailedFetchingCurrentUserWithAnythingShouldTellWireframeToPresentLogin() {
-                expectation = expectation(description: "Wireframe presenter login from failed fetching current user")
-                
-                presenter.failedFetchingCurrentUser()
-                
-                waitForExpectations(timeout: 5) {
-                        (error: Error?) -> Void in
-                        if error != nil {
-                                XCTFail("Wireframe never told to present login")
-                        }
-                }
+
+        func testFailedFetchingUserWithAnythingShouldTellWireframeToPresentLogin() {
+                // Arrange
+
+                // Act
+                presenter.failedFetchingUser()
+
+                // Assert
+                XCTAssert(wireframeMock.functionsCalled.contains("presentLogin()"))
         }
-        
-        func testFetchedCurrentUserWithUsernameSarahKerriganIsAdminFalseShouldTellInteractorToFetchJogsForSarahKerrigan() {
-                expectation = expectation(description: "Fetch jogs for user from fetched current user")
-                
+
+        func testFetchedCurrentUserWithUsernameSarahKerriganIsAdminAnythingShouldTellInteractorToFetchJogsForSarahKerrigan() {
+                // Arrange
                 let user = PFUser()
-                user.username = "Queen of Blades"
-                
-                presenter.fetchedCurrentUser(user, isAdmin: false)
-                
-                waitForExpectations(timeout: 5) {
-                        (error: Error?) -> Void in
-                        if error != nil {
-                                XCTFail("Interactor never told to fetch jogs for user")
-                        }
-                }
+                user.username = "Sarah Kerrigan"
+
+                // Act
+                presenter.fetched(user: user, isAdmin: false)
+
+                // Assert
+                XCTAssert(interactorMock.functionsCalled.contains("fetchJogs(forUser:)"))
+                XCTAssertEqual(interactorMock.forUser, user)
         }
-        
+
         func testFetchedJogsWith3JogsShouldTellViewToShow3Jogs() {
                 expectation = expectation(description: "View show jogs from fetched jogs")
-                
+
                 let j1 = Jog()
                 let j2 = Jog()
                 let j3 = Jog()
-                
+
                 presenter.fetchedJogs([j1, j2, j3])
-                
+
                 waitForExpectations(timeout: 5) {
                         (error: Error?) -> Void in
                         if error != nil {
@@ -136,12 +94,34 @@ class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPr
                 }
         }
 
-        // MARK: - Presenter Interface
+        func testFailedDeletingJogWithAnythingShouldTellViewToShowDeleteJogFailed() {
+                // Arrange
+
+                // Act
+                presenter.failedDeletingJog()
+
+                // Assert
+                XCTAssert(viewMock.functionsCalled.contains("showDeleteJogFailed()"))
+        }
+
+        func testFailedFetchingJogsWithAnythingShouldTellViewToShowFetchingJogsFailed() {
+                // Arrange
+
+                // Act
+                presenter.failedFetchingJogs()
+
+                // Assert
+                XCTAssert(viewMock.functionsCalled.contains("showFetchingJogsFailed()"))
+        }
+}
+
+// MARK: - View to Presenter Interface
+extension JogsPresenterTests {
         func testUserTappedAddWithAnythingShouldTellWireframeToPresentAddJog() {
                 expectation = expectation(description: "Wireframe present add jog from user tapped add")
-                
+
                 presenter.userTappedAdd()
-                
+
                 waitForExpectations(timeout: 5) {
                         (error: Error?) -> Void in
                         if error != nil {
@@ -149,15 +129,15 @@ class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPr
                         }
                 }
         }
-        
+
         func testUserTappedDeleteWithNonNilJogShouldTellInteractorToDeleteJog() {
                 expectation = expectation(description: "Interactor delete jog from user tapped delete")
-                
+
                 let jog = Jog()
                 jog.distance = 314159
-                
+
                 presenter.userTappedDelete(jog)
-                
+
                 waitForExpectations(timeout: 5) {
                         (error: Error?) -> Void in
                         if error != nil {
@@ -165,15 +145,15 @@ class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPr
                         }
                 }
         }
-        
+
         func testUserTappedJogWithNonNilJogShouldTellWireframeToPresentAddJogWithTheJogTapped() {
                 expectation = expectation(description: "Wireframe present add jog with jog from user tapped jog")
-                
+
                 let jog = Jog()
                 jog.distance = 314159
-                
+
                 presenter.userTappedJog(jog)
-                
+
                 waitForExpectations(timeout: 5) {
                         (error: Error?) -> Void in
                         if error != nil {
@@ -181,12 +161,12 @@ class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPr
                         }
                 }
         }
-        
+
         func testUserTappedLogoutWithAnythingShouldTellInteractorToLogout() {
                 expectation = expectation(description: "Interactor logout from user tapped logout")
-                
+
                 presenter.userTappedLogout()
-                
+
                 waitForExpectations(timeout: 5) {
                         (error: Error?) -> Void in
                         if error != nil {
@@ -194,12 +174,12 @@ class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPr
                         }
                 }
         }
-        
+
         func testUserTappedLogoutWithAnythingShouldTellWireframeToPresentLogin() {
                 expectation = expectation(description: "Wireframe present login from user tapped logout")
-                
+
                 presenter.userTappedLogout()
-                
+
                 waitForExpectations(timeout: 5) {
                         (error: Error?) -> Void in
                         if error != nil {
@@ -207,107 +187,29 @@ class JogsPresenterTests: XCTestCase, JogsPresenterToInteractorInterface, JogsPr
                         }
                 }
         }
+}
 
-        // MARK: - WireframeToPresenterInterface
+// MARK: - Wireframe to Presenter Interface
+extension JogsPresenterTests {
+        func testSetDelegateWithAnythingShouldSetPresentersDelegate() {
+                // Arrange
+                presenter.delegate = nil
+                let testDelegate = JogsDelegateMock()
 
-        // MARK: - Interactor Input
-        func deleteJog(_ jog: Jog) {
-                if let exp = expectation {
-                        if exp.description == "Interactor delete jog from user tapped delete" {
-                                exp.fulfill()
-                                
-                                XCTAssertEqual(314159, jog.distance, "Jog distance should be 314159")
-                        }
-                }
+                // Act
+                presenter.set(delegate: testDelegate)
+
+                // Assert
+                XCTAssert(presenter.delegate === testDelegate)
         }
-        
-        func fetchCurrentUser() {
-                if let exp = expectation {
-                        if exp.description == "Interactor fetch current user from presenter presenting jogs" {
-                                exp.fulfill()
-                        }
-                }
+
+        func testPresentingJogsWithAnythinyShouldTellInteractorToFetchUser() {
+                // Arrange
+
+                // Act
+                presenter.presentingJogs()
+
+                // Assert
+                XCTAssert(interactorMock.functionsCalled.contains("fetchUser()"))
         }
-        
-        func fetchJogs(_ user: PFUser?) {
-                if let exp = expectation {
-                        if exp.description == "Fetch jogs for user from fetched current user" {
-                                exp.fulfill()
-                                
-                                XCTAssertEqual("Queen of Blades", user!.username, "Username should be Sarah Kerrigan")
-                        }
-                }
-                
-                if let exp = expectation {
-                        if exp.description == "Interactor fetch jogs from deleted jog" {
-                                exp.fulfill()
-                                
-                                XCTAssertEqual("Sarah Kerrigan", user!.username, "Username should be Sarah Kerrigan")
-                        }
-                }
-        }
-        
-        func logout() {
-                if let exp = expectation {
-                        if exp.description == "Interactor logout from user tapped logout" {
-                                exp.fulfill()
-                        }
-                }
-        }
-        
-        // MARK: - View Interface
-        func showDeleteJogFailed() {
-                if let exp = expectation {
-                        if exp.description == "View show delete jog failed from failed deleting jog" {
-                                exp.fulfill()
-                        }
-                }
-        }
-        
-        func showFetchingJogsFailed() {
-                if let exp = expectation {
-                        if exp.description == "View show fetching jog failed from failed fetching jogs" {
-                                exp.fulfill()
-                        }
-                }
-        }
-        
-        func showJogs(_ jogs: [Jog]) {
-                if let exp = expectation {
-                        if exp.description == "View show jogs from fetched jogs" {
-                                exp.fulfill()
-                                
-                                XCTAssertEqual(3, jogs.count, "Jogs count should be 3")
-                        }
-                }
-        }
-        
-        // MARK: - Wireframe Interface
-        func presentAddJog(_ jog: Jog?) {
-                if let exp = expectation {
-                        if exp.description == "Wireframe present add jog from user tapped add" {
-                                exp.fulfill()
-                                
-                                XCTAssertNil(jog, "Jog should be nil")
-                        }
-                }
-                
-                if let exp = expectation {
-                        if exp.description == "Wireframe present add jog with jog from user tapped jog" {
-                                exp.fulfill()
-                                
-                                XCTAssertEqual(314159, jog!.distance, "Jog Distance should be 314159")
-                        }
-                }
-        }
-        
-        func presentLogin() {
-                if let exp = expectation {
-                        if exp.description == "Wireframe presenter login from failed fetching current user" ||
-                                exp.description == "Wireframe present login from user tapped logout" {
-                                exp.fulfill()
-                        }
-                }
-        }
-        
 }

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BE3F471BEA63A77001A4212E840E1E09'
+               BlueprintIdentifier = '8F977BD2626C1E1562DF90F863E833A3'
                BlueprintName = 'Pods-HermesTests'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-HermesTests.framework'>
+               BuildableName = 'libPods-HermesTests.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

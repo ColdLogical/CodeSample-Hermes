@@ -7,34 +7,34 @@
 //
 
 import Foundation
-import Parse
+//import Parse
 
-extension PFUser : LoginInteractorUser { }
+//extension PFUser : LoginInteractorUser { }
 
 class LoginInteractor: NSObject, LoginPresenterToInteractorInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : LoginInteractorToPresenterInterface = LoginPresenter()
-        
+        lazy var presenter: LoginInteractorToPresenterInterface = LoginPresenter()
+
         // MARK: - Instance Variables
-        lazy var loginService : LoginInteractorUser.Type = PFUser.self
-        
+//        lazy var loginService : LoginInteractorUser.Type = PFUser.self
+
         // MARK: - Operational
         func loginFailed(_ error: NSError?) {
                 presenter.failedLogin(error)
         }
-        
+
         func loginSucceeded() {
                 presenter.loginSuccess()
         }
-        
+
         // MARK: - Interactor Input
-        func login(_ username: String, password: String) {
-                loginService.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
-                        if user != nil {
-                                self.loginSucceeded()
-                        } else {
-                                self.loginFailed(error as NSError?)
-                        }
-                }
+        func login(withUsername username: String, andPassword password: String) {
+//                loginService.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
+//                        if user != nil {
+//                                self.loginSucceeded()
+//                        } else {
+//                                self.loginFailed(error as NSError?)
+//                        }
+//                }
         }
 }

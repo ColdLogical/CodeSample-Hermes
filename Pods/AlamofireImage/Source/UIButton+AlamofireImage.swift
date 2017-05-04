@@ -33,7 +33,7 @@ extension UIButton {
 
     // MARK: - Private - AssociatedKeys
 
-    fileprivate struct AssociatedKey {
+    private struct AssociatedKey {
         static var imageDownloader = "af_UIButton.ImageDownloader"
         static var sharedImageDownloader = "af_UIButton.SharedImageDownloader"
         static var imageReceipts = "af_UIButton.ImageReceipts"
@@ -88,7 +88,7 @@ extension UIButton {
         }
     }
 
-    fileprivate var backgroundImageRequestReceipts: [UInt: RequestReceipt] {
+    private var backgroundImageRequestReceipts: [UInt: RequestReceipt] {
         get {
             guard let
                 receipts = objc_getAssociatedObject(self, &AssociatedKey.backgroundImageReceipts) as? [UInt: RequestReceipt]
@@ -131,8 +131,7 @@ extension UIButton {
         filter: ImageFilter? = nil,
         progress: ImageDownloader.ProgressHandler? = nil,
         progressQueue: DispatchQueue = DispatchQueue.main,
-        completion: ((DataResponse<UIImage>) -> Void)? = nil)
-    {
+        completion: ((DataResponse<UIImage>) -> Void)? = nil) {
         af_setImage(
             for: state,
             urlRequest: urlRequest(with: url),
@@ -170,9 +169,15 @@ extension UIButton {
         filter: ImageFilter? = nil,
         progress: ImageDownloader.ProgressHandler? = nil,
         progressQueue: DispatchQueue = DispatchQueue.main,
-        completion: ((DataResponse<UIImage>) -> Void)? = nil)
-    {
-        guard !isImageURLRequest(urlRequest, equalToActiveRequestURLForState: state) else { return }
+        completion: ((DataResponse<UIImage>) -> Void)? = nil) {
+        guard !isImageURLRequest(urlRequest, equalToActiveRequestURLForState: state) else {
+            let error = AFIError.requestCancelled
+            let response = DataResponse<UIImage>(request: nil, response: nil, data: nil, result: .failure(error))
+
+            completion?(response)
+
+            return
+        }
 
         af_cancelImageRequest(for: state)
 
@@ -191,8 +196,8 @@ extension UIButton {
                 result: .success(image)
             )
 
-            completion?(response)
             setImage(image, for: state)
+            completion?(response)
 
             return
         }
@@ -211,14 +216,12 @@ extension UIButton {
             progress: progress,
             progressQueue: progressQueue,
             completion: { [weak self] response in
-                guard let strongSelf = self else { return }
-
-                completion?(response)
-
                 guard
+                    let strongSelf = self,
                     strongSelf.isImageURLRequest(response.request, equalToActiveRequestURLForState: state) &&
                     strongSelf.imageRequestReceipt(for: state)?.receiptID == downloadID
                 else {
+                    completion?(response)
                     return
                 }
 
@@ -227,6 +230,8 @@ extension UIButton {
                 }
 
                 strongSelf.setImageRequestReceipt(nil, for: state)
+
+                completion?(response)
             }
         )
 
@@ -271,8 +276,7 @@ extension UIButton {
         filter: ImageFilter? = nil,
         progress: ImageDownloader.ProgressHandler? = nil,
         progressQueue: DispatchQueue = DispatchQueue.main,
-        completion: ((DataResponse<UIImage>) -> Void)? = nil)
-    {
+        completion: ((DataResponse<UIImage>) -> Void)? = nil) {
         af_setBackgroundImage(
             for: state,
             urlRequest: urlRequest(with: url),
@@ -310,9 +314,15 @@ extension UIButton {
         filter: ImageFilter? = nil,
         progress: ImageDownloader.ProgressHandler? = nil,
         progressQueue: DispatchQueue = DispatchQueue.main,
-        completion: ((DataResponse<UIImage>) -> Void)? = nil)
-    {
-        guard !isImageURLRequest(urlRequest, equalToActiveRequestURLForState: state) else { return }
+        completion: ((DataResponse<UIImage>) -> Void)? = nil) {
+        guard !isImageURLRequest(urlRequest, equalToActiveRequestURLForState: state) else {
+            let error = AFIError.requestCancelled
+            let response = DataResponse<UIImage>(request: nil, response: nil, data: nil, result: .failure(error))
+
+            completion?(response)
+
+            return
+        }
 
         af_cancelBackgroundImageRequest(for: state)
 
@@ -331,8 +341,8 @@ extension UIButton {
                 result: .success(image)
             )
 
-            completion?(response)
             setBackgroundImage(image, for: state)
+            completion?(response)
 
             return
         }
@@ -351,14 +361,12 @@ extension UIButton {
             progress: progress,
             progressQueue: progressQueue,
             completion: { [weak self] response in
-                guard let strongSelf = self else { return }
-
-                completion?(response)
-
                 guard
+                    let strongSelf = self,
                     strongSelf.isBackgroundImageURLRequest(response.request, equalToActiveRequestURLForState: state) &&
                     strongSelf.backgroundImageRequestReceipt(for: state)?.receiptID == downloadID
                 else {
+                    completion?(response)
                     return
                 }
 
@@ -367,6 +375,8 @@ extension UIButton {
                 }
 
                 strongSelf.setBackgroundImageRequestReceipt(nil, for: state)
+
+                completion?(response)
             }
         )
 
@@ -413,11 +423,10 @@ extension UIButton {
 
     // MARK: - Private - URL Request Helpers
 
-    fileprivate func isImageURLRequest(
+    private func isImageURLRequest(
         _ urlRequest: URLRequestConvertible?,
         equalToActiveRequestURLForState state: UIControlState)
-        -> Bool
-    {
+        -> Bool {
         if
             let currentURL = imageRequestReceipt(for: state)?.request.task?.originalRequest?.url,
             let requestURL = urlRequest?.urlRequest?.url,
@@ -429,11 +438,10 @@ extension UIButton {
         return false
     }
 
-    fileprivate func isBackgroundImageURLRequest(
+    private func isBackgroundImageURLRequest(
         _ urlRequest: URLRequestConvertible?,
         equalToActiveRequestURLForState state: UIControlState)
-        -> Bool
-    {
+        -> Bool {
         if
             let currentRequestURL = backgroundImageRequestReceipt(for: state)?.request.task?.originalRequest?.url,
             let requestURL = urlRequest?.urlRequest?.url,
@@ -445,7 +453,7 @@ extension UIButton {
         return false
     }
 
-    fileprivate func urlRequest(with url: URL) -> URLRequest {
+    private func urlRequest(with url: URL) -> URLRequest {
         var urlRequest = URLRequest(url: url)
 
         for mimeType in DataRequest.acceptableImageContentTypes {

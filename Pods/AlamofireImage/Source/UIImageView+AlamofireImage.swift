@@ -121,7 +121,7 @@ extension UIImageView {
 
     // MARK: - Private - AssociatedKeys
 
-    fileprivate struct AssociatedKey {
+    private struct AssociatedKey {
         static var imageDownloader = "af_UIImageView.ImageDownloader"
         static var sharedImageDownloader = "af_UIImageView.SharedImageDownloader"
         static var activeRequestReceipt = "af_UIImageView.ActiveRequestReceipt"
@@ -208,8 +208,7 @@ extension UIImageView {
         progressQueue: DispatchQueue = DispatchQueue.main,
         imageTransition: ImageTransition = .noTransition,
         runImageTransitionIfCached: Bool = false,
-        completion: ((DataResponse<UIImage>) -> Void)? = nil)
-    {
+        completion: ((DataResponse<UIImage>) -> Void)? = nil) {
         af_setImage(
             withURLRequest: urlRequest(with: url),
             placeholderImage: placeholderImage,
@@ -261,9 +260,15 @@ extension UIImageView {
         progressQueue: DispatchQueue = DispatchQueue.main,
         imageTransition: ImageTransition = .noTransition,
         runImageTransitionIfCached: Bool = false,
-        completion: ((DataResponse<UIImage>) -> Void)? = nil)
-    {
-        guard !isURLRequestURLEqualToActiveRequestURL(urlRequest) else { return }
+        completion: ((DataResponse<UIImage>) -> Void)? = nil) {
+        guard !isURLRequestURLEqualToActiveRequestURL(urlRequest) else {
+            let error = AFIError.requestCancelled
+            let response = DataResponse<UIImage>(request: nil, response: nil, data: nil, result: .failure(error))
+
+            completion?(response)
+
+            return
+        }
 
         af_cancelImageRequest()
 
@@ -277,15 +282,17 @@ extension UIImageView {
         {
             let response = DataResponse<UIImage>(request: request, response: nil, data: nil, result: .success(image))
 
-            completion?(response)
-
             if runImageTransitionIfCached {
                 let tinyDelay = DispatchTime.now() + Double(Int64(0.001 * Float(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
 
                 // Need to let the runloop cycle for the placeholder image to take affect
-                DispatchQueue.main.asyncAfter(deadline: tinyDelay) { self.run(imageTransition, with: image) }
+                DispatchQueue.main.asyncAfter(deadline: tinyDelay) {
+                    self.run(imageTransition, with: image)
+                    completion?(response)
+                }
             } else {
                 self.image = image
+                completion?(response)
             }
 
             return
@@ -305,20 +312,22 @@ extension UIImageView {
             progress: progress,
             progressQueue: progressQueue,
             completion: { [weak self] response in
-                guard let strongSelf = self else { return }
-
-                completion?(response)
-
                 guard
+                    let strongSelf = self,
                     strongSelf.isURLRequestURLEqualToActiveRequestURL(response.request) &&
                     strongSelf.af_activeRequestReceipt?.receiptID == downloadID
-                else { return }
+                else {
+                    completion?(response)
+                    return
+                }
 
                 if let image = response.result.value {
                     strongSelf.run(imageTransition, with: image)
                 }
 
                 strongSelf.af_activeRequestReceipt = nil
+
+                completion?(response)
             }
         )
 
@@ -355,7 +364,7 @@ extension UIImageView {
 
     // MARK: - Private - URL Request Helper Methods
 
-    fileprivate func urlRequest(with url: URL) -> URLRequest {
+    private func urlRequest(with url: URL) -> URLRequest {
         var urlRequest = URLRequest(url: url)
 
         for mimeType in DataRequest.acceptableImageContentTypes {
@@ -365,7 +374,7 @@ extension UIImageView {
         return urlRequest
     }
 
-    fileprivate func isURLRequestURLEqualToActiveRequestURL(_ urlRequest: URLRequestConvertible?) -> Bool {
+    private func isURLRequestURLEqualToActiveRequestURL(_ urlRequest: URLRequestConvertible?) -> Bool {
         if
             let currentRequestURL = af_activeRequestReceipt?.request.task?.originalRequest?.url,
             let requestURL = urlRequest?.urlRequest?.url,

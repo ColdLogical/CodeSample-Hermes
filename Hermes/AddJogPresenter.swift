@@ -7,32 +7,31 @@
 //
 
 import Foundation
-import Parse
 
-class AddJogPresenter : NSObject, AddJogInteractorToPresenterInterface, AddJogViewToPresenterInterface, AddJogWireframeToPresenterInterface {
+class AddJogPresenter: AddJogInteractorToPresenterInterface, AddJogViewToPresenterInterface, AddJogWireframeToPresenterInterface {
         // MARK: - VIPER Stack
-        lazy var interactor : AddJogPresenterToInteractorInterface = AddJogInteractor()
-        lazy var view : AddJogPresenterToViewInterface = AddJogView()
-        lazy var wireframe : AddJogPresenterToWireframeInterface = AddJogWireframe()
-        
+        lazy var interactor: AddJogPresenterToInteractorInterface = AddJogInteractor()
+        lazy var view: AddJogPresenterToViewInterface = AddJogView()
+        lazy var wireframe: AddJogPresenterToWireframeInterface = AddJogWireframe()
+
         // MARK: - Instance Variables
-        
+
         // MARK: - Operational
-        
+
         // MARK: - Interactor Output
         func saveJogFailed() {
                 view.showSaveJogFailed()
         }
-        
+
         func savedJog() {
                 wireframe.addJogFinished()
         }
-        
+
         // MARK: - Presenter Interface
         func userTappedCancel() {
                 wireframe.cancelAddJog()
         }
-        
+
         func userTappedSave(_ jog: Jog?, distance: String, date: Date, time: TimeInterval) {
                 var currentJog: Jog
                 if let j = jog {
@@ -40,21 +39,19 @@ class AddJogPresenter : NSObject, AddJogInteractorToPresenterInterface, AddJogVi
                 } else {
                         currentJog = Jog()
                 }
-                
+
                 currentJog.date = date
                 currentJog.time = time
-                
+
                 if let d = Double(distance) {
                         currentJog.distance = d
                 }
-                
-                if let u = PFUser.current() {
-                        currentJog.user = u
-                }
-                
+
+                currentJog.user = User()
+
                 interactor.saveJog(currentJog)
         }
-        
+
         // MARK: - WireframeToPresenterInterface
         func presentingJog(_ jog: Jog) {
                 view.showJog(jog)

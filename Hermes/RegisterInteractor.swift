@@ -7,37 +7,37 @@
 //
 
 import Foundation
-import Parse
+//import Parse
 
-extension PFUser : RegisterInteractorUser { }
+//extension PFUser : RegisterInteractorUser { }
 
-class RegisterInteractor: NSObject, RegisterPresenterToInteractorInterface {
+class RegisterInteractor: RegisterPresenterToInteractorInterface {
         // MARK: - VIPER Stack
-        lazy var presenter : RegisterInteractorToPresenterInterface = RegisterPresenter()
-        
+        lazy var presenter: RegisterInteractorToPresenterInterface = RegisterPresenter()
+
         // MARK: - Instance Variables
-        lazy var newUser : RegisterInteractorUser = PFUser()
-        
+//        lazy var newUser : RegisterInteractorUser = User()
+
         // MARK: - Operational
-        func signUpFailed(_ error: NSError?) {
-                presenter.signUpFailure(error)
+        func signUpFailed(withError error: Error) {
+                presenter.signUpFailure(withError: error)
         }
-        
+
         func signUpSucceeded() {
                 presenter.signUpSuccess()
         }
-        
+
         // MARK: - Interactor Input
-        func registerUser(_ username: String, password: String) {
-                newUser.username = username
-                newUser.password = password
-                
-                newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
-                        if success {
-                                self.signUpSucceeded()
-                        } else {
-                                self.signUpFailed(error as NSError?)
-                        }
-                }
+        func register(withUsername username: String, andPassword password: String) {
+//                newUser.username = username
+//                newUser.password = password
+//                
+//                newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
+//                        if success {
+//                                self.signUpSucceeded()
+//                        } else {
+//                                self.signUpFailed(error as NSError?)
+//                        }
+//                }
         }
 }

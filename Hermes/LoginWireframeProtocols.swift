@@ -15,13 +15,13 @@ let kLoginViewIdentifier = "LoginView"
 
 // VIPER Interface to the Module
 protocol LoginDelegate : class {
-        func loginCompleted(_ loginModule: LoginModuleInterface)
+        func completed(login: Login)
 }
 
 // Interface Abstraction for working with the VIPER Module
-protocol LoginModuleInterface : class {
+protocol Login: class {
         func dismiss()
-        func presentModallyOnViewController(_ viewControllor: LoginModalViewController)
+        func presentModally(onViewController viewController: UIViewController)
 }
 
 // VIPER Interface for manipulating the navigation
@@ -33,8 +33,4 @@ protocol LoginNavigation: class {
 protocol LoginPresenterToWireframeInterface : class {
         func loginFinished()
         func presentRegister()
-}
-
-protocol LoginModalViewController : class {
-        func presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
 }
